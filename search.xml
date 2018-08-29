@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[macOS环境部署Hexo]]></title>
+    <url>%2F2018%2F08%2F29%2FmacOS%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2Hexo%2F</url>
+    <content type="text"><![CDATA[macOS环境部署Hexo安装XcodeMac App Store下载安装 安装Node.js1234$ brew install nvm$ mkdir ~/.nvm$ export NVM_DIR=~/.nvm$ . $(brew --prefix nvm)/nvm.sh 安装Hexo123456npm install -g hexo-clicd ~/Desktop/hexo-bloghexo initnpm installhexo generatehexo server 打开 http://localhost:4000/ ，会看到效果。 部署Github仓库 cd到你的博客文件夹 vim _config.yml 加上如下 1234deploy: type: git repository: https://github.com/KevinCoderX/KevinCoderX.github.io.git branch: master 执行命令 123npm install hexo-deployer-git --savehexo generatehexo deploy 装饰你的博客1git clone https://github.com/theme-next/hexo-theme-next themes/next _config.yml里theme的名称修改为next 123hexo clean //清除缓存文件 (db.json) 和已生成的静态文件 (public)hexo g //生成缓存和静态文件hexo d //重新部署到服务器 写下你的博客1hexo new post &quot;我的第一篇博客&quot; //名字可以自己取 参考1]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Markdown常用格式]]></title>
+    <url>%2F2018%2F08%2F29%2FMarkdown%E5%B8%B8%E7%94%A8%E6%A0%BC%E5%BC%8F%2F</url>
+    <content type="text"><![CDATA[Markdown常用格式标题在文本前面加上 # 即可，同理、你还可以增加二级标题、三级标题、四级标题、五级标题和六级标题，总共六级，只需要增加 # 即可。 注：# 和「一级标题」之间建议保留一个字符的空格。 列表在文字前面加上 - 就可以了。 也可以在文字前面加上 1. 2. 3。 注：-、1.和文本之间要保留一个字符的空格。 插入链接和图片插入链接使用 [显示文本](链接地址) 这样的语法即可。 插入图片只需要使用 ![](图片链接地址) 这样的语法即可。 注：插入图片的语法和链接的语法很像，只是前面多了一个 ！。 引用在希望引用的文字前面加上 &gt; 就好了。 注：&gt; 和文本之间要保留一个字符的空格。 粗体和斜体用两个 包含一段文本就是粗体的语法，用一个 包含一段文本就是斜体的语法。 代码引用需要引用代码时，如果引用的语句只有一段，不分行，可以用 ` 将语句包起来。 如果引用的语句为多行，可以将`置于这段代码的首行和末行。 表格使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行。 参考1 参考2]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[我的第一篇博客]]></title>
+    <url>%2F2018%2F08%2F29%2F%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[我有一头小毛驴，可是我从来都不骑。]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2018%2F08%2F29%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
