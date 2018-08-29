@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[移位运算]]></title>
+    <url>%2F2018%2F08%2F29%2F%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%2F</url>
+    <content type="text"><![CDATA[逻辑左移时，最高位丢失，最低位补0； 逻辑右移时，最高位补0，最低位丢失； 算术左移时，依次左移一位，尾部补0，最高的符号位保持不变。 算术右移时，依次右移一位，尾部丢失，符号位右移后，原位置上复制一个符号位； 循环左移时，将最高位重新放置最低位 循环右移时，将最低位重新放置最高位 例如： 1010100010101 逻辑左移一位结果为 0101000101010 逻辑右移一位结果为 0101010001010 算术左移一位结果为 1101000101010 算术右移一位结果为 1101010001010 循环左移一位结果为 0101000101011 循环右移一位结果为 1101010001010]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[macOS环境部署Hexo]]></title>
     <url>%2F2018%2F08%2F29%2FmacOS%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2Hexo%2F</url>
     <content type="text"><![CDATA[安装XcodeMac App Store下载安装 安装Node.js1234$ brew install nvm$ mkdir ~/.nvm$ export NVM_DIR=~/.nvm$ . $(brew --prefix nvm)/nvm.sh 安装Hexo123456npm install -g hexo-clicd ~/Desktop/hexo-bloghexo initnpm installhexo generatehexo server 打开 http://localhost:4000/ ，会看到效果。 部署Github仓库 cd到你的博客文件夹 vim _config.yml 加上如下 1234deploy: type: git repository: https://github.com/KevinCoderX/KevinCoderX.github.io.git branch: master 执行命令 123npm install hexo-deployer-git --savehexo generatehexo deploy 装饰你的博客1git clone https://github.com/theme-next/hexo-theme-next themes/next _config.yml里theme的名称修改为next 123hexo clean //清除缓存文件 (db.json) 和已生成的静态文件 (public)hexo g //生成缓存和静态文件hexo d //重新部署到服务器 写下你的博客1hexo new post &quot;我的第一篇博客&quot; //名字可以自己取 参考1]]></content>
