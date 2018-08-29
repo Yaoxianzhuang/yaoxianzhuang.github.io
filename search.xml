@@ -8,7 +8,7 @@
   <entry>
     <title><![CDATA[macOS环境部署Hexo]]></title>
     <url>%2F2018%2F08%2F29%2FmacOS%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2Hexo%2F</url>
-    <content type="text"><![CDATA[安装XcodeMac App Store下载安装 安装Node.js1234$ brew install nvm$ mkdir ~/.nvm$ export NVM_DIR=~/.nvm$ . $(brew --prefix nvm)/nvm.sh 安装Hexo123456npm install -g hexo-clicd ~/Desktop/hexo-bloghexo initnpm installhexo generatehexo server 打开 http://localhost:4000/ ，会看到效果。 部署Github仓库 cd到你的博客文件夹 vim _config.yml 加上如下 1234deploy: type: git repository: https://github.com/KevinCoderX/KevinCoderX.github.io.git branch: master 执行命令 123npm install hexo-deployer-git --savehexo generatehexo deploy 装饰你的博客1git clone https://github.com/theme-next/hexo-theme-next themes/next _config.yml里theme的名称修改为next 123hexo clean //清除缓存文件 (db.json) 和已生成的静态文件 (public)hexo g //生成缓存和静态文件hexo d //重新部署到服务器 写下你的博客1hexo new post &quot;我的第一篇博客&quot; //名字可以自己取 参考1]]></content>
+    <content type="text"><![CDATA[安装XcodeMac App Store下载安装 安装Node.js1234$ brew install nvm$ mkdir ~/.nvm$ export NVM_DIR=~/.nvm$ . $(brew --prefix nvm)/nvm.sh 安装Hexo123456npm install -g hexo-clicd ~/Desktop/hexo-bloghexo initnpm installhexo generatehexo server 打开 http://localhost:4000/ ，会看到效果。 部署Github仓库 cd到你的博客文件夹 vim _config.yml 加上如下 1234deploy: type: git repository: https://github.com/KevinCoderX/KevinCoderX.github.io.git branch: master 执行命令 123npm install hexo-deployer-git --savehexo generatehexo deploy 装饰你的博客1git clone https://github.com/theme-next/hexo-theme-next themes/next _config.yml里theme的名称修改为next 123hexo clean //清除缓存文件 (db.json) 和已生成的静态文件 (public)hexo g //生成缓存和静态文件hexo d //重新部署到服务器 写下你的博客1hexo new post &quot;我的第一篇博客&quot; //名字可以自己取 参考1 参考2]]></content>
   </entry>
   <entry>
     <title><![CDATA[Markdown常用格式]]></title>
