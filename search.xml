@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[手机号归属地查询接口]]></title>
+    <url>%2F2018%2F09%2F04%2F%E6%89%8B%E6%9C%BA%E5%8F%B7%E5%BD%92%E5%B1%9E%E5%9C%B0%E6%9F%A5%E8%AF%A2%E6%8E%A5%E5%8F%A3%2F</url>
+    <content type="text"><![CDATA[淘宝网 1234API地址： http:``//tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=15850781443参数：tel：手机号码返回：JSON 拍拍 123456API地址： http:``//virtual.paipai.com/extinfo/GetMobileProductInfo?mobile=15850781443&amp;amount=10000&amp;callname=getPhoneNumInfoExtCallback参数：mobile：手机号码callname：回调函数amount：未知（必须）返回：JSON 财付通 1234API地址： http:``//life.tenpay.com/cgi-bin/mobile/MobileQueryAttribution.cgi?chgmobile=15850781443参数：chgmobile：手机号码返回：xml 百付宝 123456API地址： https:``//www.baifubao.com/callback?cmd=1059&amp;callback=phone&amp;phone=15850781443参数：phone：手机号码callback：回调函数cmd：未知（必须）返回：JSON 有道api接口 12345678910111213141516接口地址：http:``//www.youdao.com/smartresult-xml/search.s?type=mobile&amp;q=13892101112参数说明：type ： 参数手机归属地固定为mobileq ： 手机号码返回XML格式：&lt;?xml version=``&quot;1.0&quot;``encoding=``&quot;gbk&quot;``?&gt;&lt;smartresult&gt;&lt;product type=``&quot;mobile&quot;``&gt;&lt;phonenum&gt;13892101112&lt;/phonenum&gt;&lt;location&gt;陕西 延安&lt;/location&gt;&lt;/product&gt;&lt;/smartresult&gt;或者http:``//www.youdao.com/smartresult-xml/search.s?jsFlag=true&amp;type=mobile&amp;q=手机号码返回JSON格式：fYodaoCallBack(1, &#123;‘product’:``&apos;mobile’,&apos;``phonenum’:’13892101112′,’location’:&apos;陕西 延安’&#125; , ”); 096.me api接口 12http:``//www.096.me/api.php?phone=手机号&amp;mode=&#123;txt,xml&#125;举例：http:``//www.096.me/api.php?phone=13892101111&amp;mode=txt]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[移位运算]]></title>
     <url>%2F2018%2F08%2F29%2F%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97%2F</url>
     <content type="text"><![CDATA[逻辑左移时，最高位丢失，最低位补0； 逻辑右移时，最高位补0，最低位丢失； 算术左移时，依次左移一位，尾部补0，最高的符号位保持不变。 算术右移时，依次右移一位，尾部丢失，符号位右移后，原位置上复制一个符号位； 循环左移时，将最高位重新放置最低位 循环右移时，将最低位重新放置最高位 例如： 1010100010101 逻辑左移一位结果为 0101000101010 逻辑右移一位结果为 0101010001010 算术左移一位结果为 1101000101010 算术右移一位结果为 1101010001010 循环左移一位结果为 0101000101011 循环右移一位结果为 1101010001010]]></content>
