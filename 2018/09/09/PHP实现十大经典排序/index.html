@@ -108,23 +108,27 @@
 
 
 
-  <meta name="description" content="where is this place ?">
-<meta property="og:type" content="website">
-<meta property="og:title" content="十二遥的破碎维度">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="概念时间频度 一个算法执行所耗费的时间，从理论上是不能算出来的，必须上机运行测试才能知道。但我们不可能也没有必要对每个算法都上机测试，只需知道哪个算法花费的时间多，哪个算法花费的时间少就可以了。并且每个算法花费的时间与算法中语句的执行次数成正比，哪个算法中语句执行次数多，它花费时间就多。一个算法中的语句执行次数称为语句频度或时间频度，记为T(n)。  时间复杂度 在时间频度中，n称为问题的规模，当">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP实现十大经典排序">
+<meta property="og:url" content="http://yoursite.com/2018/09/09/PHP实现十大经典排序/index.html">
 <meta property="og:site_name" content="十二遥的破碎维度">
-<meta property="og:description" content="where is this place ?">
+<meta property="og:description" content="概念时间频度 一个算法执行所耗费的时间，从理论上是不能算出来的，必须上机运行测试才能知道。但我们不可能也没有必要对每个算法都上机测试，只需知道哪个算法花费的时间多，哪个算法花费的时间少就可以了。并且每个算法花费的时间与算法中语句的执行次数成正比，哪个算法中语句执行次数多，它花费时间就多。一个算法中的语句执行次数称为语句频度或时间频度，记为T(n)。  时间复杂度 在时间频度中，n称为问题的规模，当">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.yduba.com/public/upload/images/2017-01-25/1485350382367553.png">
+<meta property="og:image" content="https://www.yduba.com/public/upload/images/2017-01-25/1485357755137441.gif">
+<meta property="og:updated_time" content="2018-09-12T09:32:41.227Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="十二遥的破碎维度">
-<meta name="twitter:description" content="where is this place ?">
+<meta name="twitter:title" content="PHP实现十大经典排序">
+<meta name="twitter:description" content="概念时间频度 一个算法执行所耗费的时间，从理论上是不能算出来的，必须上机运行测试才能知道。但我们不可能也没有必要对每个算法都上机测试，只需知道哪个算法花费的时间多，哪个算法花费的时间少就可以了。并且每个算法花费的时间与算法中语句的执行次数成正比，哪个算法中语句执行次数多，它花费时间就多。一个算法中的语句执行次数称为语句频度或时间频度，记为T(n)。  时间复杂度 在时间频度中，n称为问题的规模，当">
+<meta name="twitter:image" content="https://www.yduba.com/public/upload/images/2017-01-25/1485350382367553.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/09/PHP实现十大经典排序/"/>
 
 
 
@@ -134,7 +138,7 @@
   };
 </script>
 
-  <title>十二遥的破碎维度</title>
+  <title>PHP实现十大经典排序 | 十二遥的破碎维度</title>
   
 
 
@@ -181,8 +185,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -219,7 +222,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
     <a href="/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-home"></i> <br />Home</a>
   </li>
@@ -294,9 +297,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -328,11 +331,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/09/PHP实现十大经典排序/" itemprop="url">
-                  PHP实现十大经典排序
-                </a>
+          <h1 class="post-title" itemprop="name headline">PHP实现十大经典排序
               
             
           </h1>
@@ -407,9 +406,7 @@
       
 
       
-        
-          
-            <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="时间频度"><a href="#时间频度" class="headerlink" title="时间频度"></a>时间频度</h3><blockquote>
+        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="时间频度"><a href="#时间频度" class="headerlink" title="时间频度"></a>时间频度</h3><blockquote>
 <p>一个算法执行所耗费的时间，从理论上是不能算出来的，必须上机运行测试才能知道。但我们不可能也没有必要对每个算法都上机测试，只需知道哪个算法花费的时间多，哪个算法花费的时间少就可以了。并且每个算法花费的时间与算法中语句的执行次数成正比，哪个算法中语句执行次数多，它花费时间就多。一个算法中的语句执行次数称为语句频度或时间频度，记为T(n)。</p>
 </blockquote>
 <h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><blockquote>
@@ -627,8 +624,6 @@
 <h4 id="算法稳定性-9"><a href="#算法稳定性-9" class="headerlink" title="算法稳定性"></a>算法稳定性</h4><p>基数排序是按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位。有时候有些属性是有优先级顺序的，先按低优先级排序，<br>再按高优 先级排序，最后的次序就是高优先级高的在前，高优先级相同的低优先级高的在前。基数排序基于分别排序，分别收集，所以其是稳定的排序算法。</p>
 <h4 id="代码实现-9"><a href="#代码实现-9" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">function GetNumInPos($number, $pos)</span><br><span class="line">&#123;</span><br><span class="line">    $number = strrev( $number );</span><br><span class="line">    return $number[ -- $pos ];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function LsdRadixSort(array $numbers = array(), $tpos=1) </span><br><span class="line">&#123;</span><br><span class="line">    $count = count( $numbers );</span><br><span class="line">    if( $count &lt;= 1 ) return $numbers;</span><br><span class="line"></span><br><span class="line">    $bucket = array();</span><br><span class="line">    for($i = 0; $i &lt; 10; $i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        $bucket[$i] = array(0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 由低 $p=1 至高位 $p&lt;=$d 循环排序</span><br><span class="line">    for($p = 1; $p &lt;= $tpos; $p ++) </span><br><span class="line">    &#123;</span><br><span class="line">        // 将对应数据按当前位的数值放入桶里</span><br><span class="line">        for($i = 0; $i &lt; $count; $i ++)</span><br><span class="line">        &#123;</span><br><span class="line">            $n = GetNumInPos($numbers[$i], $p);</span><br><span class="line">            $index = ++ $bucket[$n][0];</span><br><span class="line">            $bucket[$n][$index] = $numbers[$i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 收集桶里的数据</span><br><span class="line">        for($i = 0, $j = 0; $i &lt; 10; $i ++) </span><br><span class="line">        &#123;</span><br><span class="line">            for($num = 1; $num &lt;= $bucket[$i][0]; $num ++)</span><br><span class="line">            &#123;</span><br><span class="line">                $numbers[$j++] = $bucket[$i][$num];</span><br><span class="line">            &#125;</span><br><span class="line">            $bucket[$i][0] = 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return $numbers;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
 
@@ -648,212 +643,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/MySQL数据库主从同步安装与配置/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yaoxianzhuang">
-      <meta itemprop="description" content="where is this place ?">
-      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="十二遥的破碎维度">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/07/MySQL数据库主从同步安装与配置/" itemprop="url">
-                  MySQL数据库主从同步安装与配置
-                </a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2018/09/07/MySQL数据库主从同步安装与配置/" rel="next" title="MySQL数据库主从同步安装与配置">
+                <i class="fa fa-chevron-left"></i> MySQL数据库主从同步安装与配置
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-07 15:27:00 / Modified: 15:44:11" itemprop="dateCreated datePublished" datetime="2018-09-07T15:27:00+08:00">2018-09-07</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <blockquote>
-<p>MySQL的主从同步是一个很成熟的架构，优点为：<br>① 在从服务器可以执行查询工作(即我们常说的读功能)，降低主服务器压力；<br>② 在从主服务器进行备份，避免备份期间影响主服务器服务；<br>③ 当主服务器出现问题时，可以切换到从服务器。<br>所以我在项目部署和实施中经常会采用这种方案。</p>
-</blockquote>
-<h3 id="数据库目录及其它"><a href="#数据库目录及其它" class="headerlink" title="数据库目录及其它"></a>数据库目录及其它</h3><p>　　my.cnf配置文件     /etc/my.cnf</p>
-<p>　　mysql数据库位置    datadir=/var/lib/mysql</p>
-<p>　　主数据库：192.168.2.119</p>
-<p>　　从数据库：192.168.2.220</p>
-<p>　　操作系统：RHEL5.x 32位</p>
-<p>　　服务器类型: 虚拟机</p>
-<h3 id="mysql5-0-77-安装"><a href="#mysql5-0-77-安装" class="headerlink" title="mysql5.0.77 安装:"></a>mysql5.0.77 安装:</h3><p>① 配置好linux的yum服务后，直接yum -y install mysql即可</p>
-<p>附：安装php\mysql一条命令安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install httpd php mysql mysql-server php-mysql</span><br></pre></td></tr></table></figure>
-<p>② 启动MySQL</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start(restart|stop)</span><br></pre></td></tr></table></figure>
-<p>一、设置主库</p>
-<p>1、修改主库my.cnf,主要是设置个不一样的id和logbin（#这部可依具体环境而定，压力大的化可采用huge.cnf）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/my.cnf</span><br></pre></td></tr></table></figure>
-<p>记住这部分一定要配置在[mysqld]后面，否则无法找到从节点，各个配置项的含义可自己查阅文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id=1</span><br><span class="line">log-bin=mysql-bin # 启用二进制日志</span><br><span class="line">binlog-ignore-db=information_schema,cluster,mysql #忽略写入binlog的库</span><br></pre></td></tr></table></figure>
-<p>2、启动主库生效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure>
-<p>3、登陆主库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
-<p>4、赋予从库权限帐号，允许用户在主库上读取日志</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to &apos;用户名&apos;@&apos;%&apos; identified by &apos;密码&apos;;</span><br></pre></td></tr></table></figure>
-<p>5、检查创建是否成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user,host from mysql.user;</span><br></pre></td></tr></table></figure>
-<p>6、锁主库表（防止数据库状态值变化，锁定后，这时候只能读，不能写，写请求会在解锁后执行）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush tables with read lock;</span><br></pre></td></tr></table></figure>
-<p>7、显示主库信息</p>
-<p>记录File和Position，从库设置将会用到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show master status;</span><br></pre></td></tr></table></figure>
-<p>说明，如果执行这个步骤始终为Empty set(0.00 sec)，那说明前面的my.cnf没配置对。</p>
-<p>8、另开一个终端登陆220，打包主库迁移数据（如果你使用的yum安装，有默认数据库并未做任何改动，则不需要进行拷贝）<br>    目的是为了保证两台服务器的mysql数据库一致，这里可以自行tar打包或者使用mysqldump命令备份恢复的方式进行。</p>
-<p>二、设置从库</p>
-<p>1、传输拿到主库包、解包</p>
-<p>登陆从库</p>
-<p>从上一步中备份的数据库恢复到220服务器节点上。</p>
-<p>2、在119节点上解锁主库表（对应第一点设置主库中第6步锁主库表的操作）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unlock tables;</span><br></pre></td></tr></table></figure>
-<p>3、在220节点上修改从库my.cnf（位置一样）</p>
-<p>记住这部分一定要配置在[mysqld]后面，否则无法找到从节点，各个配置项的含义可自己查阅文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">log-bin=mysql-bin</span><br><span class="line">server-id=2</span><br><span class="line">binlog-ignore-db=information_schema,cluster,mysql</span><br><span class="line">replicate-do-db=test</span><br><span class="line">replicate-ignore-db=mysql</span><br><span class="line">log-slave-updates</span><br><span class="line">slave-skip-errors=all</span><br><span class="line">slave-net-timeout=60</span><br><span class="line">master-host=192.168.2.119</span><br><span class="line">master-user=root</span><br><span class="line">master-password=pfingo</span><br></pre></td></tr></table></figure>
-<p>4、在220节点上验证连接主库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 192.168.2.119 -u 用户名 -p</span><br></pre></td></tr></table></figure>
-<p>5、在220节点从库上设置同步</p>
-<p>设置连接MASTER MASTER_LOG_FILE为主库的File，MASTER_LOG_POS为主库的Position</p>
-<p>注意下面第二条命令语句中的master_log_file=’mysql-bin.000001’, master_log_pos=98;对应为前面在主库中执行的show master status;结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; slave stop;</span><br><span class="line">mysql&gt; change master to master_host=&apos;192.168.2.119&apos;,master_user=&apos;root&apos;,master_password=&apos;pfingo&apos;,master_log_file=&apos;mysql-bin.000001&apos;, master_log_pos=98;</span><br><span class="line">mysql&gt; slave start;</span><br></pre></td></tr></table></figure>
-<p>6、启动从库服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; slave start;</span><br></pre></td></tr></table></figure>
-<p>7、进行测试</p>
-<p>在主库上的test库上建立名为myTest的表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TABLE `myTest` (</span><br><span class="line">`id` INT( 5 ) UNSIGNED NOT NULL AUTO_INCREMENT ,</span><br><span class="line">`username` VARCHAR( 20 ) NOT NULL ,</span><br><span class="line">`password` CHAR( 32 ) NOT NULL ,</span><br><span class="line">`last_update` DATETIME NOT NULL ,</span><br><span class="line">`number` FLOAT( 10 ) NOT NULL ,</span><br><span class="line">`content` TEXT NOT NULL ,</span><br><span class="line">PRIMARY KEY ( `id` )</span><br><span class="line">) ENGINE = MYISAM ;</span><br></pre></td></tr></table></figure>
-<p>在从表中马上看到了效果，主从同步成功了；</p>
-<p>为了更进一步验证在从库上输入show slave status\G;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show slave status\G;</span><br></pre></td></tr></table></figure>
-<p>　　Slave_IO_Running: Yes(网络正常)；</p>
-<p>　　Slave_SQL_Running: Yes(表结构正常)</p>
-<p>进一步验证了以上过程的正确性。</p>
-<p><a href="https://yq.aliyun.com/articles/130099" target="_blank" rel="noopener">参考1</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -863,1379 +674,15 @@
   </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/数据库与死锁/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yaoxianzhuang">
-      <meta itemprop="description" content="where is this place ?">
-      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="十二遥的破碎维度">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/07/数据库与死锁/" itemprop="url">
-                  数据库与死锁
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-07 15:00:39 / Modified: 15:18:13" itemprop="dateCreated datePublished" datetime="2018-09-07T15:00:39+08:00">2018-09-07</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="死锁定义"><a href="#死锁定义" class="headerlink" title="死锁定义"></a>死锁定义</h2><blockquote>
-<p>所谓死锁： 是指两个或两个以上的进程在执行过程中，因争夺资源而造成的一种互相等待的现象，若无外力作用，它们都将无法推进下去。<br>  此时称系统处于死锁状态或系统产生了死锁，这些永远在互相等待的进程称为死锁进程。<br>  由于资源占用是互斥的，当某个进程提出申请资源后，使得有关进程在无外力协助下，永远分配不到必需的资源而无法继续运行，这就产生了一种特殊现象死锁。</p>
-</blockquote>
-<h2 id="产生死锁的必要条件"><a href="#产生死锁的必要条件" class="headerlink" title="产生死锁的必要条件"></a>产生死锁的必要条件</h2><ol>
-<li><p>互斥条件：指进程对所分配到的资源进行排它性使用，即在一段时间内某资源只由一个进程占用。如果此时还有其它进程请求资源，则请求者只能等待，直至占有资源的进程用毕释放。</p>
-</li>
-<li><p>请求和保持条件：指进程已经保持至少一个资源，但又提出了新的资源请求，而该资源已被其它进程占有，此时请求进程阻塞，但又对自己获得的其它资源保持不放。</p>
-</li>
-<li><p>不剥夺条件：指进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完时由自己释放。</p>
-</li>
-<li><p>环路等待条件：指在发生死锁时，必然存在一个进程——资源的环形链，即进程集合{P0，P1，P2，···，Pn}中的P0正在等待一个P1占用的资源；P1正在等待P2占用的资源，……，Pn正在等待已被P0占用的资源。</p>
-</li>
-</ol>
-<h2 id="处理死锁的基本方式"><a href="#处理死锁的基本方式" class="headerlink" title="处理死锁的基本方式"></a>处理死锁的基本方式</h2><ol>
-<li><p>预防死锁。这是一种较简单和直观的事先预防的方法。方法是通过设置某些限制条件，去破坏产生死锁的四个必要条件中的一个或者几个，来预防发生死锁。<br> 预防死锁是一种较易实现的方法，已被广泛使用。但是由于所施加的限制条件往往太严格，可能会导致系统资源利用率和系统吞吐量降低。</p>
-</li>
-<li><p>避免死锁。该方法同样是属于事先预防的策略，但它并不须事先采取各种限制措施去破坏产生死锁的的四个必要条件，而是在资源的动态分配过程中，用某种方法去防止系统进入不安全状态，从而避免发生死锁。</p>
-</li>
-<li><p>检测死锁。这种方法并不须事先采取任何限制性措施，也不必检查系统是否已经进入不安全区，此方法允许系统在运行过程中发生死锁。<br> 但可通过系统所设置的检测机构，及时地检测出死锁的发生，并精确地确定与死锁有关的进程和资源，然后采取适当措施，从系统中将已发生的死锁清除掉。</p>
-</li>
-<li><p>解除死锁。这是与检测死锁相配套的一种措施。当检测到系统中已发生死锁时，须将进程从死锁状态中解脱出来。<br> 常用的实施方法是撤销或挂起一些进程，以便回收一些资源，再将这些资源分配给已处于阻塞状态的进程，使之转为就绪状态，以继续运行。<br> 死锁的检测和解除措施，有可能使系统获得较好的资源利用率和吞吐量，但在实现上难度也最大。</p>
-</li>
-</ol>
-<h2 id="如何处理MySQL数据库的死锁问题"><a href="#如何处理MySQL数据库的死锁问题" class="headerlink" title="如何处理MySQL数据库的死锁问题"></a>如何处理MySQL数据库的死锁问题</h2><ol>
-<li>登录MySQL</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h xxxx.xxx.xxx -P 3306 -u username -p</span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>查看MySQL数据库的死锁信息 </li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show engine innodb status \G;</span><br></pre></td></tr></table></figure>
-<p>找到“LATEST DETECTED DEADLOCK”一节内容。</p>
-<ol start="3">
-<li>查看当前的事务</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM information_schema.innodb_trx \G;</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>查看当前锁定的事务</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCKS;</span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>查看当前等锁的事务</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS;</span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>查在抢资源进程</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM INFORMATION_SCHEMA.INNODB_TRX;</span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>杀掉它们</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Kill trx_mysql_thread_id;</span><br></pre></td></tr></table></figure>
-<p><a href="https://blog.csdn.net/eseaqyq/article/details/7795023" target="_blank" rel="noopener">参考1</a><br><a href="https://www.jianshu.com/p/9aa8408acad3" target="_blank" rel="noopener">参考2</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/接口和抽象类区别/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yaoxianzhuang">
-      <meta itemprop="description" content="where is this place ?">
-      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="十二遥的破碎维度">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/07/接口和抽象类区别/" itemprop="url">
-                  接口和抽象类区别
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-07 14:41:23 / Modified: 15:04:37" itemprop="dateCreated datePublished" datetime="2018-09-07T14:41:23+08:00">2018-09-07</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="抽象类-abstract-class"><a href="#抽象类-abstract-class" class="headerlink" title="抽象类 abstract class"></a>抽象类 abstract class</h2><ol>
-<li><p>抽象类是指在 class 前加了 abstract 关键字且存在抽象方法（在类方法 function 关键字前加了 abstract 关键字）的类。</p>
-</li>
-<li><p>抽象类不能被直接实例化。抽象类中只定义（或部分实现）子类需要的方法。子类可以通过继承抽象类并通过实现抽象类中的所有抽象方法，使抽象类具体化。</p>
-</li>
-<li><p>如果子类需要实例化，前提是它实现了抽象类中的所有抽象方法。如果子类没有全部实现抽象类中的所有抽象方法，那么该子类也是一个抽象类，必须在 class 前面加上 abstract 关键字，并且不能被实例化。</p>
-</li>
-<li><p>如果 B 实现了 A 的抽象方法 abstract_func() ，那么 B 中 abstract_func() 方法的访问控制不能比 A 中 abstract_func() 的访问控制更严格。 </p>
-</li>
-</ol>
-<h2 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口 interface"></a>接口 interface</h2><ol>
-<li><p>抽象类提供了具体实现的标准，而接口则是纯粹的模版。接口只定义功能，而不包含实现的内容。接口用关键字 interface 来声明。</p>
-</li>
-<li><p>interface 是完全抽象的，只能声明方法，而且只能声明 public 的方法，不能声明 private 及 protected 的方法，不能定义方法体，也不能声明实例变量 。<br> 然而， interface 却可以声明常量变量 。但将常量变量放在 interface 中违背了其作为接口的作用而存在的宗旨，也混淆了 interface 与类的不同价值。<br> 如果的确需要，可以将其放在相应的 abstract class 或 Class 中。</p>
-</li>
-<li><p>任何实现接口的类都要实现接口中所定义的所有方法，否则该类必须声明为 abstract 。</p>
-</li>
-<li><p>一个类可以在声明中使用 implements 关键字来实现某个接口。这么做之后，实现接口的具体过程和继承一个仅包含抽象方法的抽象类是一样的。<br> 一个类可以同时继承一个父类和实现任意多个接口。 extends 子句应该在 implements 子句之前。<br> PHP 只支持继承自一个父类，因此 extends 关键字后只能跟一个类名。</p>
-</li>
-<li><p>接口不可以实现另一个接口，但可以继承多个。</p>
-</li>
-</ol>
-<h2 id="抽象类和接口的异同"><a href="#抽象类和接口的异同" class="headerlink" title="抽象类和接口的异同"></a>抽象类和接口的异同</h2><ol>
-<li>相同点：</li>
-</ol>
-<blockquote>
-<p>(1) 两者都是抽象类，都不能实例化。</p>
-</blockquote>
-<blockquote>
-<p>(2) interface 实现类及 abstract class 的子类都必须要实现已经声明的抽象方法。</p>
-</blockquote>
-<ol start="2">
-<li>不同点：</li>
-</ol>
-<blockquote>
-<p>(1) interface 需要实现，要用 implements ，而 abstract class 需要继承，要用 extends 。</p>
-</blockquote>
-<blockquote>
-<p>(2) 一个类可以实现多个 interface ，但一个类只能继承一个 abstract class 。</p>
-</blockquote>
-<blockquote>
-<p>(3) interface 强调特定功能的实现，而 abstract class 强调所属关系。</p>
-</blockquote>
-<blockquote>
-<p>(4) 尽管 interface 实现类及 abstract class 的子类都必须要实现相应的抽象方法，但实现的形式不同。 interface 中的每一个方法都是抽象方法，都只是声明的 (declaration, 没有方法体 ) ，实现类必须要实现。而 abstract class 的子类可以有选择地实现。这个选择有两点含义： a) abstract class 中并非所有的方法都是抽象的，只有那些冠有 abstract 的方法才是抽象的，子类必须实现。那些没有 abstract 的方法，在 abstract class 中必须定义方法体； b) abstract class 的子类在继承它时，对非抽象方法既可以直接继承，也可以覆盖；而对抽象方法，可以选择实现，也可以留给其子类来实现，但此类必须也声明为抽象类。既是抽象类，当然也不能实例化。</p>
-</blockquote>
-<blockquote>
-<p>(5) abstract class 是 interface 与 class 的中介。 abstract class 在 interface 及 class 中起到了承上启下的作用。一方面， abstract class 是抽象的，可以声明抽象方法，以规范子类必须实现的功能；另一方面，它又可以定义缺省的方法体，供子类直接使用或覆盖。另外，它还可以定义自己的实例变量，以供子类通过继承来使用。</p>
-</blockquote>
-<blockquote>
-<p>(6) 接口中的抽象方法前不用也不能加 abstract 关键字，默认隐式就是抽象方法，也不能加 final 关键字来防止抽象方法的继承。而抽象类中抽象方法前则必须加上 abstract 表示显示声明为抽象方法。</p>
-</blockquote>
-<blockquote>
-<p>(7) 接口中的抽象方法默认是 public 的，也只能是 public 的，不能用 private ， protected 修饰符修饰。而抽象类中的抽象方法则可以用 public ， protected 来修饰，但不能用 private 。</p>
-</blockquote>
-<blockquote>
-<p>(8) 抽象类的继承是is a的关系。定义该体系的基本共性内容。接口的实现是like a的关系。定义体系的额外功能。</p>
-</blockquote>
-<ol start="3">
-<li>interface 的应用场合</li>
-</ol>
-<blockquote>
-<p>(1) 类与类之间需要特定的接口进行协调，而不在乎其如何实现。</p>
-</blockquote>
-<blockquote>
-<p>(2) 作为能够实现特定功能的标识存在，也可以是什么接口方法都没有的纯粹标识。</p>
-</blockquote>
-<blockquote>
-<p>(3) 需要将一组类视为单一的类，而调用者只通过接口来与这组类发生联系。</p>
-</blockquote>
-<blockquote>
-<p>(4) 需要实现特定的多项功能，而这些功能之间可能完全没有任何联系。</p>
-</blockquote>
-<ol start="4">
-<li>abstract class 的应用场合</li>
-</ol>
-<p>一句话，在既需要统一的接口，又需要实例变量或缺省的方法的情况下，就可以使用它。最常见的有：</p>
-<blockquote>
-<p>(1)      定义了一组接口，但又不想强迫每个实现类都必须实现所有的接口。可以用 abstract class 定义一组方法体，甚至可以是空方法体，然后由子类选择自己所感兴趣的方法来覆盖。</p>
-</blockquote>
-<blockquote>
-<p>(2)      某些场合下，只靠纯粹的接口不能满足类与类之间的协调，还必需类中表示状态的变量来区别不同的关系。 abstract 的中介作用可以很好地满足这一点。</p>
-</blockquote>
-<blockquote>
-<p>(3)      规范了一组相互协调的方法，其中一些方法是共同的，与状态无关的，可以共享的，无需子类分别实现；而另一些方法却需要各个子类根据自己特定的状态来实现特 定的功能 。</p>
-</blockquote>
-<p><a href="https://blog.csdn.net/sunlylorn/article/details/6124319" target="_blank" rel="noopener">参考1</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/手机号归属地查询接口/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yaoxianzhuang">
-      <meta itemprop="description" content="where is this place ?">
-      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="十二遥的破碎维度">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/04/手机号归属地查询接口/" itemprop="url">
-                  手机号归属地查询接口
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-09-04 19:31:40" itemprop="dateCreated datePublished" datetime="2018-09-04T19:31:40+08:00">2018-09-04</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-09-05 10:13:55" itemprop="dateModified" datetime="2018-09-05T10:13:55+08:00">2018-09-05</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <ol>
-<li><p>淘宝网</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">API地址： http:``//tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=15850781443</span><br><span class="line">参数：</span><br><span class="line">tel：手机号码</span><br><span class="line">返回：JSON</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>拍拍</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">API地址： http:``//virtual.paipai.com/extinfo/GetMobileProductInfo?mobile=15850781443&amp;amount=10000&amp;callname=getPhoneNumInfoExtCallback</span><br><span class="line">参数：</span><br><span class="line">mobile：手机号码</span><br><span class="line">callname：回调函数</span><br><span class="line">amount：未知（必须）</span><br><span class="line">返回：JSON</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>财付通</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">API地址： http:``//life.tenpay.com/cgi-bin/mobile/MobileQueryAttribution.cgi?chgmobile=15850781443</span><br><span class="line">参数：</span><br><span class="line">chgmobile：手机号码</span><br><span class="line">返回：xml</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>百付宝</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">API地址： https:``//www.baifubao.com/callback?cmd=1059&amp;callback=phone&amp;phone=15850781443</span><br><span class="line">参数：</span><br><span class="line">phone：手机号码</span><br><span class="line">callback：回调函数</span><br><span class="line">cmd：未知（必须）</span><br><span class="line">返回：JSON</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>有道api接口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">接口地址：http:``//www.youdao.com/smartresult-xml/search.s?type=mobile&amp;q=13892101112</span><br><span class="line">参数说明：</span><br><span class="line">type ： 参数手机归属地固定为mobile</span><br><span class="line">q ： 手机号码</span><br><span class="line">返回XML格式：</span><br><span class="line">&lt;?xml version=``&quot;1.0&quot;``encoding=``&quot;gbk&quot;``?&gt;</span><br><span class="line">&lt;smartresult&gt;</span><br><span class="line">&lt;product type=``&quot;mobile&quot;``&gt;</span><br><span class="line">&lt;phonenum&gt;13892101112&lt;/phonenum&gt;</span><br><span class="line">&lt;location&gt;陕西 延安&lt;/location&gt;</span><br><span class="line">&lt;/product&gt;</span><br><span class="line">&lt;/smartresult&gt;</span><br><span class="line">或者</span><br><span class="line">http:``//www.youdao.com/smartresult-xml/search.s?jsFlag=true&amp;type=mobile&amp;q=手机号码</span><br><span class="line">返回JSON格式：</span><br><span class="line">fYodaoCallBack(1, &#123;‘product’:``&apos;mobile’,&apos;``phonenum’:’13892101112′,’location’:&apos;陕西 延安’&#125; , ”);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>096.me api接口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http:``//www.096.me/api.php?phone=手机号&amp;mode=&#123;txt,xml&#125;</span><br><span class="line">举例：http:``//www.096.me/api.php?phone=13892101111&amp;mode=txt</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/29/移位运算/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yaoxianzhuang">
-      <meta itemprop="description" content="where is this place ?">
-      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="十二遥的破碎维度">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/29/移位运算/" itemprop="url">
-                  移位运算
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-08-29 17:39:30 / Modified: 17:41:37" itemprop="dateCreated datePublished" datetime="2018-08-29T17:39:30+08:00">2018-08-29</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>逻辑左移时，最高位丢失，最低位补0；</p>
-<p>逻辑右移时，最高位补0，最低位丢失；</p>
-<p>算术左移时，依次左移一位，尾部补0，最高的符号位保持不变。</p>
-<p>算术右移时，依次右移一位，尾部丢失，符号位右移后，原位置上复制一个符号位；</p>
-<p>循环左移时，将最高位重新放置最低位</p>
-<p>循环右移时，将最低位重新放置最高位</p>
-<p>例如：</p>
-<p>1010100010101  </p>
-<p>逻辑左移一位结果为 0101000101010</p>
-<p>逻辑右移一位结果为 0101010001010</p>
-<p>算术左移一位结果为 1101000101010</p>
-<p>算术右移一位结果为 1101010001010</p>
-<p>循环左移一位结果为 0101000101011</p>
-<p>循环右移一位结果为 1101010001010</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/29/macOS环境部署Hexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yaoxianzhuang">
-      <meta itemprop="description" content="where is this place ?">
-      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="十二遥的破碎维度">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/29/macOS环境部署Hexo/" itemprop="url">
-                  macOS环境部署Hexo
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-08-29 15:11:02 / Modified: 17:45:32" itemprop="dateCreated datePublished" datetime="2018-08-29T15:11:02+08:00">2018-08-29</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="安装Xcode"><a href="#安装Xcode" class="headerlink" title="安装Xcode"></a>安装Xcode</h2><p>Mac App Store下载安装</p>
-<h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ brew install nvm</span><br><span class="line">$ mkdir ~/.nvm</span><br><span class="line">$ export NVM_DIR=~/.nvm</span><br><span class="line">$ . $(brew --prefix nvm)/nvm.sh</span><br></pre></td></tr></table></figure>
-<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br><span class="line">cd ~/Desktop/hexo-blog</span><br><span class="line">hexo init</span><br><span class="line">npm install</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
-<p>打开 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，会看到效果。</p>
-<h2 id="部署Github仓库"><a href="#部署Github仓库" class="headerlink" title="部署Github仓库"></a>部署Github仓库</h2><ol>
-<li><p>cd到你的博客文件夹</p>
-</li>
-<li><p>vim _config.yml</p>
-</li>
-<li><p>加上如下</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/KevinCoderX/KevinCoderX.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>执行命令</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<h2 id="装饰你的博客"><a href="#装饰你的博客" class="headerlink" title="装饰你的博客"></a>装饰你的博客</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
-<p>_config.yml里theme的名称修改为next</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean   //清除缓存文件 (db.json) 和已生成的静态文件 (public)</span><br><span class="line">hexo g       //生成缓存和静态文件</span><br><span class="line">hexo d       //重新部署到服务器</span><br></pre></td></tr></table></figure>
-<h2 id="写下你的博客"><a href="#写下你的博客" class="headerlink" title="写下你的博客"></a>写下你的博客</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post &quot;我的第一篇博客&quot;      //名字可以自己取</span><br></pre></td></tr></table></figure>
-<p><a href="https://www.jianshu.com/p/1519f22aff24" target="_blank" rel="noopener">参考1</a></p>
-<p><a href="https://www.jianshu.com/p/4eaddcbe4d12" target="_blank" rel="noopener">参考2</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/29/Markdown常用格式/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yaoxianzhuang">
-      <meta itemprop="description" content="where is this place ?">
-      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="十二遥的破碎维度">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/29/Markdown常用格式/" itemprop="url">
-                  Markdown常用格式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-08-29 14:45:47" itemprop="dateCreated datePublished" datetime="2018-08-29T14:45:47+08:00">2018-08-29</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Edited on</span>
-                
-                <time title="Modified: 2018-09-05 10:11:38" itemprop="dateModified" datetime="2018-09-05T10:11:38+08:00">2018-09-05</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><p>在文本前面加上 # 即可，同理、你还可以增加二级标题、三级标题、四级标题、五级标题和六级标题，总共六级，只需要增加 # 即可。</p>
-<p><em>注：# 和「一级标题」之间建议保留一个字符的空格。</em></p>
-<p><br></p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>在文字前面加上 - 就可以了。</p>
-<p>也可以在文字前面加上 1. 2. 3。</p>
-<p><em>注：-、1.和文本之间要保留一个字符的空格。</em></p>
-<p><br></p>
-<h2 id="插入链接和图片"><a href="#插入链接和图片" class="headerlink" title="插入链接和图片"></a>插入链接和图片</h2><p>插入链接使用 [显示文本](链接地址) 这样的语法即可。</p>
-<p>插入图片只需要使用 ![](图片链接地址) 这样的语法即可。</p>
-<p><em>注：插入图片的语法和链接的语法很像，只是前面多了一个 ！。</em></p>
-<p><br></p>
-<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>在希望引用的文字前面加上 &gt; 就好了。</p>
-<p><em>注：&gt; 和文本之间要保留一个字符的空格。</em></p>
-<p><br></p>
-<h2 id="粗体和斜体"><a href="#粗体和斜体" class="headerlink" title="粗体和斜体"></a>粗体和斜体</h2><p>用两个 <em> 包含一段文本就是粗体的语法，用一个 </em> 包含一段文本就是斜体的语法。</p>
-<p><br></p>
-<h2 id="代码引用"><a href="#代码引用" class="headerlink" title="代码引用"></a>代码引用</h2><p>需要引用代码时，如果引用的语句只有一段，不分行，可以用 ` 将语句包起来。</p>
-<p>如果引用的语句为多行，可以将<code>`</code>置于这段代码的首行和末行。</p>
-<p><br></p>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>使用 | 来分隔不同的单元格，使用 - 来分隔表头和其他行。</p>
-<p><br></p>
-<p><a href="https://www.jianshu.com/p/q81RER" target="_blank" rel="noopener">参考1</a></p>
-<p><a href="http://xianbai.me/learn-md/article/extension/table.html" target="_blank" rel="noopener">参考2</a></p>
-<p><a href="https://typora.io/" target="_blank" rel="noopener">Markdown编辑器</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/29/我的第一篇博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yaoxianzhuang">
-      <meta itemprop="description" content="where is this place ?">
-      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="十二遥的破碎维度">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/29/我的第一篇博客/" itemprop="url">
-                  我的第一篇博客
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-08-29 14:31:28 / Modified: 14:32:35" itemprop="dateCreated datePublished" datetime="2018-08-29T14:31:28+08:00">2018-08-29</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>我有一头<strong>小毛驴</strong>，可是我从来都不骑。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/29/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yaoxianzhuang">
-      <meta itemprop="description" content="where is this place ?">
-      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="十二遥的破碎维度">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/29/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-08-29 11:27:39" itemprop="dateCreated datePublished" datetime="2018-08-29T11:27:39+08:00">2018-08-29</time>
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -2256,8 +703,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -2306,6 +762,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">1.</span> <span class="nav-text">概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#时间频度"><span class="nav-number">1.1.</span> <span class="nav-text">时间频度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.2.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空间复杂度"><span class="nav-number">1.3.</span> <span class="nav-text">空间复杂度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类"><span class="nav-number">2.</span> <span class="nav-text">分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#冒泡排序"><span class="nav-number">2.1.</span> <span class="nav-text">冒泡排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法步骤"><span class="nav-number">2.1.1.</span> <span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效率分析"><span class="nav-number">2.1.2.</span> <span class="nav-text">效率分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法稳定性"><span class="nav-number">2.1.3.</span> <span class="nav-text">算法稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现"><span class="nav-number">2.1.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择排序"><span class="nav-number">2.2.</span> <span class="nav-text">选择排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法步骤-1"><span class="nav-number">2.2.1.</span> <span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效率分析-1"><span class="nav-number">2.2.2.</span> <span class="nav-text">效率分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法稳定性-1"><span class="nav-number">2.2.3.</span> <span class="nav-text">算法稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-1"><span class="nav-number">2.2.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入排序"><span class="nav-number">2.3.</span> <span class="nav-text">插入排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法步骤-2"><span class="nav-number">2.3.1.</span> <span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效率分析-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">效率分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法稳定性-2"><span class="nav-number">2.3.3.</span> <span class="nav-text">算法稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-2"><span class="nav-number">2.3.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#希尔排序"><span class="nav-number">2.4.</span> <span class="nav-text">希尔排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法步骤-3"><span class="nav-number">2.4.1.</span> <span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效率分析-3"><span class="nav-number">2.4.2.</span> <span class="nav-text">效率分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法稳定性-3"><span class="nav-number">2.4.3.</span> <span class="nav-text">算法稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-3"><span class="nav-number">2.4.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#归并排序"><span class="nav-number">2.5.</span> <span class="nav-text">归并排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法步骤-4"><span class="nav-number">2.5.1.</span> <span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效率分析-4"><span class="nav-number">2.5.2.</span> <span class="nav-text">效率分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法稳定性-4"><span class="nav-number">2.5.3.</span> <span class="nav-text">算法稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-4"><span class="nav-number">2.5.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">2.6.</span> <span class="nav-text">快速排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法步骤-5"><span class="nav-number">2.6.1.</span> <span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效率分析-5"><span class="nav-number">2.6.2.</span> <span class="nav-text">效率分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法稳定性-5"><span class="nav-number">2.6.3.</span> <span class="nav-text">算法稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-5"><span class="nav-number">2.6.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#堆排序"><span class="nav-number">2.7.</span> <span class="nav-text">堆排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法步骤-6"><span class="nav-number">2.7.1.</span> <span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效率分析-6"><span class="nav-number">2.7.2.</span> <span class="nav-text">效率分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法稳定性-6"><span class="nav-number">2.7.3.</span> <span class="nav-text">算法稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-6"><span class="nav-number">2.7.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计数排序"><span class="nav-number">2.8.</span> <span class="nav-text">计数排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法步骤-7"><span class="nav-number">2.8.1.</span> <span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效率分析-7"><span class="nav-number">2.8.2.</span> <span class="nav-text">效率分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法稳定性-7"><span class="nav-number">2.8.3.</span> <span class="nav-text">算法稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-7"><span class="nav-number">2.8.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#桶排序"><span class="nav-number">2.9.</span> <span class="nav-text">桶排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法步骤-8"><span class="nav-number">2.9.1.</span> <span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效率分析-8"><span class="nav-number">2.9.2.</span> <span class="nav-text">效率分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法稳定性-8"><span class="nav-number">2.9.3.</span> <span class="nav-text">算法稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-8"><span class="nav-number">2.9.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基数排序"><span class="nav-number">2.10.</span> <span class="nav-text">基数排序</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#算法步骤-9"><span class="nav-number">2.10.1.</span> <span class="nav-text">算法步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效率分析-9"><span class="nav-number">2.10.2.</span> <span class="nav-text">效率分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#算法稳定性-9"><span class="nav-number">2.10.3.</span> <span class="nav-text">算法稳定性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码实现-9"><span class="nav-number">2.10.4.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -2443,6 +915,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.0"></script>
+
+
 
   
 
