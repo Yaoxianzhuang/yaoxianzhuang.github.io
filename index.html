@@ -311,6 +311,436 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/高性能mysql第六章/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yaoxianzhuang">
+      <meta itemprop="description" content="where is this place ?">
+      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="十二遥的破碎维度">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/19/高性能mysql第六章/" itemprop="url">
+                  高性能mysql第六章
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2019-11-19 10:36:52" itemprop="dateCreated datePublished" datetime="2019-11-19T10:36:52+08:00">2019-11-19</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2019-11-26 14:53:06" itemprop="dateModified" datetime="2019-11-26T14:53:06+08:00">2019-11-26</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="第6章-查询性能优化"><a href="#第6章-查询性能优化" class="headerlink" title="第6章 查询性能优化"></a>第6章 查询性能优化</h1><h2 id="6-1-为什么查询速度会慢"><a href="#6-1-为什么查询速度会慢" class="headerlink" title="6.1 为什么查询速度会慢"></a>6.1 为什么查询速度会慢</h2><p>通常来说，查询的生命周期大致可以按照顺序来看：从客户端，到服务器，然后在服务器上进行解析，生成执行计划，执行，并返回结果给客户端。</p>
+<h2 id="6-2-慢查询基础：优化数据访问"><a href="#6-2-慢查询基础：优化数据访问" class="headerlink" title="6.2 慢查询基础：优化数据访问"></a>6.2 慢查询基础：优化数据访问</h2><p>查询性能低下最基本的原因是访问的数据太多。</p>
+<p>对于低效查询，先确认应用程序是否在检索大量超过需要的数据，再确认MySql服务器层是否在分析大量超过需要的数据行。</p>
+<h3 id="6-2-1-是否向数据库请求了不需要的数据"><a href="#6-2-1-是否向数据库请求了不需要的数据" class="headerlink" title="6.2.1 是否向数据库请求了不需要的数据"></a>6.2.1 是否向数据库请求了不需要的数据</h3><p>请求超过实际需要的数据，然后多余的数据被应用程序丢弃，这会MySQL服务器带来额外的负担，并增加网络开销和应用服务器CPU和内存资源。</p>
+<p>典型案例：</p>
+<ul>
+<li><p>查询不需要的记录</p>
+</li>
+<li><p>多表关联时返回全部列</p>
+</li>
+<li><p>总是取出全部列</p>
+</li>
+<li><p>重复查询相同的数据</p>
+</li>
+</ul>
+<h3 id="6-2-2-MySqL是否在扫描额外的记录"><a href="#6-2-2-MySqL是否在扫描额外的记录" class="headerlink" title="6.2.2 MySqL是否在扫描额外的记录"></a>6.2.2 MySqL是否在扫描额外的记录</h3><p>最简单的衡量查询开销的三个指标：响应时间，扫描行数，返回行数。</p>
+<p>一般MySQL能够使用如下三种方式应用WHERE条件，从好到坏依次为：</p>
+<ul>
+<li><p>在索引中使用WHERE条件来过滤不匹配的记录。这是在存储引擎层完成。</p>
+</li>
+<li><p>使用索引覆盖扫描（在Extra列中出现Using index）来返回记录，直接从索引中过滤不需要的记录并返回命中的结果。服务层完成。无须再回表查询记录。</p>
+</li>
+<li><p>从数据表中返回数据，然后过滤不满足条件的记录（在Extra列中出现Using Where）。在服务器层完成。需要先从数据表读出记录，然后过滤。</p>
+</li>
+</ul>
+<p>如果发现查询需要扫描大量的数据，但只返回少数的行，可以</p>
+<ul>
+<li><p>使用索引覆盖扫描，把所有需要用的列都放到索引中。</p>
+</li>
+<li><p>改变库表结构。</p>
+</li>
+<li><p>重写这个复杂的查询。</p>
+</li>
+</ul>
+<h2 id="6-3-重构查询的方式"><a href="#6-3-重构查询的方式" class="headerlink" title="6.3 重构查询的方式"></a>6.3 重构查询的方式</h2><h3 id="6-3-1-一个复杂查询还是多个简单查询"><a href="#6-3-1-一个复杂查询还是多个简单查询" class="headerlink" title="6.3.1 一个复杂查询还是多个简单查询"></a>6.3.1 一个复杂查询还是多个简单查询</h3><h3 id="6-3-2-切分查询"><a href="#6-3-2-切分查询" class="headerlink" title="6.3.2 切分查询"></a>6.3.2 切分查询</h3><p>如将一个大的删除历史数据的查询，切分成每次删除一万条历史数据。而且如果每删除一万条后能暂停一会，可以将压力分散到一个很长的时间多，降低对服务器的影响，大大减少删除时锁的持有时间。</p>
+<h3 id="6-3-3-分解关联查询"><a href="#6-3-3-分解关联查询" class="headerlink" title="6.3.3 分解关联查询"></a>6.3.3 分解关联查询</h3><p>对关联查询进行分解，对每一个表进行一次单表查询，然后将结果在应用程序中进行关联。</p>
+<p>优势：</p>
+<ul>
+<li><p>可以让缓存的效率更高。</p>
+</li>
+<li><p>查询分解后，执行单个查询可以减少锁的竞争。</p>
+</li>
+<li><p>在应用层做关联，可以更容易的对数据库进行拆分，更容易做到高性能和可扩展。</p>
+</li>
+<li><p>查询本身效率也可能会有所提升。</p>
+</li>
+<li><p>可以减少冗余记录的查询。</p>
+</li>
+<li><p>更进一步，这样做相当于在应用中实现了哈希关联，而不是使用MySQL的嵌套循环关联。</p>
+</li>
+</ul>
+<h2 id="6-4-查询执行的基础"><a href="#6-4-查询执行的基础" class="headerlink" title="6.4 查询执行的基础"></a>6.4 查询执行的基础</h2><p>1、客户端发送一条查询给服务器。</p>
+<p>2、服务器先检查查询缓存，如果命中了缓存，则立即返回存储在缓存中的结果。</p>
+<p>3、服务器段进行SQL解析，预处理，再由优化器生成对于的执行计划。</p>
+<p>4、MySQL根据优化器生成的执行计划，调用存储引擎的API来执行查询。</p>
+<p>5、将结果返回给客户端。</p>
+<h3 id="6-4-1-MySQL客户端-服务器通信协议"><a href="#6-4-1-MySQL客户端-服务器通信协议" class="headerlink" title="6.4.1 MySQL客户端/服务器通信协议"></a>6.4.1 MySQL客户端/服务器通信协议</h3><p>MySQL客户端和服务器之间的通信协议是”半双工”，在任何一个时刻，要么是由服务器向客户端发送数据，要么是由客户端向服务器发送数据，两个动作不能同时发生。</p>
+<p>查询状态</p>
+<p>对于一个MySQL连接，或者说一个线程，任何时刻都哟一个状态，表示了MySQL当前正在做什么。</p>
+<p>可以使用SHOW FULL PROCESSLIST命令（返回结果中的Command列）表示当前状态</p>
+<ul>
+<li><p>Sleep：线程正在等待客户端发送新的请求。</p>
+</li>
+<li><p>Query：线程正在执行查询或者正在将结果发送给客户端。</p>
+</li>
+<li><p>Locked：在MySQL服务器层，该线程正在等待表锁。</p>
+</li>
+<li><p>Analyzing and statistics：线程正在收集存储引擎的统计信息，并生成查询的执行计划。</p>
+</li>
+<li><p>Copying to tmp table 【on disk】：线程正在执行查询，并且将其结果集都复制到一个临时表中。这种状态要么是在做GROUP BY操作，要么是文件排序操作，或者是UNION操作。<br>如果这个状态后面由on disk标记，表示MySQL正在将一个内存临时表放到磁盘上。</p>
+</li>
+<li><p>Sorting result：线程正在对结果集进行排序。</p>
+</li>
+<li><p>Sending data：线程可能在多个状态之间传送数据，或者在生成结果集，或者在向客户端返回数据。</p>
+</li>
+</ul>
+<h3 id="6-4-2-查询缓存"><a href="#6-4-2-查询缓存" class="headerlink" title="6.4.2 查询缓存"></a>6.4.2 查询缓存</h3><p>在解析一个查询语句之前，如果查询缓存是打开的，那么MySQL会优先检查这个查询是否命中查询缓存中的数据。</p>
+<p>这个检查是通过一个对大小写敏感的哈希查找实现的。</p>
+<p>如果命中，在返回查询结果前，MySqL会检查一次用户权限。无须解析SQL语句，因为缓存中存放了当前查询需要访问的表信息。</p>
+<h3 id="6-4-3-查询优化处理"><a href="#6-4-3-查询优化处理" class="headerlink" title="6.4.3 查询优化处理"></a>6.4.3 查询优化处理</h3><p>语法解析器和预处理</p>
+<p>MySQL通过关键字将SQL语句进行解析，生成一颗对应的”解析数”。MySQL解析器将使用MySQL语法规则验证和解析查询。</p>
+<p>下一步预处理器会验证权限。</p>
+<p>查询优化器</p>
+<p>MySQL使用基于成本的优化器，它将尝试预测一个查询使用某种执行计划时的成本，并选择其中成本最小的一个。</p>
+<p>很多原因会导致优化器选择错误的执行计划：</p>
+<ul>
+<li><p>统计信息不准确。</p>
+</li>
+<li><p>执行计划中的成本估算不等同于实际执行的成本。</p>
+</li>
+<li><p>MySQL的最优可能和你想的最优不一样。</p>
+</li>
+<li><p>MySQL从不考虑其他并发执行的查询，这可能会影响到当前查询的速度。</p>
+</li>
+<li><p>MySQL也并不是任何时候都是基于成本的优化。例如：如果存在全文搜索的MATCH()子句，则在存在全文索引的时候就使用全文索引。</p>
+</li>
+<li><p>MySQL不会考虑不受其控制的操作的成本，例如执行存储过程或者用户自定义函数的成本。</p>
+</li>
+<li><p>有时候优化器无法估算所有可能的执行计划，所以可能错过实际最优执行计划。</p>
+</li>
+</ul>
+<p>优化策略可以简单的分为两种：静态优化和动态优化。</p>
+<p>静态优化可以直接对解析树进行分析，并完成优化。可以认为是一种”编译时优化”</p>
+<p>动态优化和查询的上下文有关，也可能和很多其他因素有关。可以认为这是”运行时优化”</p>
+<p>静态优化只需要做一次，但对查询的动态优化则在每次执行时都需要重新评估，有时甚至在查询的执行过程中也会重新优化。</p>
+<p>MySQL能够处理的优化类型：</p>
+<ul>
+<li><p>重新定义关联表的顺序</p>
+</li>
+<li><p>将外连接转化成内连接</p>
+</li>
+<li><p>使用等价变换规则</p>
+</li>
+<li><p>优化COUNT()，MIN()，MAX()</p>
+</li>
+<li><p>预估并转化为常数表达式</p>
+</li>
+<li><p>覆盖索引扫描</p>
+</li>
+<li><p>子查询优化</p>
+</li>
+<li><p>提前终止查询</p>
+</li>
+<li><p>等值传播</p>
+</li>
+<li><p>列表IN()的比较</p>
+</li>
+</ul>
+<p>数据和索引的统计信息：统计信息由存储引擎实现。</p>
+<p>MySQL如何执行关联查询</p>
+<p>MySQL认为任何一次查询都是一次”关联”</p>
+<p>MySQL对任何关联都执行嵌套循环关联操作，即MySQL先在一个表中循环取出单条数据，然后再嵌套循环到下一个表中寻找匹配的行，依次下去，直到找到所有表中匹配的行为止。</p>
+<p>执行计划</p>
+<p>MySQL生成查询的一颗指令树，然后通过存储引擎执行完成这颗指令树并返回结果。最终的执行计划包含了重构查询的全部信息。</p>
+<p>关联查询优化器</p>
+<p>通常多表关联的时候，可以有多种不同的关联顺序来获取相同的执行结果，关联查询优化器则通过评估不同顺序时的成本来选择一个代价最小的关联顺序。</p>
+<p>排序优化</p>
+<p>排序是一个成本很高的操作，从性能角度来说，应尽可能避免排序或避免对大量数据排序</p>
+<p>除了通过索引进行排序外，当MySQL需要自己进行排序时，数据量小则在内存中，数据量大则在磁盘中。统称为文件排序（filesort）</p>
+<p>两种排序方法：</p>
+<p>两次传输排序（旧版本使用）：会产生大量随机I/O。</p>
+<p>单词传输排序（新版本使用）：无须随机I/O。缺点是如果需要返回的列非常大，会额外占用大量空间。</p>
+<p>文件排序需要使用的临时存储空间比想象的要大的多，原因时MySQL会对每一个排序记录分配一个足够大的定长空间来存放。如：VARCHAR则分配完整长度，</p>
+<p>关联查询需要排序时，如果ORDER BY子句中所有列都来自关联的第一个表，则在关联处理第一个表 的时候进行文件排序。此时Extra字段会有Using filesort</p>
+<p>除此之外，MySQL都会先将关联结果放在一个临时表中，等全部关联结束后，进行文件排序。此时Extra可以看到Using temporary；Using filesort。</p>
+<p>而LIMIT也会在排序之后应用。5.6之后有改进，会根据实际情况，选择抛弃不满足条件的结果，在进行排序。</p>
+<h3 id="6-4-4-查询执行引擎"><a href="#6-4-4-查询执行引擎" class="headerlink" title="6.4.4 查询执行引擎"></a>6.4.4 查询执行引擎</h3><p>MySQL根据执行计划给出的指令逐步执行。</p>
+<p>MySQL在优化阶段就为每个表创建了一个handler实例，优化器根据这些实例的接口可以获取表的相关信息，包括表的所有列名，索引统计信息等。</p>
+<h3 id="6-4-5-返回结果给客户端"><a href="#6-4-5-返回结果给客户端" class="headerlink" title="6.4.5 返回结果给客户端"></a>6.4.5 返回结果给客户端</h3><p>查询执行的最后一个阶段就是将结果返回给客户端，即使查询不需要返回结果集，也会返回这个查询的一些信息，如查询影响行数。</p>
+<p>如果查询可以被缓存，则在这个阶段将结果放在查询缓存中。</p>
+<p>返回是一个增量，逐步返回的过程，当开始生成第一条结果时，就可以开始向客户端逐步返回了。</p>
+<p>好处是：服务器端无须存储太多的结果，另外可以让客户端第一时间获得返回结果。</p>
+<h2 id="6-5-MySQL查询优化器的局限性"><a href="#6-5-MySQL查询优化器的局限性" class="headerlink" title="6.5 MySQL查询优化器的局限性"></a>6.5 MySQL查询优化器的局限性</h2><h3 id="6-5-1-关联子查询"><a href="#6-5-1-关联子查询" class="headerlink" title="6.5.1 关联子查询"></a>6.5.1 关联子查询</h3><p>MySQL的子查询实现得非常糟糕。最糟糕的一类查询是WHERE条件中包换IN（）的子查询语句。</p>
+<p>如果用好关联子查询：</p>
+<pre><code>并不是所有关联子查询的性能都会很差，需要测试来验证。
+</code></pre><h3 id="6-5-2-UNION的限制"><a href="#6-5-2-UNION的限制" class="headerlink" title="6.5.2 UNION的限制"></a>6.5.2 UNION的限制</h3><p>当UNION两个子查询，在从结果中取出前20条时，这个查询会将两个子查询结果放在一个临时表中，再从临时表中取出20条记录。</p>
+<p>可以在两个子查询中分别加上LIMIT 20来减少临时表的数据。</p>
+<h3 id="6-5-3-索引合并优化"><a href="#6-5-3-索引合并优化" class="headerlink" title="6.5.3 索引合并优化"></a>6.5.3 索引合并优化</h3><p>前面提到过，当where子句中包含多个复杂条件时，MySQL能够访问单表的多个索引以合并和交叉过滤的方式来定位需要查找的行。</p>
+<h3 id="6-5-4-等值传递"><a href="#6-5-4-等值传递" class="headerlink" title="6.5.4 等值传递"></a>6.5.4 等值传递</h3><p>等值传递会带来一些意想不到的额外消耗。</p>
+<h3 id="6-5-5-并行执行"><a href="#6-5-5-并行执行" class="headerlink" title="6.5.5 并行执行"></a>6.5.5 并行执行</h3><p>MySQL无法利用多核特性来并行执行查询。</p>
+<h3 id="6-5-6-哈希关联"><a href="#6-5-6-哈希关联" class="headerlink" title="6.5.6 哈希关联"></a>6.5.6 哈希关联</h3><p>MySQL并不支持哈希关联（当时）</p>
+<h3 id="6-5-7-松散索引扫描"><a href="#6-5-7-松散索引扫描" class="headerlink" title="6.5.7 松散索引扫描"></a>6.5.7 松散索引扫描</h3><p>MySQl不支持松散索引扫描，即无法按照一个不连续的方式扫描一个索引。</p>
+<h3 id="6-5-8-最大值和最小值优化"><a href="#6-5-8-最大值和最小值优化" class="headerlink" title="6.5.8 最大值和最小值优化"></a>6.5.8 最大值和最小值优化</h3><p>对于MIN()和MAX()查询，MySQL的优化做得并不好。</p>
+<h3 id="6-5-9-在同一个表上查询和更新"><a href="#6-5-9-在同一个表上查询和更新" class="headerlink" title="6.5.9 在同一个表上查询和更新"></a>6.5.9 在同一个表上查询和更新</h3><p>MySQL不允许对同一张表同时进行查询和更新。</p>
+<h2 id="6-6-查询优化器的提示（hint）"><a href="#6-6-查询优化器的提示（hint）" class="headerlink" title="6.6 查询优化器的提示（hint）"></a>6.6 查询优化器的提示（hint）</h2><p>如果对优化器选择的执行计划不满意，可以使用优化器提供的几个提示来控制最终的执行计划。</p>
+<p>HIGH_PRIORITY和LOW_PRIORITY</p>
+<pre><code>当多个语句同时访问某一个表的时候，哪些语句的优先级相对高些，哪些语句的优先级相对低些。
+
+这两个提示只对使用表锁的存储引擎有效。
+</code></pre><p>DELAYED</p>
+<pre><code>这个提示对INSERT和REPLACE有效。MySQL会将使用该提示的语句立即返回给客户端，并将插入的行数据放到缓冲区，在表空闲时批量将数据写入。
+</code></pre><p>STRAIGHT_JOIN</p>
+<pre><code>可以放置在SELECT语句的SELECT关键字之后，也可以放置在任何两个关联表的名字之间。
+
+第一个用法是让查询中的所有表按照在语句中出现的顺序进行关联。
+
+第二个用法则是固定其前后两个表的关联顺序。
+</code></pre><p>SQL_SMALL_RESULT和SQL_BIG_RESULT</p>
+<pre><code>这两个提示只对SELECT语句有效。
+
+SQL_SMALL_RESULT告诉优化器结果集会很小，可以将结果集放在内存中的索引临时表，避免排序操作。
+
+SQL_BIG_RESULT告诉优化器结果集可能会非常大，建议使用磁盘临时表做排序操作。
+</code></pre><p>下略。。。</p>
+<pre><code>设置优化器提示很可能会让新版本的优化策略失效。
+</code></pre><h2 id="6-7-优化特定类型的查询"><a href="#6-7-优化特定类型的查询" class="headerlink" title="6.7 优化特定类型的查询"></a>6.7 优化特定类型的查询</h2><h4 id="6-7-1-优化COUNT（）查询"><a href="#6-7-1-优化COUNT（）查询" class="headerlink" title="6.7.1 优化COUNT（）查询"></a>6.7.1 优化COUNT（）查询</h4><p>COUNT（）的作用</p>
+<pre><code>它可以统计某个列值的数量，也可以统计行数。
+</code></pre><p>关于MyISAM的神话</p>
+<pre><code>MyISAM的COUNT（）函数总是非常快，但这有个前提，即只有没有任何WHERE条件的COUNT（*）才非常快。
+</code></pre><p>简单的优化</p>
+<pre><code>利用MyISAM在count（*）全表非常快这个特性。
+</code></pre><p>使用近似值</p>
+<pre><code>不要求精准count值时，可以用近似值代替，explain出来的优化器估计行数就是一个不错的近似值。
+</code></pre><p>更复杂的优化</p>
+<pre><code>通常来说，count()需要扫描大量行，很难优化。&quot;快速，精准和实现简单&quot;，三者永远只能满足其二，必须舍弃其中一个。
+</code></pre><h3 id="6-7-2-优化关联查询"><a href="#6-7-2-优化关联查询" class="headerlink" title="6.7.2 优化关联查询"></a>6.7.2 优化关联查询</h3><ul>
+<li><p>确保on或者using子句中的列上有索引。</p>
+</li>
+<li><p>确保任何的group by和order by中的表达式只涉及到一个表中的列。</p>
+</li>
+<li><p>当升级mysql时，需要注意：关联语法，运算符优先级等其他可能会发生变化的地方。</p>
+</li>
+</ul>
+<h3 id="6-7-3-优化自查询"><a href="#6-7-3-优化自查询" class="headerlink" title="6.7.3 优化自查询"></a>6.7.3 优化自查询</h3><p>尽可能使用关联查询代替（5.6新版本可以忽略）</p>
+<h3 id="6-7-4-优化-GROUP-BY-和-DISTINCT"><a href="#6-7-4-优化-GROUP-BY-和-DISTINCT" class="headerlink" title="6.7.4 优化 GROUP BY 和 DISTINCT"></a>6.7.4 优化 GROUP BY 和 DISTINCT</h3><p>都可以使用索引来优化，这也是最有效的优化方式。</p>
+<p>优化 GROUP BY WITH ROLLUP </p>
+<pre><code>最好的办法时尽可能将 WITH ROLLUP 功能转移到应用程序中处理。
+</code></pre><h3 id="6-7-5-优化-LIMIT-分页"><a href="#6-7-5-优化-LIMIT-分页" class="headerlink" title="6.7.5 优化 LIMIT 分页"></a>6.7.5 优化 LIMIT 分页</h3><p>最简单的办法时尽可能使用索引覆盖扫描，而不是查询所有列。然后根据需要做一次关联操作再返回所需的列。</p>
+<p>LIMIT 和 OFFSET 的问题，其实是 OFFSET 的问题，它会导致MySQL扫描大量不需要的行，然后丢弃掉。可以利用主键的单调增长，在WHERE条件里加主键判断来优化。</p>
+<h3 id="6-7-6-优化-SQL-CALC-FOUND-ROWS"><a href="#6-7-6-优化-SQL-CALC-FOUND-ROWS" class="headerlink" title="6.7.6 优化 SQL_CALC_FOUND_ROWS"></a>6.7.6 优化 SQL_CALC_FOUND_ROWS</h3><p>这个提示会导致不管需不需要，都会扫描所有满足条件的行，再抛弃不需要的行，代价可能非常高。</p>
+<h3 id="6-7-7-优化-UNION-查询"><a href="#6-7-7-优化-UNION-查询" class="headerlink" title="6.7.7 优化 UNION 查询"></a>6.7.7 优化 UNION 查询</h3><p>MySQL总是通过创建并填充临时表的方式来执行 UNION 查询。</p>
+<p>除非确实需要服务器消除重复的行，否则一定要用 UNION ALL。</p>
+<h3 id="6-7-8-静态查询分析"><a href="#6-7-8-静态查询分析" class="headerlink" title="6.7.8 静态查询分析"></a>6.7.8 静态查询分析</h3><p>pt-query-advisor 能够解析查询日志，分析查询模式，然后给出所有可能存在潜在问题的查询，并给出足够详细的建议。</p>
+<h3 id="6-7-9-使用用户自定义遍历"><a href="#6-7-9-使用用户自定义遍历" class="headerlink" title="6.7.9 使用用户自定义遍历"></a>6.7.9 使用用户自定义遍历</h3><p>用户自定义遍历是一个用来存储内容的临时容器，在连接MySQL的整个过程中都存在。</p>
+<p>限制：</p>
+<ul>
+<li><p>使用自定义变量的查询，无法使用查询缓存。</p>
+</li>
+<li><p>不能在使用常量或者标识符的地方使用自定义变量，例如表名，列名和LIMIT子句中。</p>
+</li>
+<li><p>用户自定义变量的生命周期是在一个连接中有效，所以不能用它们来做连接间的通信。</p>
+</li>
+<li><p>如果使用连接池或者持久化连接，自定义变量可能让看起来毫无关系的代码发生交互。</p>
+</li>
+<li><p>5.0 版本前，大小写敏感。</p>
+</li>
+<li><p>不能显式地声明自定义变量的类型。</p>
+</li>
+<li><p>MySQL优化器在某些场景下可能会将这些变量优化掉，这可能导致代码不按预想方式允许。</p>
+</li>
+<li><p>赋值的顺序和赋值的时间点并不总是固定，依赖于优化器的决定。</p>
+</li>
+<li><p>赋值符号 := 的优先级非常低，所以赋值表达式应该使用明确的括号。</p>
+</li>
+<li><p>使用未定义变量不会产生任何语法错误。</p>
+</li>
+</ul>
+<p>优化排名语句</p>
+<pre><code>使用用户自定义变量的一个重要特性是可以在给一个变量赋值的同时使用这个变量。
+</code></pre><p>避免重复查询刚刚更新的数据</p>
+<pre><code>可以使用变量来解决。
+</code></pre><p>统计更新和插入数量</p>
+<pre><code>当每次由于冲突导致更新时对变量自增一次，然后通过对这个表达式乘以0来让其不影响要更新的内容。
+</code></pre><p>确定取值的顺序</p>
+<pre><code>一个最常见的问题就是没有注意到在赋值和读取变量的时候可能在查询的不同阶段。
+</code></pre><p>编写偷懒的 UNION</p>
+<pre><code>略
+</code></pre><p>用户自定义变量的其他用处</p>
+<p>不仅是在 SELECT 语句中，在其他任何类型的SQL语句中都可以对变量进行赋值。</p>
+<p>用法：</p>
+<ul>
+<li><p>查询运行时计算总数和平均值</p>
+</li>
+<li><p>模拟GROUP语句中的函数FIRST() 和 LAST()</p>
+</li>
+<li><p>对大量数据做一些数据计算</p>
+</li>
+<li><p>计算一个大表的MD5散列值</p>
+</li>
+<li><p>编写一个样本处理函数，当样本中的数值超过某个边界值的时候将其变成0</p>
+</li>
+<li><p>模拟读/写游标</p>
+</li>
+<li><p>在 SHOW 语句的 WHERE 子句中加入变量值</p>
+</li>
+</ul>
+<h2 id="6-8-案例学习"><a href="#6-8-案例学习" class="headerlink" title="6.8 案例学习"></a>6.8 案例学习</h2><p>推荐了一本书叫SQL Antipatterns，一本实践型的书籍。</p>
+<h3 id="6-8-1-使用MySQL构建一个队列表"><a href="#6-8-1-使用MySQL构建一个队列表" class="headerlink" title="6.8.1 使用MySQL构建一个队列表"></a>6.8.1 使用MySQL构建一个队列表</h3><p>总结：</p>
+<ul>
+<li><p>尽量少做事，可以的话不要做任何事情</p>
+</li>
+<li><p>尽可能快地完成需要做的事情，尽量使用UPDATE 代替先 SELECT FOR UPDATE再UPDATE的写法，因为事务提交的速度越快，持有锁的时间就越短。</p>
+</li>
+<li><p>某些查询是无法优化的。考虑使用不同的查询或者不同的策略去实现相同的目的。</p>
+</li>
+</ul>
+<h3 id="6-8-2-计算两点之间的距离"><a href="#6-8-2-计算两点之间的距离" class="headerlink" title="6.8.2 计算两点之间的距离"></a>6.8.2 计算两点之间的距离</h3><p>优化策略同上</p>
+<h3 id="6-8-3-使用用户自定义函数"><a href="#6-8-3-使用用户自定义函数" class="headerlink" title="6.8.3 使用用户自定义函数"></a>6.8.3 使用用户自定义函数</h3><p>编写一个用户自定义函数，通过简单的网络通信协议和一个运行在通用服务器上的后台程序进行交互，并且会外界完全透明。</p>
+<h2 id="6-9-总结"><a href="#6-9-总结" class="headerlink" title="6.9 总结"></a>6.9 总结</h2><p>优化通常需要三管齐下：不做，少做，快速地做。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/高性能mysql第五章/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -3424,159 +3854,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/29/移位运算/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="yaoxianzhuang">
-      <meta itemprop="description" content="where is this place ?">
-      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="十二遥的破碎维度">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/29/移位运算/" itemprop="url">
-                  移位运算
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-
-              
-                
-              
-
-              <time title="Created: 2018-08-29 17:39:30 / Modified: 17:41:37" itemprop="dateCreated datePublished" datetime="2018-08-29T17:39:30+08:00">2018-08-29</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>逻辑左移时，最高位丢失，最低位补0；</p>
-<p>逻辑右移时，最高位补0，最低位丢失；</p>
-<p>算术左移时，依次左移一位，尾部补0，最高的符号位保持不变。</p>
-<p>算术右移时，依次右移一位，尾部丢失，符号位右移后，原位置上复制一个符号位；</p>
-<p>循环左移时，将最高位重新放置最低位</p>
-<p>循环右移时，将最低位重新放置最高位</p>
-<p>例如：</p>
-<p>1010100010101  </p>
-<p>逻辑左移一位结果为 0101000101010</p>
-<p>逻辑右移一位结果为 0101010001010</p>
-<p>算术左移一位结果为 1101000101010</p>
-<p>算术右移一位结果为 1101010001010</p>
-<p>循环左移一位结果为 0101000101011</p>
-<p>循环右移一位结果为 1101010001010</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -3628,7 +3905,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>
