@@ -311,6 +311,1163 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/09/PHP实现十大经典排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yaoxianzhuang">
+      <meta itemprop="description" content="where is this place ?">
+      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="十二遥的破碎维度">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/09/PHP实现十大经典排序/" itemprop="url">
+                  PHP实现十大经典排序
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-09 13:50:48" itemprop="dateCreated datePublished" datetime="2018-09-09T13:50:48+08:00">2018-09-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-09-12 17:32:41" itemprop="dateModified" datetime="2018-09-12T17:32:41+08:00">2018-09-12</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><h3 id="时间频度"><a href="#时间频度" class="headerlink" title="时间频度"></a>时间频度</h3><blockquote>
+<p>一个算法执行所耗费的时间，从理论上是不能算出来的，必须上机运行测试才能知道。但我们不可能也没有必要对每个算法都上机测试，只需知道哪个算法花费的时间多，哪个算法花费的时间少就可以了。并且每个算法花费的时间与算法中语句的执行次数成正比，哪个算法中语句执行次数多，它花费时间就多。一个算法中的语句执行次数称为语句频度或时间频度，记为T(n)。</p>
+</blockquote>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h3><blockquote>
+<p>在时间频度中，n称为问题的规模，当n不断变化时，时间频度T(n)也会不断变化。但有时我们想知道它变化时呈现什么规律，为此，我们引入时间复杂度概念。一般情况下，算法中基本操作重复执行的次数是问题规模n的某个函数，用T(n)表示，若有某个辅助函数f(n)，使得当n趋近于无穷大时，T(n) / f(n) 的极限值为不等于零的常数，则称f(n)是T(n)的同数量级函数。记作T(n) = O( f(n) )，称O( f(n) )为算法的渐进时间复杂度，简称时间复杂度。</p>
+</blockquote>
+<blockquote>
+<p>在计算时间复杂度的时候，先找出算法的基本操作，然后根据相应的各语句确定它的执行次数，再找出T(n)的同数量级（它的同数量级有以下：1，log2n, n, nlog2n, n2，n3，2n，n!），找出后，f(n) = 该数量级，若 T(n) / f(n)求极限可得到一常数c，则时间复杂度T(n) = O( f(n) )。</p>
+</blockquote>
+<p>计算方法：</p>
+<p>[1] 如果算法的执行时间不随着问题规模n的增加而增长，即使算法中有上千条语句，其执行时间也不过是一个较大的常数。此类算法的时间复杂度是O(1)。</p>
+<p>[2] 当有若干个循环语句时，算法的时间复杂度是由嵌套层数最多的循环语句中最内层频度f(n)决定的。</p>
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h3><blockquote>
+<p>一个程序的空间复杂度是指运行完一个程序所需内存的大小。利用程序的空间复杂度，可以对程序的运行所需要的内存多少有个预先估计。一个程序执行时除了需要存储空间和存储本身所使用的指令、常数、变量和输入数据外，还需要一些对数据进行操作的工作单元和存储一些为现实计算所需信息的辅助空间。</p>
+</blockquote>
+<p>程序执行时所需存储空间包括以下两部分：</p>
+<p>[1] 固定部分。这部分空间的大小与输入/输出的数据的个数多少、数值无关。主要包括指令空间（即代码空间）、数据空间（常量、简单变量）等所占的空间。这部分属于静态空间。</p>
+<p>[2] 可变空间。这部分空间主要包括动态分配的空间，以及递归栈所需的空间等。这部分的空间大小与算法有关。一个算法所需的存储空间用f(n)表示。S(n) = O( f(n) ) 其中n为问题的规模，S(n) 表示空间复杂度。</p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><blockquote>
+<p>排序算法可以分为内部排序和外部排序，内部排序是数据记录在内存中进行排序，而外部排序是指在排序期间全部对象太多，不能同时存放在内存中，必须根据排序过程的要求，不断在内，外存间移动的排序。常见的内部排序算法有：插入排序、希尔排序、选择排序、冒泡排序、归并排序、快速排序、堆排序、基数排序等。</p>
+</blockquote>
+<p>用一张图概括：</p>
+<p><img src="https://www.yduba.com/public/upload/images/2017-01-25/1485350382367553.png" alt=""></p>
+<p><a href="https://www.yduba.com/biancheng-5692581293.html" target="_blank" rel="noopener">参考</a></p>
+<h3 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h3><p>冒泡排序是一种简单直观的排序算法，它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。</p>
+<p>作为最简单的排序算法之一，冒泡排序给我的感觉就像 Abandon 在单词书里出现的感觉一样，每次都在第一页第一位，所以最熟悉。冒泡排序还有一种优化算法，就是立一个 flag，当在一趟序列遍历中元素没有发生交换，则证明该序列已经有序。但这种改进对于提升性能来说并没有什么太大作用。</p>
+<h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li><p>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</p>
+</li>
+<li><p>对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对。在这一点，最后的元素应该会是最大的数。</p>
+</li>
+<li><p>针对所有的元素重复以上的步骤，除了最后一个。</p>
+</li>
+<li><p>持续每次对越来越少的元素重复上面的步骤，直到没有任何一对数字需要比较。</p>
+</li>
+</ol>
+<h4 id="效率分析"><a href="#效率分析" class="headerlink" title="效率分析"></a>效率分析</h4><p>若文件的初始状态是正序的，一趟扫描即可完成排序。所需的关键字比较次数C和记录移动次数M均达到最小值：Cmin = n - 1,  Mmin = 0，所以，冒泡排序最好的时间复杂度为O(n)。</p>
+<p>若初始文件是反序的，需要进行n-1趟排序。每趟排序要进行 n-i 次关键字的比较(1 ≤ i ≤ n-1)，且每次比较都必须移动记录三次来达到交换记录位置。在这种情况下，比较和移动次数均达到最大值：</p>
+<p>Cmax = n(n-1)/2 = O(n²)</p>
+<p>Mmax = 3n(n-1)/2 = O(n²)</p>
+<p>冒泡排序的最坏时间复杂度为O(n²)，综上，因此冒泡排序总的平均时间复杂度为O(n²)。</p>
+<h4 id="算法稳定性"><a href="#算法稳定性" class="headerlink" title="算法稳定性"></a>算法稳定性</h4><p>冒泡排序就是把小的元素往前调或者把大的元素往后调。比较是相邻的两个元素比较，交换也发生在这两个元素之间。所以，如果两个元素相等，我想你是不会再无聊地把他们交换一下的；如果两个相等的元素没有相邻，那么即使通过前面的两两交换把两个相邻起来，这时候也不会交换，所以相同元素的前后顺序并没有改变，所以冒泡排序是一种稳定排序算法。</p>
+<h4 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function bubbleSort(array $numbers = array())</span><br><span class="line">&#123;</span><br><span class="line">    $count = count( $numbers );</span><br><span class="line">    if( $count &lt;= 1 ) return $numbers;</span><br><span class="line"></span><br><span class="line">    for( $i = 0; $i &lt; $count-1; $i ++ )</span><br><span class="line">    &#123;</span><br><span class="line">        for( $j = 0; $j &lt; $count-$i-1; $j ++ )</span><br><span class="line">	&#123;</span><br><span class="line">	    if( $numbers[$j] &gt; $numbers[$j + 1] )</span><br><span class="line">	    &#123;</span><br><span class="line">	    	$temp = $numbers[$j];</span><br><span class="line">		$numbers[$j] = $numbers[$j + 1];</span><br><span class="line">		$numbers[$j + 1] = $temp;</span><br><span class="line">	    &#125;</span><br><span class="line">	&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return $numbers;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>选择排序是一种简单直接的排序算法。它的工作原理如下，首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p>
+<p>选择排序的主要优点与数据移动有关。如果某个元素位于正确的最终位置上，则它不会被移动。选择排序每次交换一对元素，它们当中至少有一个将被移动到其最终位置上，因此对n个元素进行排序总共进行至多n-1次交换。在所有的完全依靠交换去移动元素的排序方法中，选择排序属于好的一种。</p>
+<h4 id="算法步骤-1"><a href="#算法步骤-1" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li><p>首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置</p>
+</li>
+<li><p>再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。</p>
+</li>
+<li><p>重复第二步，直到所有元素均排序完毕。</p>
+</li>
+</ol>
+<h4 id="效率分析-1"><a href="#效率分析-1" class="headerlink" title="效率分析"></a>效率分析</h4><p>在选择排序中，共需要进行n-1次选择和交换，每次选择需要进行 n-i 次比较(1 &lt;= i &lt;= n-1)，而每次交换最多需要3次移动，因此，总的比较次数 C = n (n - 1) / 2。</p>
+<p>交换次数为O(n)，最好情况是，已经有序，交换0次；最坏情况是，逆序，交换n-1次。交换次数比冒泡排序较少，由于交换所需CPU时间比冒泡排序所需的CPU时间多，n值较小时，选择排序比冒泡排序快。</p>
+<p>原地操作几乎是选择排序的唯一优点，当空间复杂度要求较高时，可以考虑选择排序；实际适用的场合非常罕见。</p>
+<h4 id="算法稳定性-1"><a href="#算法稳定性-1" class="headerlink" title="算法稳定性"></a>算法稳定性</h4><p>选择排序是给每个位置选择当前元素最小的，比如给第一个位置选择最小的，在剩余元素里面给第二个元素选择第二小的，依次类推，直到第n-1个元素，第n个 元素不用选择了，因为只剩下它一个最大的元素了。<br>那么，在一趟选择，如果当前元素比一个元素小，而该小的元素又出现在一个和当前元素相等的元素后面，那么交换后稳定性就被破坏了。<br>比较拗口，举个例子，序列5 8 5 2 9， 我们知道第一遍选择第1个元素5会和2交换，那么原序列中2个5的相对前后顺序就被破坏了，所以选择排序不是一个稳定的排序算法。</p>
+<h4 id="代码实现-1"><a href="#代码实现-1" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">function selectSort(array $numbers = array())</span><br><span class="line">&#123;</span><br><span class="line">    $count = count( $numbers );</span><br><span class="line">    if( $count &lt;= 1 ) return $numbers;</span><br><span class="line"></span><br><span class="line">    for($i = 0; $i &lt; $count-1; $i ++)</span><br><span class="line">    &#123;</span><br><span class="line">	$min = $i;</span><br><span class="line"></span><br><span class="line">	for( $j = $i+1; $j &lt; $count; $j ++)</span><br><span class="line">	&#123;</span><br><span class="line">    	    if( $numbers[$min] &gt; $numbers[$j] )</span><br><span class="line">	    &#123;</span><br><span class="line">	        $min = $j;</span><br><span class="line">            &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	if( $min != $i )</span><br><span class="line">	&#123;</span><br><span class="line">	    $temp = $numbers[$min];</span><br><span class="line">	    $numbers[$min] = $numbers[$i];</span><br><span class="line">	    $numbers[$i] = $temp;</span><br><span class="line">	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line">    return $numbers;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><p>插入排序是一种简单直观的排序算法。它的工作原理是通过构建有序序列，对于未排序数据，在已排序序列中从后向前扫描，找到相应位置插入。<br>插入排序在实现上，通常采用in-place排序（即只需要用到O(1)的额外空间的排序），因而在从后向前扫描过程中，需要反复把已排序元素逐步向后挪位，<br>为最新元素提供插入空间。</p>
+<h4 id="算法步骤-2"><a href="#算法步骤-2" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li><p>从第一个元素开始，该元素可以认为已经被排序</p>
+</li>
+<li><p>取出下一个元素，在已经排序的元素序列中从后向前扫描</p>
+</li>
+<li><p>如果该元素（已排序大于新元素），将该元素移动到下一位置</p>
+</li>
+<li><p>重复步骤3，直到找到已排序的元素小于或者等于新元素的位置</p>
+</li>
+<li><p>将新元素插入到该位置后</p>
+</li>
+<li><p>重复步骤2~5</p>
+</li>
+</ol>
+<h4 id="效率分析-2"><a href="#效率分析-2" class="headerlink" title="效率分析"></a>效率分析</h4><p>如果目标是把n个元素的序列升级排序，那么采用插入排序存在最好情况和最坏情况。最好情况就是，序列已经是升序排列了，在这种情况下，<br>需要进行的比较操作需（n-1）次即可。最坏的情况就是，序列是降序排列，那么此时需要进行的比较共有1/2 * n(n-1)次。<br>插入排序的赋值操作是比较操作的次数加上(n-1)次。平均来说插入排序算法复杂度为O(n2)。因而，插入排序不适合对于数据量比较大的排序应用。<br>但是，如果需要排序的数据量很小，例如，量级小于千，那么插入排序还是一个不错的选择。插入排序在工业级库中也有着广泛的应用，<br>在STL的sort算法和stdlib的qsort算法中，都将插入排序作为快速排序的补充，用于少量元素的排序。</p>
+<h4 id="算法稳定性-2"><a href="#算法稳定性-2" class="headerlink" title="算法稳定性"></a>算法稳定性</h4><p>插入排序是在一个已经有序的小序列的基础上，一次插入一个元素。当然，刚开始这个有序的小序列只有1个元素，就是第一个元素。比较是从有序序列的末尾开始，<br>也就是想要插入的元素和已经有序的最大者开始比起，如果比它大则直接插入在其后面，否则一直往前找直到找到它该插入的位置。如果碰见一个和插入元素相等的，<br>那么插入元素把想插入的元素放在相等元素的后面。所以，相等元素的前后顺序没有改变，从原无序序列出去的顺序就是排好序后的顺序，所以插入排序是稳定的。</p>
+<h4 id="代码实现-2"><a href="#代码实现-2" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function insertionSort(array $numbers = array())</span><br><span class="line">&#123;</span><br><span class="line">    $count = count( $numbers );</span><br><span class="line">    if( $count &lt;= 1 ) return $numbers;</span><br><span class="line"></span><br><span class="line">    for($i = 1; $i &lt; $count; $i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        $temp = $numbers[$i];</span><br><span class="line">        for($j = $i-1; $j &gt;= 0 &amp;&amp; $numbers[$j] &gt; $temp; $j --)</span><br><span class="line">        &#123;</span><br><span class="line">            $numbers[$j+1] = $numbers[$j];</span><br><span class="line">        &#125;</span><br><span class="line">        $numbers[$j+1] = $temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return $numbers;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h3><p>希尔排序是插入排序的一种，也称缩小增加排序，是直接插入排序算法的一种更高效的改进版本。希尔排序是非稳定排序算法。该方法因DL.Shell于1959年提出而得名。</p>
+<p>该方法的基本思想是：先将整个待排元素序列分割成若干个子序列（由相隔某个“增量”的元素组成的）分别进行直接插入排序，然后依次缩减增量再进行排序，<br>待整个序列中的元素基本有序（增量足够小）时，再对全体元素进行一次直接插入排序。因为直接插入排序在元素基本有序的情况下（接近最好情况），<br>效率是很高的，因此希尔排序在时间效率上比前两种方法有较大提高。</p>
+<h4 id="算法步骤-3"><a href="#算法步骤-3" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li><p>取增量，一般取数组长度 / 2；</p>
+</li>
+<li><p>按增量取得一个子数列，对子数列按插入排序的方式处理；</p>
+</li>
+<li><p>将增量递减，重复1，2步骤；</p>
+</li>
+<li><p>直至增量均为0，数列已经排好序；</p>
+</li>
+</ol>
+<h4 id="效率分析-3"><a href="#效率分析-3" class="headerlink" title="效率分析"></a>效率分析</h4><p>希尔排序是按照不同步长对元素进行插入排序，当刚开始元素很无序的时候，步长最大，所以插入排序的元素个数很少，速度很快；<br>当元素基本有序了，步长很小，插入排序对于有序的序列效率很高。所以，希尔排序的时间复杂度会比O(n2)好一些。</p>
+<h4 id="算法稳定性-3"><a href="#算法稳定性-3" class="headerlink" title="算法稳定性"></a>算法稳定性</h4><p>希尔排序是按照不同步长对元素进行插入排序，当刚开始元素很无序的时候，步长最大，所以插入排序的元素个数很少，速度很快；<br>当元素基本有序了，步长很小， 插入排序对于有序的序列效率很高。所以，希尔排序的时间复杂度会比O(n2)好一些。<br>由于多次插入排序，我们知道一次插入排序是稳定的，不会改变相同元 素的相对顺序，但在不同的插入排序过程中，相同的元素可能在各自的插入排序中移动，<br>最后其稳定性就会被打乱，所以shell排序是不稳定的。</p>
+<h4 id="代码实现-3"><a href="#代码实现-3" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">function shellSort(array $numbers=array())</span><br><span class="line">&#123;</span><br><span class="line">    $count = count( $numbers );</span><br><span class="line">    if( $count &lt;= 1 ) return $numbers;</span><br><span class="line"></span><br><span class="line">    for($gap = floor($count/2); $gap &gt; 0; $gap = floor($gap/=2))</span><br><span class="line">    &#123;</span><br><span class="line">        for($i=$gap; $i&lt;$count; ++$i)</span><br><span class="line">        &#123;</span><br><span class="line">            for($j = $i-$gap; $j &gt;= 0 &amp;&amp; $numbers[$j+$gap] &lt; $numbers[$j]; $j = $j - $gap)</span><br><span class="line">            &#123;</span><br><span class="line">                $temp = $numbers[$j];</span><br><span class="line">                $numbers[$j] = $numbers[$j+$gap];</span><br><span class="line">                $numbers[$j+$gap] = $temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return $numbers;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><p>归并排序是建立在归并操作上的一种有效的排序算法，该算法是采用分治法（Divide and Conquer）的一个非常典型的应用。<br>将已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。若将两个有序表合并成一个有序有，称为二路归并。</p>
+<p>归并过程为：比较a[i]和a[j]的大小，若a[i]≤a[j]，则将第一个有序表中的元素a[i]复制到r[k]中，并令i和k分别加上1；<br>否则将第二个有序表中的元素a[j]复制到r[k]中，并令j和k分别加上1，如此循环下去，直到其中一个有序表取完，<br>然后再将另一个有序表中剩余的元素复制到r中从下标k到下标t的单元。归并排序的算法我们通常用递归实现，先把待排序区间[s,t]以中点二分，<br>接着把左边子区间排序，再把右边子区间排序，最后把左区间和右区间用一次归并操作合并成有序的区间[s,t]。</p>
+<h4 id="算法步骤-4"><a href="#算法步骤-4" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li><p>申请空间，使其大小为两个已经排序序列之和，该空间用来存放合并后的序列；</p>
+</li>
+<li><p>设定两个指针（即数组下标），最初位置分别为两个已经排序序列的起始位置；</p>
+</li>
+<li><p>比较两个指针所指向的元素，选择相对小的元素放入到合并空间，并移动指针到一下位置；</p>
+</li>
+<li><p>重复步骤3直到某一指针达到序列尾；</p>
+</li>
+<li><p>将另一序列剩下的所有元素直接复制到合并序列尾。</p>
+</li>
+</ol>
+<h4 id="效率分析-4"><a href="#效率分析-4" class="headerlink" title="效率分析"></a>效率分析</h4><p>归并排序的效率是比较高的，设数列长为N，将数列分开成小数列一共要logN步，每步都是一个合并有序数列的过程，时间复杂度可以记为O(N)，故一共为O(n <em> logn)。<br>因为归并排序每次都是在相邻的数据中进行操作，所以归并排序在O(N </em> logN)的几种排序方法（快速排序，归并排序，希尔排序，堆排序）也是效率比较高的。</p>
+<h4 id="算法稳定性-4"><a href="#算法稳定性-4" class="headerlink" title="算法稳定性"></a>算法稳定性</h4><p>归并排序是把序列递归地分成短序列，递归出口是短序列只有1个元素(认为直接有序)或者2个序列(1次比较和交换),然后把各个有序的段序列合并成一个有序的长序列，<br>不断合并直到原序列全部排好序。可以发现，在1个或2个元素时，1个元素不会交换，2个元素如果大小相等也没有人故意交换，这不会破坏稳定 性<br>。那么，在短的有序序列合并的过程中，稳定是是否受到破坏？没有，合并过程中我们可以保证如果两个当前元素相等时，我们把处在前面的序列的元素保存在结果序列的前面，<br>这样就保证了稳定性。所以，归并排序也是稳定的排序算法。</p>
+<h4 id="代码实现-4"><a href="#代码实现-4" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">function mergeSort(array $numbers=array()) </span><br><span class="line">&#123;</span><br><span class="line">    $count = count( $numbers );</span><br><span class="line">    if( $count &lt;= 1 ) return $numbers;</span><br><span class="line"></span><br><span class="line">    // 将数组分成两份 $half = ceil( $count / 2 );</span><br><span class="line">    $half  = ($count &gt;&gt; 1) + ($count &amp; 1);</span><br><span class="line">    $arr2d = array_chunk($numbers, $half);</span><br><span class="line"></span><br><span class="line">    $left  = mergeSort($arr2d[0]);</span><br><span class="line">    $right = mergeSort($arr2d[1]);</span><br><span class="line"></span><br><span class="line">    while (count($left) &amp;&amp; count($right))</span><br><span class="line">    &#123;</span><br><span class="line">        if ($left[0] &lt; $right[0])</span><br><span class="line">            $reg[] = array_shift($left);</span><br><span class="line">        else</span><br><span class="line">            $reg[] = array_shift($right);</span><br><span class="line">    &#125;</span><br><span class="line">    return array_merge($reg, $left, $right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>快速排序，又称划分交换排序，一种排序算法，最早由东尼·霍尔提出。在平均状况下，排序n个项目要O(n log n)次比较。在最坏状况下则需要O(n2)次比较，<br>但这种状况并不常见。事实上，快速排序通常明显比其他O(n log n)算法更快，因为它的内部循环（inner loop）可以在大部分的架构上很有效率地被实现出来。</p>
+<h4 id="算法步骤-5"><a href="#算法步骤-5" class="headerlink" title="算法步骤"></a>算法步骤</h4><p>快速排序使用分治法策略来把一个序列分为两个子序列，步骤：</p>
+<ol>
+<li><p>从数列中挑出一个元素，称为”基准”。</p>
+</li>
+<li><p>重新排序数列，所有元素比基准值小的摆放在基准前面，所有元素比基准值大的摆在基准的后面（相同的数可以到任一边）。在这个分区结束之后，该基准就处于数列的中间位置。这个称为分区操作。</p>
+</li>
+<li><p>递归地把小于基准值元素的子数列和大于基准值元素的子数列排序。</p>
+</li>
+</ol>
+<p>递归的最底部情形，是数列的大小是零或一，也就是永远都已经被排序好了。虽然一直递归下去，但是这个算法总会结束，因为在每次的迭代中，<br>它至少会把一个元素摆到它最后的位置去。</p>
+<h4 id="效率分析-5"><a href="#效率分析-5" class="headerlink" title="效率分析"></a>效率分析</h4><p>从一开始快速排序平均需要花费O(n log n)时间的描述并不明显。但是不难观察到的是分区运算，数组的元素都会在每次循环中走访过一次，使用O(n)的时间。在使用结合的版本中，这项运算也是O(n)。</p>
+<p>在最好的情况，每次我们运行一次分区，我们会把一个数列分为两个几近相等的片段。这个意思就是每次递归调用处理一半大小的数列。因此，在到达大小为一的数列前，<br>我们只要作log n次嵌套的调用。这个意思就是调用树的深度是O(log n)。但是在同一层次结构的两个程序调用中，不会处理到原来数列的相同部分；<br>因此，程序调用的每一层次结构总共全部仅需要O(n)的时间（每个调用有某些共同的额外耗费，但是因为在每一层次结构仅仅只有O(n)个调用，这些被归纳在O(n)系数中）。<br>结果是这个算法仅需使用O(n log n)时间。</p>
+<p>另外一个方法是为T(n)设立一个递归关系式，也就是需要排序大小为n的数列所需要的时间。在最好的情况下，因为一个单独的快速排序调用牵涉了O(n)的工作，加上对n/2大小之数列的两个递归调用，这个关系式可以是：</p>
+<p>T(n) = O(n) + 2T(n/2) </p>
+<p>解决这种关系式类型的标准数学归纳法技巧告诉我们T(n) = O(n log n)。</p>
+<p>事实上，并不需要把数列如此精确地分区；即使如果每个基准值将元素分开为99%在一边和1%在另一边，调用的深度仍然限制在100logn，所以全部运行时间依然是O(n log n)。</p>
+<p>然而，在最坏的情况是，两子数列拥有大各为1和n-1，且调用树变成为一个n个嵌套调用的线性连串。第i次调用作了O(n-i)的工作量，且 ∑i = 0n(n - i) = O(n2)递归关系式为：</p>
+<p>T(n) = O(n) + T(1) + T(n - 1) = O(n) + T(n - 1)</p>
+<p>这与插入排序和选择排序有相同的关系式，以及它被解为T(n) = O(n2)。</p>
+<h4 id="算法稳定性-5"><a href="#算法稳定性-5" class="headerlink" title="算法稳定性"></a>算法稳定性</h4><p>快速排序有两个方向，左边的i下标一直往右走，当a[i] &lt;= a[center_index]，其中center_index是中枢元素的数组下标，一般取为数组第0个元素。<br>而右边的j下标一直往左走，当a[j] &gt; a[center_index]。如果i和j都走不动了，i &lt;= j, 交换a[i]和a[j],重复上面的过程，直到i&gt;j。<br>交换a[j]和a[center_index]，完成一趟快速排序。在中枢元素和a[j]交换的时候，很有可能把前面的元素的稳定性打乱，比如序列为 5 3 3 4 3 8 9 10 11，<br>现在中枢元素5和3(第5个元素，下标从1开始计)交换就会把元素3的稳定性打乱，所以快速排序是一个不稳定的排序算法，不稳定发生在中枢元素和a[j] 交换的时刻。</p>
+<h4 id="代码实现-5"><a href="#代码实现-5" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">function quickSort(array $numbers=array()) </span><br><span class="line">&#123;</span><br><span class="line">    $count = count( $numbers );</span><br><span class="line">    if( $count &lt;= 1 ) return $numbers;</span><br><span class="line"></span><br><span class="line">    $left = $right = array();</span><br><span class="line">    $mid_value = $numbers[0];</span><br><span class="line"></span><br><span class="line">    for ($i = 1; $i &lt; $count; $i++)</span><br><span class="line">    &#123;</span><br><span class="line">        if ($numbers[$i] &lt; $mid_value)</span><br><span class="line">            $left[]  = $numbers[$i];</span><br><span class="line">        else</span><br><span class="line">            $right[] = $numbers[$i];</span><br><span class="line">    &#125;</span><br><span class="line">    return array_merge(quickSort($left), (array)$mid_value, quickSort($right));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h3><p>堆排序是指利用堆积树（堆）这种数据结构所设计的一种排序算法，它是选择排序的一种。可以利用数组的特点快速定位指定索引的元素。堆分为大根堆和小根堆，<br>是完全二叉树。大根堆的要求是每个节点的值都不大于其父节点的值，即<strong>A[PARENT[i]] &gt;= A[i]</strong>。在数组的非降序排序中，需要使用的就是大根堆，<br>因为根据大根堆的要求可知，最大的值一定在堆顶。</p>
+<h4 id="算法步骤-6"><a href="#算法步骤-6" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li><p>创建一个堆 H[0…n-1]；</p>
+</li>
+<li><p>把堆首（最大值）和堆尾互换；</p>
+</li>
+<li><p>把堆的尺寸缩小1，并调用 shift_down(0)，目的是把新的数组顶端数据调整到相应位置；</p>
+</li>
+<li><p>重复步骤 2，直到堆的尺寸为 1；</p>
+</li>
+</ol>
+<h4 id="效率分析-6"><a href="#效率分析-6" class="headerlink" title="效率分析"></a>效率分析</h4><p>堆排序的时间，主要由建立初始堆和反复重建堆这两部分的时间开销构成，它们均是通过调用Heapify实现的。</p>
+<p>平均性能 ：O(n * logn)</p>
+<p>其他性能 ：由于建初始堆所需的比较次数较多，所以堆排序不适宜于记录数较少的文件。</p>
+<h4 id="算法稳定性-6"><a href="#算法稳定性-6" class="headerlink" title="算法稳定性"></a>算法稳定性</h4><p>我们知道堆的结构是节点i的孩子为2<em>i和2</em>i+1节点，大顶堆要求父节点大于等于其2个子节点，小顶堆要求父节点小于等于其2个子节点。<br>在一个长为n 的序列，堆排序的过程是从第n/2开始和其子节点共3个值选择最大(大顶堆)或者最小(小顶堆),这3个元素之间的选择当然不会破坏稳定性。<br>但当为n /2-1, n/2-2, …1这些个父节点选择元素时，就会破坏稳定性。有可能第n/2个父节点交换把后面一个元素交换过去了，<br>而第n/2-1个父节点把后面一个相同的元素没 有交换，那么这2个相同的元素之间的稳定性就被破坏了。所以，堆排序不是稳定的排序算法。</p>
+<h4 id="代码实现-6"><a href="#代码实现-6" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">function swap(&amp;$x, &amp;$y) </span><br><span class="line">&#123;</span><br><span class="line">    $t = $x;</span><br><span class="line">    $x = $y;</span><br><span class="line">    $y = $t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function max_heapify(&amp;$arr, $start, $end)</span><br><span class="line">&#123;</span><br><span class="line">    // 建立父节点指标和子节点指标</span><br><span class="line">    $dad = $start;</span><br><span class="line">    $son = $dad * 2 + 1;</span><br><span class="line">    if ($son &gt;= $end) //若子节点指标超过范围直接跳出函数</span><br><span class="line">        return;</span><br><span class="line">        </span><br><span class="line">	// 先比较两个子节点大小，选择最大的</span><br><span class="line">    if ($son + 1 &lt; $end &amp;&amp; $arr[$son] &lt; $arr[$son + 1])</span><br><span class="line">        $son++;</span><br><span class="line"></span><br><span class="line">    // 如果父节点小于子节点时，交换父子内容再继续子节点和孙节点比较</span><br><span class="line">    if ($arr[$dad] &lt;= $arr[$son]) </span><br><span class="line">    &#123;</span><br><span class="line">        swap($arr[$dad], $arr[$son]);</span><br><span class="line">        max_heapify($arr, $son, $end);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function heap_sort($arr) </span><br><span class="line">&#123;</span><br><span class="line">    $len = count($arr);</span><br><span class="line"></span><br><span class="line">    //初始化，i从最后一个父节点开始调整</span><br><span class="line">    for ($i = $len / 2 - 1; $i &gt;= 0; $i--)</span><br><span class="line">        max_heapify($arr, $i, $len);</span><br><span class="line"></span><br><span class="line">    //先将第一个元素和已排好元素前一位做交换，再从新调整，直到排序完毕</span><br><span class="line">    for ($i = $len - 1; $i &gt; 0; $i--) </span><br><span class="line">    &#123;</span><br><span class="line">        swap($arr[0], $arr[$i]);</span><br><span class="line">        max_heapify($arr, 0, $i);</span><br><span class="line">    &#125;</span><br><span class="line">    return $arr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h3><p>计数排序是一个非基于比较的排序算法，该算法于1954年由 Harold H. Seward 提出。它的优势在于对一定范围内的整数排序时，<br>它的复杂度为O(n+k)（其中k是整数的范围），快于任何比较排序算法。当然这是一种牺牲空间换取时间的做法，而且当O(k)&gt;O(n<em>log(n))的时候其效率<br>反而不如基于比较的排序（基于比较的排序的时间复杂度在理论上的下限是O(n</em>log(n))，如归并排序，堆排序）</p>
+<h4 id="算法步骤-7"><a href="#算法步骤-7" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li><p>找出待排序的数组中最大和最小的元素；</p>
+</li>
+<li><p>统计数组中每个值为i的元素出现的次数，存入数组 C 的第 i 项；</p>
+</li>
+<li><p>依次统计出C[i]表示数组中小于等于i的元素出现的个数；</p>
+</li>
+<li><p>从带排序列A的最后一个元素开始，将A[i]放到正确的位置（从后往前保证了排序的稳定性）。即前面又几个元素小于等于它，它就放在第几个位置。</p>
+</li>
+</ol>
+<h4 id="效率分析-7"><a href="#效率分析-7" class="headerlink" title="效率分析"></a>效率分析</h4><p>由计数排序的代码实现可以看出，计数排序总的时间代价为O(k+n)。在实际工作中，当k=O(n)时，我们一般会采用计数排序，这时的运行时间为O(n)。</p>
+<p>计数排序需要两个额外的数组用来对元素进行计数和保存排序的输出结果，所以空间复杂度为O(k+n)。</p>
+<h4 id="算法稳定性-7"><a href="#算法稳定性-7" class="headerlink" title="算法稳定性"></a>算法稳定性</h4><p>计数排序的一个重要性质是它是稳定的：具有相同值的元素在输出数组中的相对次序与它们在输入数组中的相对次序是相同的。也就是说，对两个相同的数来说，<br>在输入数组中先出现的数，在输出数组中也位于前面。</p>
+<p>计数排序的稳定性很重要的一个原因是：计数排序经常会被用于基数排序算法的一个子过程。我们将在下一篇文章中介绍，为了使基数排序能够正确运行，计数排序必须是稳定的。</p>
+<h4 id="代码实现-7"><a href="#代码实现-7" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">function countingSort(array $numbers=array()) </span><br><span class="line">&#123;</span><br><span class="line">    $count = count( $numbers );</span><br><span class="line">    if( $count &lt;= 1 ) return $numbers;</span><br><span class="line"></span><br><span class="line">    // 找出待排序的数组中最大值和最小值</span><br><span class="line">    $min = min($numbers);</span><br><span class="line">    $max = max($numbers);</span><br><span class="line"></span><br><span class="line">    // 计算待排序的数组中每个元素的个数</span><br><span class="line">    $count_array = array();</span><br><span class="line">    for($i = $min; $i &lt;= $max; $i++)</span><br><span class="line">    &#123;</span><br><span class="line">    	$count_array[$i] = 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    foreach($numbers as $v)</span><br><span class="line">    &#123;</span><br><span class="line">    	$count_array[$v] = $count_array[$v] + 1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $ret = array();</span><br><span class="line">    foreach ($count_array as $k=&gt;$c) </span><br><span class="line">    &#123;</span><br><span class="line">    	for($i = 0; $i &lt; $c; $i++)</span><br><span class="line">    	&#123;</span><br><span class="line">    		$ret[] = $k;</span><br><span class="line">    	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return $ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h3><p>桶排序或所谓的箱排序的原理是将数组分到有限数量的桶子里，然后对每个桶子再分别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排序），<br>最后将各个桶中的数据有序的合并起来。</p>
+<p>假设有一组长度为N的待排序关键字序列K[1…n]。首先将这个序列划分成M个的子区间（桶）。然后基于某种映射函数，<br>将待排序序列的关键字K映射到第i个桶中（即桶数组B的下标i），那么该关键字k就作用B[i]中的元素（每个桶B[i]都是一组大小为N/M的序列）。<br>接着对每个桶B[i]中的所有元素进行比较排序（可以使用快速排序）。然后依次枚举输出B[0]…B[M]中的全部内容即是一个有序序列。</p>
+<p>映射函数：bindex = f(k) 其中，bindex 为桶数组B的下标(即第bindex个桶)，k为待排序列的关键字。桶排序之所以能够高效，其关键在于这个映射函数，<br>它必须做到：如果关键字k1 &lt; k2，那么f(k1) &lt;= f(k2)。也就是说B(i)中的最小数据都要大于B(i-1)中最大数据。很显然，<br>映射函数的确定与数据本身的特点有很大的关系，我们下面举个例子：</p>
+<p>假如待排序列K= {49、 38 、 35、 97 、 76、 73 、 27、 49 }。这些数据全部在1—100之间。因此我们定制10个桶，然后确定映射函数f(k)=k/10。<br>则第一个关键字49将定位到第4个桶中(49/10=4)。依次将所有关键字全部堆入桶中，并在每个非空的桶中进行快速排序后得到如下图所示：</p>
+<p><img src="https://www.yduba.com/public/upload/images/2017-01-25/1485357755137441.gif" alt=""></p>
+<p>对上图只要顺序输出每个B[i]中的数据就可以得到有序序列了。</p>
+<h4 id="算法步骤-8"><a href="#算法步骤-8" class="headerlink" title="算法步骤"></a>算法步骤</h4><ol>
+<li><p>假设待排序的一组数统一的分布在一个范围中，并将这一范围划分成几个子范围，也就是桶。</p>
+</li>
+<li><p>将待排序的一组数，分档规入这些子桶，并将桶中的数据进行排序。</p>
+</li>
+<li><p>将各个桶中的数据有序的合并起来。</p>
+</li>
+</ol>
+<h4 id="效率分析-8"><a href="#效率分析-8" class="headerlink" title="效率分析"></a>效率分析</h4><p>桶排序利用函数的映射关系，减少了几乎所有的比较工作。实际上，桶排序的f(k)值的计算，其作用就相当于快排中划分，已经把大量数据分割成了基本有序的数据块(桶)。<br>然后只需要对桶中的少量数据做先进的比较排序即可。</p>
+<p>对N个关键字进行桶排序的时间复杂度分为两个部分：</p>
+<p>a )、循环计算每个关键字的桶映射函数，这个时间复杂度是O(N)。</p>
+<p>b )、利用先进的比较排序算法对每个桶内的所有数据进行排序，其时间复杂度为∑O(Ni * logNi) 。其中 Ni为第i个桶的数据量。</p>
+<p>很显然，第b部分是桶排序性能好坏的决定因素。尽量减少桶内数据的数量是提高效率的唯一办法(因为基于比较排序的最好平均时间复杂度只能达到O(N*logN)了)。<br>因此，我们需要尽量做到下面两点：</p>
+<p>a )、映射函数f(k)能够将N个数据平均的分配到M个桶中，这样每个桶就有[N/M]个数据量。</p>
+<p>b )、尽量的增大桶的数量。极限情况下每个桶只能得到一个数据，这样就完全避开了桶内数据的“比较”排序操作。 当然，做到这一点很不容易，<br>数据量巨大的情况下，f(k)函数会使得桶集合的数量巨大，空间浪费严重。这就是一个时间代价和空间代价的权衡问题了。</p>
+<p>对于N个待排数据，M个桶，平均每个桶[N/M]个数据的桶排序平均时间复杂度为：O(N)+O(M<em>(N/M)</em>log(N/M))=O(N+N<em>(logN-logM)) = O(N+N</em>logN-N*logM)</p>
+<p>当N=M时，即极限情况下每个桶只有一个数据时。桶排序的最好效率能够达到O(N)。</p>
+<p>总结： 桶排序的平均时间复杂度为线性的O(N+C)，其中C=N*(logN-logM)。如果相对于同样的N，桶数量M越大，其效率越高，最好的时间复杂度达到O(N)。<br>当然桶排序的空间复杂度 为O(N+M)，如果输入数据非常庞大，而桶的数量也非常多，则空间代价无疑是昂贵的。</p>
+<h4 id="算法稳定性-8"><a href="#算法稳定性-8" class="headerlink" title="算法稳定性"></a>算法稳定性</h4><p>桶排序中，假如升序排列，a已经在桶中，b插进来是永远都会a右边的(因为一般是从右到左，如果不小于当前元素，则插入改元素的右侧)，所以桶排序是稳定的。</p>
+<h4 id="代码实现-8"><a href="#代码实现-8" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function bucketSort($max, $array)</span><br><span class="line">&#123;</span><br><span class="line">    //填充木桶</span><br><span class="line">    $arr = array_fill(0, $max+1, 0);</span><br><span class="line">    </span><br><span class="line">    //开始标示木桶</span><br><span class="line">    for($i = 0; $i &lt;= count($array)-1 ; $i++)</span><br><span class="line">    &#123;</span><br><span class="line">        $arr[$array[$i]] ++;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $mutomg = array();</span><br><span class="line">    //开始从木桶中拿出数据</span><br><span class="line">    for($i = 0; $i &lt;= $max; $i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        for($j = 1; $j &lt;= $arr[$i]; $j ++)</span><br><span class="line">        &#123; //这一行主要用来控制输出多个数字</span><br><span class="line">            $mutong[] = $i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return $mutong;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><p>基数排序是一种非比较型整数排序算法，其原理是将整数按位数切割成不同的数字，然后按每个位数分别比较。基数排序的发明可以追溯到 1887 年赫尔曼·何乐礼在打孔卡片制表机 (Tabulation Machine)上的贡献。</p>
+<p>排序过程：将所有待比较数值（正整数）统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后，数列就变成一个有序序列。</p>
+<p>基数排序法会使用到桶，顾名思义，通过将要比较的位（个位、十位、百位…），将要排序的元素分配到0~9个桶中，借以达到排序的作用，在某些时候，基数排序法的效率高于其它的比较性排序法。</p>
+<h4 id="算法步骤-9"><a href="#算法步骤-9" class="headerlink" title="算法步骤"></a>算法步骤</h4><p>基数排序的方式可以采用 LSD (Least sgnificant digital) 或 MSD (Most sgnificant digital)，LSD 的排序方式由键值的最右边开始，而 MSD 则相反，由键值的最左边开始。 以 LSD 为例，假设原来有一串数值如下所示：</p>
+<blockquote>
+<p>36   9   0   25   1   49   64   16   81   4</p>
+</blockquote>
+<p>首先根据个位数的数值，按照个位值等于桶编号的方式，将它们分配至编号0至9的桶子中：</p>
+<p>编号  </p>
+<pre><code>0    1    2    3    4    5    6    7    8   9  
+
+0    1           64    25    36            9
+
+    81            4        16            49
+</code></pre><p>然后，将这些数字按照桶以及桶内部的排序连接起来：</p>
+<blockquote>
+<p>0   1   81   64   4   25   36   16   9   49</p>
+</blockquote>
+<p>接着按照十位的数值，分别对号入座：</p>
+<p>|编号|0|1|2|3|4|5|6|7|8|9|<br>| |0|16|25|36|49||64||81||<br>| |1||||||||||<br>| |4||||||||||<br>| |9||||||||||   </p>
+<p>最后按照次序重现连接，完成排序：</p>
+<blockquote>
+<p>0   1   4   9   16   25   36   49   64   81</p>
+</blockquote>
+<h4 id="效率分析-9"><a href="#效率分析-9" class="headerlink" title="效率分析"></a>效率分析</h4><p>基数排序的时间复杂度是O(k <em> n)，其中n是排序元素个数，k是数字位数。注意这不是说这个时间复杂度一定优于O(n </em> log(n) )，<br>k的大小取决于数字位的选择（比如比特位数），和待排序数据所属数据类型的全集大小；k决定了进行多少轮处理，而n是每轮处理的操作数目。</p>
+<p>以排序n个不同整数来举例，假定这些整数以B为底，这样每位数都有B个不同的数字，k = logBN，N是待排序数据类型全集的势。<br>虽然有B个不同的数字，需要B个不同的桶，但在每一轮处理中，判断每个待排序数据项只需要一次计算确定对应数位的值，<br>因此在每一轮处理的时候都需要平均n次操作来把整数放到合适的桶中去，所以就有：k ≈ logBN ，所以，<br>基数排序的平均时间$T$就是：T ≈ LogB(N) * n其中前一项是一个与输入数据无关的常数，当然该项不一定小于log n。</p>
+<p>如果考虑和比较排序进行对照，基数排序的形式复杂度虽然不一定更小，但由于不进行比较，因此其基本操作的代价较小，<br>而且在适当选择的$B$之下，k一般不大于log n，所以基数排序一般要快过基于比较的排序，比如快速排序。</p>
+<h4 id="算法稳定性-9"><a href="#算法稳定性-9" class="headerlink" title="算法稳定性"></a>算法稳定性</h4><p>基数排序是按照低位先排序，然后收集；再按照高位排序，然后再收集；依次类推，直到最高位。有时候有些属性是有优先级顺序的，先按低优先级排序，<br>再按高优 先级排序，最后的次序就是高优先级高的在前，高优先级相同的低优先级高的在前。基数排序基于分别排序，分别收集，所以其是稳定的排序算法。</p>
+<h4 id="代码实现-9"><a href="#代码实现-9" class="headerlink" title="代码实现"></a>代码实现</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">function GetNumInPos($number, $pos)</span><br><span class="line">&#123;</span><br><span class="line">    $number = strrev( $number );</span><br><span class="line">    return $number[ -- $pos ];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">function LsdRadixSort(array $numbers = array(), $tpos=1) </span><br><span class="line">&#123;</span><br><span class="line">    $count = count( $numbers );</span><br><span class="line">    if( $count &lt;= 1 ) return $numbers;</span><br><span class="line"></span><br><span class="line">    $bucket = array();</span><br><span class="line">    for($i = 0; $i &lt; 10; $i ++)</span><br><span class="line">    &#123;</span><br><span class="line">        $bucket[$i] = array(0);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 由低 $p=1 至高位 $p&lt;=$d 循环排序</span><br><span class="line">    for($p = 1; $p &lt;= $tpos; $p ++) </span><br><span class="line">    &#123;</span><br><span class="line">        // 将对应数据按当前位的数值放入桶里</span><br><span class="line">        for($i = 0; $i &lt; $count; $i ++)</span><br><span class="line">        &#123;</span><br><span class="line">            $n = GetNumInPos($numbers[$i], $p);</span><br><span class="line">            $index = ++ $bucket[$n][0];</span><br><span class="line">            $bucket[$n][$index] = $numbers[$i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        // 收集桶里的数据</span><br><span class="line">        for($i = 0, $j = 0; $i &lt; 10; $i ++) </span><br><span class="line">        &#123;</span><br><span class="line">            for($num = 1; $num &lt;= $bucket[$i][0]; $num ++)</span><br><span class="line">            &#123;</span><br><span class="line">                $numbers[$j++] = $bucket[$i][$num];</span><br><span class="line">            &#125;</span><br><span class="line">            $bucket[$i][0] = 0;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return $numbers;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/MySQL数据库主从同步安装与配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yaoxianzhuang">
+      <meta itemprop="description" content="where is this place ?">
+      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="十二遥的破碎维度">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/07/MySQL数据库主从同步安装与配置/" itemprop="url">
+                  MySQL数据库主从同步安装与配置
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-07 15:27:00 / Modified: 15:44:11" itemprop="dateCreated datePublished" datetime="2018-09-07T15:27:00+08:00">2018-09-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>MySQL的主从同步是一个很成熟的架构，优点为：<br>① 在从服务器可以执行查询工作(即我们常说的读功能)，降低主服务器压力；<br>② 在从主服务器进行备份，避免备份期间影响主服务器服务；<br>③ 当主服务器出现问题时，可以切换到从服务器。<br>所以我在项目部署和实施中经常会采用这种方案。</p>
+</blockquote>
+<h3 id="数据库目录及其它"><a href="#数据库目录及其它" class="headerlink" title="数据库目录及其它"></a>数据库目录及其它</h3><p>　　my.cnf配置文件     /etc/my.cnf</p>
+<p>　　mysql数据库位置    datadir=/var/lib/mysql</p>
+<p>　　主数据库：192.168.2.119</p>
+<p>　　从数据库：192.168.2.220</p>
+<p>　　操作系统：RHEL5.x 32位</p>
+<p>　　服务器类型: 虚拟机</p>
+<h3 id="mysql5-0-77-安装"><a href="#mysql5-0-77-安装" class="headerlink" title="mysql5.0.77 安装:"></a>mysql5.0.77 安装:</h3><p>① 配置好linux的yum服务后，直接yum -y install mysql即可</p>
+<p>附：安装php\mysql一条命令安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install httpd php mysql mysql-server php-mysql</span><br></pre></td></tr></table></figure>
+<p>② 启动MySQL</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start(restart|stop)</span><br></pre></td></tr></table></figure>
+<p>一、设置主库</p>
+<p>1、修改主库my.cnf,主要是设置个不一样的id和logbin（#这部可依具体环境而定，压力大的化可采用huge.cnf）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/my.cnf</span><br></pre></td></tr></table></figure>
+<p>记住这部分一定要配置在[mysqld]后面，否则无法找到从节点，各个配置项的含义可自己查阅文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id=1</span><br><span class="line">log-bin=mysql-bin # 启用二进制日志</span><br><span class="line">binlog-ignore-db=information_schema,cluster,mysql #忽略写入binlog的库</span><br></pre></td></tr></table></figure>
+<p>2、启动主库生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure>
+<p>3、登陆主库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
+<p>4、赋予从库权限帐号，允许用户在主库上读取日志</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to &apos;用户名&apos;@&apos;%&apos; identified by &apos;密码&apos;;</span><br></pre></td></tr></table></figure>
+<p>5、检查创建是否成功</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user,host from mysql.user;</span><br></pre></td></tr></table></figure>
+<p>6、锁主库表（防止数据库状态值变化，锁定后，这时候只能读，不能写，写请求会在解锁后执行）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush tables with read lock;</span><br></pre></td></tr></table></figure>
+<p>7、显示主库信息</p>
+<p>记录File和Position，从库设置将会用到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show master status;</span><br></pre></td></tr></table></figure>
+<p>说明，如果执行这个步骤始终为Empty set(0.00 sec)，那说明前面的my.cnf没配置对。</p>
+<p>8、另开一个终端登陆220，打包主库迁移数据（如果你使用的yum安装，有默认数据库并未做任何改动，则不需要进行拷贝）<br>    目的是为了保证两台服务器的mysql数据库一致，这里可以自行tar打包或者使用mysqldump命令备份恢复的方式进行。</p>
+<p>二、设置从库</p>
+<p>1、传输拿到主库包、解包</p>
+<p>登陆从库</p>
+<p>从上一步中备份的数据库恢复到220服务器节点上。</p>
+<p>2、在119节点上解锁主库表（对应第一点设置主库中第6步锁主库表的操作）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unlock tables;</span><br></pre></td></tr></table></figure>
+<p>3、在220节点上修改从库my.cnf（位置一样）</p>
+<p>记住这部分一定要配置在[mysqld]后面，否则无法找到从节点，各个配置项的含义可自己查阅文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">log-bin=mysql-bin</span><br><span class="line">server-id=2</span><br><span class="line">binlog-ignore-db=information_schema,cluster,mysql</span><br><span class="line">replicate-do-db=test</span><br><span class="line">replicate-ignore-db=mysql</span><br><span class="line">log-slave-updates</span><br><span class="line">slave-skip-errors=all</span><br><span class="line">slave-net-timeout=60</span><br><span class="line">master-host=192.168.2.119</span><br><span class="line">master-user=root</span><br><span class="line">master-password=pfingo</span><br></pre></td></tr></table></figure>
+<p>4、在220节点上验证连接主库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 192.168.2.119 -u 用户名 -p</span><br></pre></td></tr></table></figure>
+<p>5、在220节点从库上设置同步</p>
+<p>设置连接MASTER MASTER_LOG_FILE为主库的File，MASTER_LOG_POS为主库的Position</p>
+<p>注意下面第二条命令语句中的master_log_file=’mysql-bin.000001’, master_log_pos=98;对应为前面在主库中执行的show master status;结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; slave stop;</span><br><span class="line">mysql&gt; change master to master_host=&apos;192.168.2.119&apos;,master_user=&apos;root&apos;,master_password=&apos;pfingo&apos;,master_log_file=&apos;mysql-bin.000001&apos;, master_log_pos=98;</span><br><span class="line">mysql&gt; slave start;</span><br></pre></td></tr></table></figure>
+<p>6、启动从库服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; slave start;</span><br></pre></td></tr></table></figure>
+<p>7、进行测试</p>
+<p>在主库上的test库上建立名为myTest的表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TABLE `myTest` (</span><br><span class="line">`id` INT( 5 ) UNSIGNED NOT NULL AUTO_INCREMENT ,</span><br><span class="line">`username` VARCHAR( 20 ) NOT NULL ,</span><br><span class="line">`password` CHAR( 32 ) NOT NULL ,</span><br><span class="line">`last_update` DATETIME NOT NULL ,</span><br><span class="line">`number` FLOAT( 10 ) NOT NULL ,</span><br><span class="line">`content` TEXT NOT NULL ,</span><br><span class="line">PRIMARY KEY ( `id` )</span><br><span class="line">) ENGINE = MYISAM ;</span><br></pre></td></tr></table></figure>
+<p>在从表中马上看到了效果，主从同步成功了；</p>
+<p>为了更进一步验证在从库上输入show slave status\G;</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show slave status\G;</span><br></pre></td></tr></table></figure>
+<p>　　Slave_IO_Running: Yes(网络正常)；</p>
+<p>　　Slave_SQL_Running: Yes(表结构正常)</p>
+<p>进一步验证了以上过程的正确性。</p>
+<p><a href="https://yq.aliyun.com/articles/130099" target="_blank" rel="noopener">参考1</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/数据库与死锁/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yaoxianzhuang">
+      <meta itemprop="description" content="where is this place ?">
+      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="十二遥的破碎维度">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/07/数据库与死锁/" itemprop="url">
+                  数据库与死锁
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-07 15:00:39 / Modified: 15:18:13" itemprop="dateCreated datePublished" datetime="2018-09-07T15:00:39+08:00">2018-09-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="死锁定义"><a href="#死锁定义" class="headerlink" title="死锁定义"></a>死锁定义</h2><blockquote>
+<p>所谓死锁： 是指两个或两个以上的进程在执行过程中，因争夺资源而造成的一种互相等待的现象，若无外力作用，它们都将无法推进下去。<br>  此时称系统处于死锁状态或系统产生了死锁，这些永远在互相等待的进程称为死锁进程。<br>  由于资源占用是互斥的，当某个进程提出申请资源后，使得有关进程在无外力协助下，永远分配不到必需的资源而无法继续运行，这就产生了一种特殊现象死锁。</p>
+</blockquote>
+<h2 id="产生死锁的必要条件"><a href="#产生死锁的必要条件" class="headerlink" title="产生死锁的必要条件"></a>产生死锁的必要条件</h2><ol>
+<li><p>互斥条件：指进程对所分配到的资源进行排它性使用，即在一段时间内某资源只由一个进程占用。如果此时还有其它进程请求资源，则请求者只能等待，直至占有资源的进程用毕释放。</p>
+</li>
+<li><p>请求和保持条件：指进程已经保持至少一个资源，但又提出了新的资源请求，而该资源已被其它进程占有，此时请求进程阻塞，但又对自己获得的其它资源保持不放。</p>
+</li>
+<li><p>不剥夺条件：指进程已获得的资源，在未使用完之前，不能被剥夺，只能在使用完时由自己释放。</p>
+</li>
+<li><p>环路等待条件：指在发生死锁时，必然存在一个进程——资源的环形链，即进程集合{P0，P1，P2，···，Pn}中的P0正在等待一个P1占用的资源；P1正在等待P2占用的资源，……，Pn正在等待已被P0占用的资源。</p>
+</li>
+</ol>
+<h2 id="处理死锁的基本方式"><a href="#处理死锁的基本方式" class="headerlink" title="处理死锁的基本方式"></a>处理死锁的基本方式</h2><ol>
+<li><p>预防死锁。这是一种较简单和直观的事先预防的方法。方法是通过设置某些限制条件，去破坏产生死锁的四个必要条件中的一个或者几个，来预防发生死锁。<br> 预防死锁是一种较易实现的方法，已被广泛使用。但是由于所施加的限制条件往往太严格，可能会导致系统资源利用率和系统吞吐量降低。</p>
+</li>
+<li><p>避免死锁。该方法同样是属于事先预防的策略，但它并不须事先采取各种限制措施去破坏产生死锁的的四个必要条件，而是在资源的动态分配过程中，用某种方法去防止系统进入不安全状态，从而避免发生死锁。</p>
+</li>
+<li><p>检测死锁。这种方法并不须事先采取任何限制性措施，也不必检查系统是否已经进入不安全区，此方法允许系统在运行过程中发生死锁。<br> 但可通过系统所设置的检测机构，及时地检测出死锁的发生，并精确地确定与死锁有关的进程和资源，然后采取适当措施，从系统中将已发生的死锁清除掉。</p>
+</li>
+<li><p>解除死锁。这是与检测死锁相配套的一种措施。当检测到系统中已发生死锁时，须将进程从死锁状态中解脱出来。<br> 常用的实施方法是撤销或挂起一些进程，以便回收一些资源，再将这些资源分配给已处于阻塞状态的进程，使之转为就绪状态，以继续运行。<br> 死锁的检测和解除措施，有可能使系统获得较好的资源利用率和吞吐量，但在实现上难度也最大。</p>
+</li>
+</ol>
+<h2 id="如何处理MySQL数据库的死锁问题"><a href="#如何处理MySQL数据库的死锁问题" class="headerlink" title="如何处理MySQL数据库的死锁问题"></a>如何处理MySQL数据库的死锁问题</h2><ol>
+<li>登录MySQL</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h xxxx.xxx.xxx -P 3306 -u username -p</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>查看MySQL数据库的死锁信息 </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show engine innodb status \G;</span><br></pre></td></tr></table></figure>
+<p>找到“LATEST DETECTED DEADLOCK”一节内容。</p>
+<ol start="3">
+<li>查看当前的事务</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM information_schema.innodb_trx \G;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>查看当前锁定的事务</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCKS;</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>查看当前等锁的事务</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM INFORMATION_SCHEMA.INNODB_LOCK_WAITS;</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>查在抢资源进程</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM INFORMATION_SCHEMA.INNODB_TRX;</span><br></pre></td></tr></table></figure>
+<ol start="7">
+<li>杀掉它们</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Kill trx_mysql_thread_id;</span><br></pre></td></tr></table></figure>
+<p><a href="https://blog.csdn.net/eseaqyq/article/details/7795023" target="_blank" rel="noopener">参考1</a><br><a href="https://www.jianshu.com/p/9aa8408acad3" target="_blank" rel="noopener">参考2</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/接口和抽象类区别/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yaoxianzhuang">
+      <meta itemprop="description" content="where is this place ?">
+      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="十二遥的破碎维度">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/07/接口和抽象类区别/" itemprop="url">
+                  接口和抽象类区别
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-07 14:41:23 / Modified: 15:04:37" itemprop="dateCreated datePublished" datetime="2018-09-07T14:41:23+08:00">2018-09-07</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="抽象类-abstract-class"><a href="#抽象类-abstract-class" class="headerlink" title="抽象类 abstract class"></a>抽象类 abstract class</h2><ol>
+<li><p>抽象类是指在 class 前加了 abstract 关键字且存在抽象方法（在类方法 function 关键字前加了 abstract 关键字）的类。</p>
+</li>
+<li><p>抽象类不能被直接实例化。抽象类中只定义（或部分实现）子类需要的方法。子类可以通过继承抽象类并通过实现抽象类中的所有抽象方法，使抽象类具体化。</p>
+</li>
+<li><p>如果子类需要实例化，前提是它实现了抽象类中的所有抽象方法。如果子类没有全部实现抽象类中的所有抽象方法，那么该子类也是一个抽象类，必须在 class 前面加上 abstract 关键字，并且不能被实例化。</p>
+</li>
+<li><p>如果 B 实现了 A 的抽象方法 abstract_func() ，那么 B 中 abstract_func() 方法的访问控制不能比 A 中 abstract_func() 的访问控制更严格。 </p>
+</li>
+</ol>
+<h2 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口 interface"></a>接口 interface</h2><ol>
+<li><p>抽象类提供了具体实现的标准，而接口则是纯粹的模版。接口只定义功能，而不包含实现的内容。接口用关键字 interface 来声明。</p>
+</li>
+<li><p>interface 是完全抽象的，只能声明方法，而且只能声明 public 的方法，不能声明 private 及 protected 的方法，不能定义方法体，也不能声明实例变量 。<br> 然而， interface 却可以声明常量变量 。但将常量变量放在 interface 中违背了其作为接口的作用而存在的宗旨，也混淆了 interface 与类的不同价值。<br> 如果的确需要，可以将其放在相应的 abstract class 或 Class 中。</p>
+</li>
+<li><p>任何实现接口的类都要实现接口中所定义的所有方法，否则该类必须声明为 abstract 。</p>
+</li>
+<li><p>一个类可以在声明中使用 implements 关键字来实现某个接口。这么做之后，实现接口的具体过程和继承一个仅包含抽象方法的抽象类是一样的。<br> 一个类可以同时继承一个父类和实现任意多个接口。 extends 子句应该在 implements 子句之前。<br> PHP 只支持继承自一个父类，因此 extends 关键字后只能跟一个类名。</p>
+</li>
+<li><p>接口不可以实现另一个接口，但可以继承多个。</p>
+</li>
+</ol>
+<h2 id="抽象类和接口的异同"><a href="#抽象类和接口的异同" class="headerlink" title="抽象类和接口的异同"></a>抽象类和接口的异同</h2><ol>
+<li>相同点：</li>
+</ol>
+<blockquote>
+<p>(1) 两者都是抽象类，都不能实例化。</p>
+</blockquote>
+<blockquote>
+<p>(2) interface 实现类及 abstract class 的子类都必须要实现已经声明的抽象方法。</p>
+</blockquote>
+<ol start="2">
+<li>不同点：</li>
+</ol>
+<blockquote>
+<p>(1) interface 需要实现，要用 implements ，而 abstract class 需要继承，要用 extends 。</p>
+</blockquote>
+<blockquote>
+<p>(2) 一个类可以实现多个 interface ，但一个类只能继承一个 abstract class 。</p>
+</blockquote>
+<blockquote>
+<p>(3) interface 强调特定功能的实现，而 abstract class 强调所属关系。</p>
+</blockquote>
+<blockquote>
+<p>(4) 尽管 interface 实现类及 abstract class 的子类都必须要实现相应的抽象方法，但实现的形式不同。 interface 中的每一个方法都是抽象方法，都只是声明的 (declaration, 没有方法体 ) ，实现类必须要实现。而 abstract class 的子类可以有选择地实现。这个选择有两点含义： a) abstract class 中并非所有的方法都是抽象的，只有那些冠有 abstract 的方法才是抽象的，子类必须实现。那些没有 abstract 的方法，在 abstract class 中必须定义方法体； b) abstract class 的子类在继承它时，对非抽象方法既可以直接继承，也可以覆盖；而对抽象方法，可以选择实现，也可以留给其子类来实现，但此类必须也声明为抽象类。既是抽象类，当然也不能实例化。</p>
+</blockquote>
+<blockquote>
+<p>(5) abstract class 是 interface 与 class 的中介。 abstract class 在 interface 及 class 中起到了承上启下的作用。一方面， abstract class 是抽象的，可以声明抽象方法，以规范子类必须实现的功能；另一方面，它又可以定义缺省的方法体，供子类直接使用或覆盖。另外，它还可以定义自己的实例变量，以供子类通过继承来使用。</p>
+</blockquote>
+<blockquote>
+<p>(6) 接口中的抽象方法前不用也不能加 abstract 关键字，默认隐式就是抽象方法，也不能加 final 关键字来防止抽象方法的继承。而抽象类中抽象方法前则必须加上 abstract 表示显示声明为抽象方法。</p>
+</blockquote>
+<blockquote>
+<p>(7) 接口中的抽象方法默认是 public 的，也只能是 public 的，不能用 private ， protected 修饰符修饰。而抽象类中的抽象方法则可以用 public ， protected 来修饰，但不能用 private 。</p>
+</blockquote>
+<blockquote>
+<p>(8) 抽象类的继承是is a的关系。定义该体系的基本共性内容。接口的实现是like a的关系。定义体系的额外功能。</p>
+</blockquote>
+<ol start="3">
+<li>interface 的应用场合</li>
+</ol>
+<blockquote>
+<p>(1) 类与类之间需要特定的接口进行协调，而不在乎其如何实现。</p>
+</blockquote>
+<blockquote>
+<p>(2) 作为能够实现特定功能的标识存在，也可以是什么接口方法都没有的纯粹标识。</p>
+</blockquote>
+<blockquote>
+<p>(3) 需要将一组类视为单一的类，而调用者只通过接口来与这组类发生联系。</p>
+</blockquote>
+<blockquote>
+<p>(4) 需要实现特定的多项功能，而这些功能之间可能完全没有任何联系。</p>
+</blockquote>
+<ol start="4">
+<li>abstract class 的应用场合</li>
+</ol>
+<p>一句话，在既需要统一的接口，又需要实例变量或缺省的方法的情况下，就可以使用它。最常见的有：</p>
+<blockquote>
+<p>(1)      定义了一组接口，但又不想强迫每个实现类都必须实现所有的接口。可以用 abstract class 定义一组方法体，甚至可以是空方法体，然后由子类选择自己所感兴趣的方法来覆盖。</p>
+</blockquote>
+<blockquote>
+<p>(2)      某些场合下，只靠纯粹的接口不能满足类与类之间的协调，还必需类中表示状态的变量来区别不同的关系。 abstract 的中介作用可以很好地满足这一点。</p>
+</blockquote>
+<blockquote>
+<p>(3)      规范了一组相互协调的方法，其中一些方法是共同的，与状态无关的，可以共享的，无需子类分别实现；而另一些方法却需要各个子类根据自己特定的状态来实现特 定的功能 。</p>
+</blockquote>
+<p><a href="https://blog.csdn.net/sunlylorn/article/details/6124319" target="_blank" rel="noopener">参考1</a></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/04/手机号归属地查询接口/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yaoxianzhuang">
+      <meta itemprop="description" content="where is this place ?">
+      <meta itemprop="image" content="http://img.duoziwang.com/2017/06/08/B16107490.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="十二遥的破碎维度">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/04/手机号归属地查询接口/" itemprop="url">
+                  手机号归属地查询接口
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-09-04 19:31:40" itemprop="dateCreated datePublished" datetime="2018-09-04T19:31:40+08:00">2018-09-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Edited on</span>
+                
+                <time title="Modified: 2018-09-05 10:13:55" itemprop="dateModified" datetime="2018-09-05T10:13:55+08:00">2018-09-05</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>淘宝网</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">API地址： http:``//tcc.taobao.com/cc/json/mobile_tel_segment.htm?tel=15850781443</span><br><span class="line">参数：</span><br><span class="line">tel：手机号码</span><br><span class="line">返回：JSON</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>拍拍</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">API地址： http:``//virtual.paipai.com/extinfo/GetMobileProductInfo?mobile=15850781443&amp;amount=10000&amp;callname=getPhoneNumInfoExtCallback</span><br><span class="line">参数：</span><br><span class="line">mobile：手机号码</span><br><span class="line">callname：回调函数</span><br><span class="line">amount：未知（必须）</span><br><span class="line">返回：JSON</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>财付通</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">API地址： http:``//life.tenpay.com/cgi-bin/mobile/MobileQueryAttribution.cgi?chgmobile=15850781443</span><br><span class="line">参数：</span><br><span class="line">chgmobile：手机号码</span><br><span class="line">返回：xml</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>百付宝</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">API地址： https:``//www.baifubao.com/callback?cmd=1059&amp;callback=phone&amp;phone=15850781443</span><br><span class="line">参数：</span><br><span class="line">phone：手机号码</span><br><span class="line">callback：回调函数</span><br><span class="line">cmd：未知（必须）</span><br><span class="line">返回：JSON</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>有道api接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">接口地址：http:``//www.youdao.com/smartresult-xml/search.s?type=mobile&amp;q=13892101112</span><br><span class="line">参数说明：</span><br><span class="line">type ： 参数手机归属地固定为mobile</span><br><span class="line">q ： 手机号码</span><br><span class="line">返回XML格式：</span><br><span class="line">&lt;?xml version=``&quot;1.0&quot;``encoding=``&quot;gbk&quot;``?&gt;</span><br><span class="line">&lt;smartresult&gt;</span><br><span class="line">&lt;product type=``&quot;mobile&quot;``&gt;</span><br><span class="line">&lt;phonenum&gt;13892101112&lt;/phonenum&gt;</span><br><span class="line">&lt;location&gt;陕西 延安&lt;/location&gt;</span><br><span class="line">&lt;/product&gt;</span><br><span class="line">&lt;/smartresult&gt;</span><br><span class="line">或者</span><br><span class="line">http:``//www.youdao.com/smartresult-xml/search.s?jsFlag=true&amp;type=mobile&amp;q=手机号码</span><br><span class="line">返回JSON格式：</span><br><span class="line">fYodaoCallBack(1, &#123;‘product’:``&apos;mobile’,&apos;``phonenum’:’13892101112′,’location’:&apos;陕西 延安’&#125; , ”);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>096.me api接口</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http:``//www.096.me/api.php?phone=手机号&amp;mode=&#123;txt,xml&#125;</span><br><span class="line">举例：http:``//www.096.me/api.php?phone=13892101111&amp;mode=txt</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/29/移位运算/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1123,7 +2280,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">15</span>
+                    <span class="site-state-item-count">20</span>
                     <span class="site-state-item-name">posts</span>
                   </a>
                 </div>

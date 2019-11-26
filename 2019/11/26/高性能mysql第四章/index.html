@@ -108,24 +108,24 @@
 
 
 
-  <meta name="description" content="MySQL的主从同步是一个很成熟的架构，优点为：① 在从服务器可以执行查询工作(即我们常说的读功能)，降低主服务器压力；② 在从主服务器进行备份，避免备份期间影响主服务器服务；③ 当主服务器出现问题时，可以切换到从服务器。所以我在项目部署和实施中经常会采用这种方案。  数据库目录及其它　　my.cnf配置文件     /etc/my.cnf 　　mysql数据库位置    datadir=/va">
+  <meta name="description" content="第4章 Schema与数据类型优化良好的逻辑设计和物理设计是高性能的基石。 4.1 选择优化的数据类型更小的通常更好 简单就好：整型比字符操作代价更低，应该使用MySQL内建的类型而不是字符串来存储日期和时间，应该用整型存储IP地址 尽量避免NULL：如果查询中包含可为NULL的列，MySQL更难优化，因为可为NULL的列使得索引，索引统计和值的比较都更加复杂。NULL还会使用更多的存储空间 4.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL数据库主从同步安装与配置">
-<meta property="og:url" content="http://yoursite.com/2018/09/07/MySQL数据库主从同步安装与配置/index.html">
+<meta property="og:title" content="高性能mysql第四章">
+<meta property="og:url" content="http://yoursite.com/2019/11/26/高性能mysql第四章/index.html">
 <meta property="og:site_name" content="十二遥的破碎维度">
-<meta property="og:description" content="MySQL的主从同步是一个很成熟的架构，优点为：① 在从服务器可以执行查询工作(即我们常说的读功能)，降低主服务器压力；② 在从主服务器进行备份，避免备份期间影响主服务器服务；③ 当主服务器出现问题时，可以切换到从服务器。所以我在项目部署和实施中经常会采用这种方案。  数据库目录及其它　　my.cnf配置文件     /etc/my.cnf 　　mysql数据库位置    datadir=/va">
+<meta property="og:description" content="第4章 Schema与数据类型优化良好的逻辑设计和物理设计是高性能的基石。 4.1 选择优化的数据类型更小的通常更好 简单就好：整型比字符操作代价更低，应该使用MySQL内建的类型而不是字符串来存储日期和时间，应该用整型存储IP地址 尽量避免NULL：如果查询中包含可为NULL的列，MySQL更难优化，因为可为NULL的列使得索引，索引统计和值的比较都更加复杂。NULL还会使用更多的存储空间 4.">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-07T07:44:11.086Z">
+<meta property="og:updated_time" content="2019-11-26T07:09:49.144Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL数据库主从同步安装与配置">
-<meta name="twitter:description" content="MySQL的主从同步是一个很成熟的架构，优点为：① 在从服务器可以执行查询工作(即我们常说的读功能)，降低主服务器压力；② 在从主服务器进行备份，避免备份期间影响主服务器服务；③ 当主服务器出现问题时，可以切换到从服务器。所以我在项目部署和实施中经常会采用这种方案。  数据库目录及其它　　my.cnf配置文件     /etc/my.cnf 　　mysql数据库位置    datadir=/va">
+<meta name="twitter:title" content="高性能mysql第四章">
+<meta name="twitter:description" content="第4章 Schema与数据类型优化良好的逻辑设计和物理设计是高性能的基石。 4.1 选择优化的数据类型更小的通常更好 简单就好：整型比字符操作代价更低，应该使用MySQL内建的类型而不是字符串来存储日期和时间，应该用整型存储IP地址 尽量避免NULL：如果查询中包含可为NULL的列，MySQL更难优化，因为可为NULL的列使得索引，索引统计和值的比较都更加复杂。NULL还会使用更多的存储空间 4.">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/07/MySQL数据库主从同步安装与配置/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/11/26/高性能mysql第四章/"/>
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>MySQL数据库主从同步安装与配置 | 十二遥的破碎维度</title>
+  <title>高性能mysql第四章 | 十二遥的破碎维度</title>
   
 
 
@@ -311,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/MySQL数据库主从同步安装与配置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/高性能mysql第四章/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yaoxianzhuang">
@@ -328,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MySQL数据库主从同步安装与配置
+          <h1 class="post-title" itemprop="name headline">高性能mysql第四章
               
             
           </h1>
@@ -353,7 +353,7 @@
                 
               
 
-              <time title="Created: 2018-09-07 15:27:00 / Modified: 15:44:11" itemprop="dateCreated datePublished" datetime="2018-09-07T15:27:00+08:00">2018-09-07</time>
+              <time title="Created: 2019-11-26 15:02:00 / Modified: 15:09:49" itemprop="dateCreated datePublished" datetime="2019-11-26T15:02:00+08:00">2019-11-26</time>
             
 
             
@@ -391,67 +391,79 @@
       
 
       
-        <blockquote>
-<p>MySQL的主从同步是一个很成熟的架构，优点为：<br>① 在从服务器可以执行查询工作(即我们常说的读功能)，降低主服务器压力；<br>② 在从主服务器进行备份，避免备份期间影响主服务器服务；<br>③ 当主服务器出现问题时，可以切换到从服务器。<br>所以我在项目部署和实施中经常会采用这种方案。</p>
-</blockquote>
-<h3 id="数据库目录及其它"><a href="#数据库目录及其它" class="headerlink" title="数据库目录及其它"></a>数据库目录及其它</h3><p>　　my.cnf配置文件     /etc/my.cnf</p>
-<p>　　mysql数据库位置    datadir=/var/lib/mysql</p>
-<p>　　主数据库：192.168.2.119</p>
-<p>　　从数据库：192.168.2.220</p>
-<p>　　操作系统：RHEL5.x 32位</p>
-<p>　　服务器类型: 虚拟机</p>
-<h3 id="mysql5-0-77-安装"><a href="#mysql5-0-77-安装" class="headerlink" title="mysql5.0.77 安装:"></a>mysql5.0.77 安装:</h3><p>① 配置好linux的yum服务后，直接yum -y install mysql即可</p>
-<p>附：安装php\mysql一条命令安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install httpd php mysql mysql-server php-mysql</span><br></pre></td></tr></table></figure>
-<p>② 启动MySQL</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start(restart|stop)</span><br></pre></td></tr></table></figure>
-<p>一、设置主库</p>
-<p>1、修改主库my.cnf,主要是设置个不一样的id和logbin（#这部可依具体环境而定，压力大的化可采用huge.cnf）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/my.cnf</span><br></pre></td></tr></table></figure>
-<p>记住这部分一定要配置在[mysqld]后面，否则无法找到从节点，各个配置项的含义可自己查阅文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id=1</span><br><span class="line">log-bin=mysql-bin # 启用二进制日志</span><br><span class="line">binlog-ignore-db=information_schema,cluster,mysql #忽略写入binlog的库</span><br></pre></td></tr></table></figure>
-<p>2、启动主库生效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure>
-<p>3、登陆主库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
-<p>4、赋予从库权限帐号，允许用户在主库上读取日志</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to &apos;用户名&apos;@&apos;%&apos; identified by &apos;密码&apos;;</span><br></pre></td></tr></table></figure>
-<p>5、检查创建是否成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user,host from mysql.user;</span><br></pre></td></tr></table></figure>
-<p>6、锁主库表（防止数据库状态值变化，锁定后，这时候只能读，不能写，写请求会在解锁后执行）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush tables with read lock;</span><br></pre></td></tr></table></figure>
-<p>7、显示主库信息</p>
-<p>记录File和Position，从库设置将会用到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show master status;</span><br></pre></td></tr></table></figure>
-<p>说明，如果执行这个步骤始终为Empty set(0.00 sec)，那说明前面的my.cnf没配置对。</p>
-<p>8、另开一个终端登陆220，打包主库迁移数据（如果你使用的yum安装，有默认数据库并未做任何改动，则不需要进行拷贝）<br>    目的是为了保证两台服务器的mysql数据库一致，这里可以自行tar打包或者使用mysqldump命令备份恢复的方式进行。</p>
-<p>二、设置从库</p>
-<p>1、传输拿到主库包、解包</p>
-<p>登陆从库</p>
-<p>从上一步中备份的数据库恢复到220服务器节点上。</p>
-<p>2、在119节点上解锁主库表（对应第一点设置主库中第6步锁主库表的操作）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unlock tables;</span><br></pre></td></tr></table></figure>
-<p>3、在220节点上修改从库my.cnf（位置一样）</p>
-<p>记住这部分一定要配置在[mysqld]后面，否则无法找到从节点，各个配置项的含义可自己查阅文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">log-bin=mysql-bin</span><br><span class="line">server-id=2</span><br><span class="line">binlog-ignore-db=information_schema,cluster,mysql</span><br><span class="line">replicate-do-db=test</span><br><span class="line">replicate-ignore-db=mysql</span><br><span class="line">log-slave-updates</span><br><span class="line">slave-skip-errors=all</span><br><span class="line">slave-net-timeout=60</span><br><span class="line">master-host=192.168.2.119</span><br><span class="line">master-user=root</span><br><span class="line">master-password=pfingo</span><br></pre></td></tr></table></figure>
-<p>4、在220节点上验证连接主库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 192.168.2.119 -u 用户名 -p</span><br></pre></td></tr></table></figure>
-<p>5、在220节点从库上设置同步</p>
-<p>设置连接MASTER MASTER_LOG_FILE为主库的File，MASTER_LOG_POS为主库的Position</p>
-<p>注意下面第二条命令语句中的master_log_file=’mysql-bin.000001’, master_log_pos=98;对应为前面在主库中执行的show master status;结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; slave stop;</span><br><span class="line">mysql&gt; change master to master_host=&apos;192.168.2.119&apos;,master_user=&apos;root&apos;,master_password=&apos;pfingo&apos;,master_log_file=&apos;mysql-bin.000001&apos;, master_log_pos=98;</span><br><span class="line">mysql&gt; slave start;</span><br></pre></td></tr></table></figure>
-<p>6、启动从库服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; slave start;</span><br></pre></td></tr></table></figure>
-<p>7、进行测试</p>
-<p>在主库上的test库上建立名为myTest的表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TABLE `myTest` (</span><br><span class="line">`id` INT( 5 ) UNSIGNED NOT NULL AUTO_INCREMENT ,</span><br><span class="line">`username` VARCHAR( 20 ) NOT NULL ,</span><br><span class="line">`password` CHAR( 32 ) NOT NULL ,</span><br><span class="line">`last_update` DATETIME NOT NULL ,</span><br><span class="line">`number` FLOAT( 10 ) NOT NULL ,</span><br><span class="line">`content` TEXT NOT NULL ,</span><br><span class="line">PRIMARY KEY ( `id` )</span><br><span class="line">) ENGINE = MYISAM ;</span><br></pre></td></tr></table></figure>
-<p>在从表中马上看到了效果，主从同步成功了；</p>
-<p>为了更进一步验证在从库上输入show slave status\G;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show slave status\G;</span><br></pre></td></tr></table></figure>
-<p>　　Slave_IO_Running: Yes(网络正常)；</p>
-<p>　　Slave_SQL_Running: Yes(表结构正常)</p>
-<p>进一步验证了以上过程的正确性。</p>
-<p><a href="https://yq.aliyun.com/articles/130099" target="_blank" rel="noopener">参考1</a></p>
+        <h1 id="第4章-Schema与数据类型优化"><a href="#第4章-Schema与数据类型优化" class="headerlink" title="第4章 Schema与数据类型优化"></a>第4章 Schema与数据类型优化</h1><p>良好的逻辑设计和物理设计是高性能的基石。</p>
+<h2 id="4-1-选择优化的数据类型"><a href="#4-1-选择优化的数据类型" class="headerlink" title="4.1 选择优化的数据类型"></a>4.1 选择优化的数据类型</h2><p>更小的通常更好</p>
+<p>简单就好：整型比字符操作代价更低，应该使用MySQL内建的类型而不是字符串来存储日期和时间，应该用整型存储IP地址</p>
+<p>尽量避免NULL：如果查询中包含可为NULL的列，MySQL更难优化，因为可为NULL的列使得索引，索引统计和值的比较都更加复杂。NULL还会使用更多的存储空间</p>
+<h3 id="4-1-1-整数类型"><a href="#4-1-1-整数类型" class="headerlink" title="4.1.1 整数类型"></a>4.1.1 整数类型</h3><p>整型类型：TINYINT, SMALLINT, MEDIUMINT, INT, BIGINT，分别使用8，16，24，32，64位存储空间。</p>
+<p>UNSIGNED属性，表示不可为负。有符号和无符号使用同样的存储空间，同样的性能。</p>
+<p>可以为整数类型指定宽度，如INT（11），但大多数应用这样是没有意义的，它不会限制值的合法范围，只规定了MySQL的一些交互工具用来显示字符的个数。</p>
+<h3 id="4-1-2-实数类型"><a href="#4-1-2-实数类型" class="headerlink" title="4.1.2 实数类型"></a>4.1.2 实数类型</h3><p>FLOAT，4个字节，DOUBLE，8个字节。还可以使用DECIMAL存储比BIGINT还大的整数。</p>
+<p>MySQL使用DOUBLE作为内部浮点计算的类型</p>
+<p>因为需要额外的空间和计算开销，应该尽量只在对小数进行精确计算时才使用DECIMAL</p>
+<h3 id="4-1-3-字符串类型"><a href="#4-1-3-字符串类型" class="headerlink" title="4.1.3 字符串类型"></a>4.1.3 字符串类型</h3><p>VARCHAR和CHAR</p>
+<p>VARCHAR：用于存储可变长字符串，比定长类型更节省空间。例外：当MySQL表使用ROW_FORMAT=FIXED创建时，每一行都会使用定长存储。</p>
+<p>VARCHAR需要1或者2个额外字节记录字符串长度：列最大长度小于等于255字节，则为1，否则为2</p>
+<p>由于行是变长的，在UPDATE使得行比原来长时，导致需要额外的工作。</p>
+<p>VARCHAR（5）和VARCHAR（200）在存储‘hello’时，空间开销是一样的，但更短的列的优势在于会消耗更小的内存，因为MySQL通常会分配固定大小的内存块来保存内部值。特别是使用内存临时表进行排序或操作时。</p>
+<p>CHAR：定长的，会根据定义的字符串长度分配足够的空间。适合存储很短的字符串，或者所有值都接近同一个长度。如MD5值，或经常变更的数据，因为不容易产生碎片。对于非常短的列，如一列，CHAR只需要一个字节，VARCHAR需要两个字节，另一个字节需要记录长度。</p>
+<p>BLOB和TEXT</p>
+<p>BLOB和TEXT都是为存储很大数据而设计的字符串数据类型，分别采用二进制和字符方式存储。</p>
+<p>MySQL会把每个BLOB和TEXT值当作一个独立的对象处理，当值太大时，InnoDB会使用专门的外部存储区域来存储，此时行内需要1～4个字节存储一个指针，指向外部存储区域。</p>
+<p>BLOB和TEXT仅有的区别就是BLOB存储的是二进制数据，没有排序规则或字符集。</p>
+<p>MySQL对BLOB和TEXT列进行排序时，只会对每个列的前max_sort_length字节排序。</p>
+<p>因为Memory引擎不支持BLOB和TEXT，当查询使用了这两个类型，并且需要建临时表时，不得不使用MyISAM磁盘临时表，即使只有几行数据。这会导致严重的性能开销。</p>
+<p>最好的解决方案是避免使用BLOB和TEXT类型，不得不使用的时候，在所有用到的地方使用SUBSTRING（column，length）将列转换成字符串。这样就可以使用内存临时表。</p>
+<p>使用枚举（ENUM）代替字符串类型</p>
+<p>MySQL在存储枚举时非常紧凑，会根据列表值的数量压缩到一个或者两个字节中。因为MySQL在内部会将每个值在列表中的位置保存为整数，并且在表的.frm文件中保存“数字-字符串”的映射关系。</p>
+<p>所以如果使用数字作为ENUM枚举常量可能会造成混乱</p>
+<p>还有一点，枚举字段时按照内部存储的整数，而不是定义的字符串进行排序，所以绕过这种限制的方式是按照需要的顺序定义枚举列。</p>
+<p>枚举最不好的地方就在于，字符串列表是固定的，添加或删除字符串必须使用ALERT TABLE。</p>
+<p>由于枚举被保存为整数，必须进行查找才能转换成字符串，所以会有一些开销。特定情况下，字符串列与枚举列关联可能比直接关联字符串更慢。</p>
+<h3 id="4-1-4-日期和时间类型"><a href="#4-1-4-日期和时间类型" class="headerlink" title="4.1.4 日期和时间类型"></a>4.1.4 日期和时间类型</h3><p>MySQL能存储的最小时间粒度为秒。</p>
+<p>DATATIME：能保存大范围的值，从1001年到9999年。与时区无关。使用8个字节存储空间。</p>
+<p>TIMESTAMP：保存从1970年1月1日开始的秒数，最大只能到2038年。使用4个字节存储空间。显示的值依赖时区。默认为NOT NULL。</p>
+<h3 id="4-1-5-位数据类型"><a href="#4-1-5-位数据类型" class="headerlink" title="4.1.5 位数据类型"></a>4.1.5 位数据类型</h3><p>BIT：避免使用。因为MySQL把BIT当作字符串类型，但在数字上下文场景，又会将字符串转换成数字。如‘00111001’（二进制值等于57）存储到BIT（8）的列并检索时，得到ASCII码为57的字符“9”，但当与0做加法运算时，得到的是数字57，这很费解。</p>
+<p>SET：当需要保存很多true/false值时，可以考虑合并这些列到一个SET类型。因为它在MySQL内部是以一系列打包的位的集合来表示，可以有效利用存储空间。缺点是改变列的定义必须使用ALERT TABLE，代价很高。一般情况下，也无法在SET列上进行索引查找。</p>
+<p>在整数列上进行按位操作：比如把8个位包装到一个TINYINT中，并且按位操作来使用。</p>
+<h3 id="4-1-6-选择标识符（identifier）"><a href="#4-1-6-选择标识符（identifier）" class="headerlink" title="4.1.6 选择标识符（identifier）"></a>4.1.6 选择标识符（identifier）</h3><p>整数累通常是标识列最好的选择。因为它们很快，并且可以使用AUTO_INCREMENT</p>
+<h3 id="4-1-7-特殊数据类型"><a href="#4-1-7-特殊数据类型" class="headerlink" title="4.1.7 特殊数据类型"></a>4.1.7 特殊数据类型</h3><p>低于秒级精度的时间或者IPv4地址。人们经常使用VARCHAR（15）列来存储IP地址，但是它实际上是32位无符号整数，小数点分成四段只是为了人们阅读容易。应该使用无符号整数存储IP，MySQL提供了INET_ATON（）和INET_NTOA函数来进行转换。</p>
+<h2 id="4-2-MySQL-schema设计中的陷阱"><a href="#4-2-MySQL-schema设计中的陷阱" class="headerlink" title="4.2 MySQL schema设计中的陷阱"></a>4.2 MySQL schema设计中的陷阱</h2><p>太多的列：</p>
+<pre><code>MySQL的存储引擎API工作时，需要在服务器层和存储引擎层之间通过行缓冲格式拷贝数据，然后在服务层将缓冲内容解码成各个列。将编码过的列转换成行数据结构的操作代价是非常高的。
+
+定长MyISAM行结构与上册服务器层行结构正好匹配，不需要转换，变成的行结构和InnoDB的行结构则总是需要转换。
+</code></pre><p>太多的关联：</p>
+<pre><code>MySQL限制了每个关联操作最多只能有61张表。
+</code></pre><p>全能的枚举：</p>
+<pre><code>在MySQL中，当为枚举列表做新增操作时，需要用ALERT TABLE操作，而ALERT TABLE是一种阻塞操作。
+</code></pre><p>变相的枚举：</p>
+<pre><code>SET当枚举用，可能造成混乱
+</code></pre><p>非此发明的NULL</p>
+<pre><code>虽然需要避免使用NULL，并在需要存储一个事实上的空值到表里时，可以使用0，某个特殊值，或者空字符串。但是也不要走极端，比如用-1代替一个未知的整数，可能会导致代码复杂，还不如用NULL。
+</code></pre><h2 id="4-3-范式和反范式"><a href="#4-3-范式和反范式" class="headerlink" title="4.3 范式和反范式"></a>4.3 范式和反范式</h2><p>在范式化的数据库中，每个事实数据会出现并且只出现一次。相反，在反范式化的数据库中，信息是冗余的，可能存储在多个地方。</p>
+<h3 id="4-3-1-范式的优点和缺点"><a href="#4-3-1-范式的优点和缺点" class="headerlink" title="4.3.1 范式的优点和缺点"></a>4.3.1 范式的优点和缺点</h3><p>当为性能问题，尤其是写场景密集，寻求帮助时，通常被建议对schema进行范式化设计。</p>
+<p>优点：<br>    范式化更新操作通常比反范式化要快，且只需要修改更少的数据。<br>    范式化的表通常更小，可以更好的放在内存里，执行操作会更快<br>    很少的多余数据意味着更少需要DISTINCT或者GROUP BY语句</p>
+<p>缺点：通常需要关联，可能使一些索引策略失效</p>
+<h3 id="4-3-2-反范式的优点和缺点"><a href="#4-3-2-反范式的优点和缺点" class="headerlink" title="4.3.2 反范式的优点和缺点"></a>4.3.2 反范式的优点和缺点</h3><p>避免关联。</p>
+<h3 id="4-3-3-混用范式化和反范式化"><a href="#4-3-3-混用范式化和反范式化" class="headerlink" title="4.3.3 混用范式化和反范式化"></a>4.3.3 混用范式化和反范式化</h3><p>实际应用中不存在极端的范式和反范式，经常需要混用。</p>
+<h2 id="4-4-缓存表和汇总表"><a href="#4-4-缓存表和汇总表" class="headerlink" title="4.4 缓存表和汇总表"></a>4.4 缓存表和汇总表</h2><p>创建一张完全独立的汇总表或缓存表。缓存表存储可以从schema其他表获取，但每次获取速度都比较慢的数据，汇总表存储使用GROUP BY语句聚合的数据。</p>
+<p>通过原子重命名操作，切换影子表和原表</p>
+<p>CREATE TABLE table_new LIKE table；<br>RENAME TABLE table TO table_old，table_new TO table；</p>
+<h3 id="4-4-1-物化视图"><a href="#4-4-1-物化视图" class="headerlink" title="4.4.1 物化视图"></a>4.4.1 物化视图</h3><p>物化视图实际上是预先计算并且存储在磁盘上的表，可以通过各种各样的策略刷新和更新。</p>
+<h3 id="4-4-2-计数器表"><a href="#4-4-2-计数器表" class="headerlink" title="4.4.2 计数器表"></a>4.4.2 计数器表</h3><p>注意并发问题。</p>
+<h2 id="4-5-加快ALERT-TABLE操作的速度"><a href="#4-5-加快ALERT-TABLE操作的速度" class="headerlink" title="4.5 加快ALERT TABLE操作的速度"></a>4.5 加快ALERT TABLE操作的速度</h2><p>MySQL执行大部分修改表结构操作的方法是用新的结构创建一个空表，从旧表中查出所有数据插入新表，然后删除旧表。</p>
+<p>一般而言，大部分ALERT TABLE操作将导致MySQL服务中断。</p>
+<p>两个技巧：在一台不提供服务的机器上执行ALERT TABLE，然后和提供服务的主库进行切换。另一个是影子拷贝。</p>
+<p>并不是所有ALERT TABLE都会重建表。用ALERT TABLE修改表默认值的时候会重建，但其实可以直接修改.frm文件，而ALERT COLUMN就是这样做的，不会重建表。</p>
+<h3 id="4-5-1-只修改-frm文件"><a href="#4-5-1-只修改-frm文件" class="headerlink" title="4.5.1 只修改.frm文件"></a>4.5.1 只修改.frm文件</h3><p>下面这些操作是有可能不需要重建表的：<br>    移除（不是增加）一个列的AUTO_INCREMENT属性<br>    增加，移除或者更改ENUM和SET常量</p>
+<p>通过创建一个新的.frm文件，替换掉原来的.frm文件:<br>    创建有同样结构的空表，并进行修改<br>    执行 FLUSH TABLE WITH READ LOCK，将会关闭所有正在使用的表，并且禁止任何表被打开<br>    交换.frm文件<br>    执行UNLOCK TABLES来释放锁</p>
+<h3 id="4-5-2-快速创建MyISAM索引"><a href="#4-5-2-快速创建MyISAM索引" class="headerlink" title="4.5.2 快速创建MyISAM索引"></a>4.5.2 快速创建MyISAM索引</h3><p>通过先禁用索引，载入数据，再重启索引</p>
+<p>ALERT TABLE table DISABLE KEYS;<br>—load data<br>ALERT TABLE table ENABLE KEYS;</p>
+<p>原因是构建索引的工作被延迟到数据完全载入后，这个时候可以通过排序来构建索引，会快很多，并且使索引数的碎片更少，更紧凑。</p>
+<p>但是对唯一索引无效。MyISAM会在内存中构建唯一索引，检查载入的每一行的唯一性。</p>
+<h2 id="4-6-总结"><a href="#4-6-总结" class="headerlink" title="4.6 总结"></a>4.6 总结</h2><p>尽可能保持小而简单：避免过度设计，使用小而简单的数据类型，尽量避免使用NULL，使用相同的数据类型存储相似或者相关的值，注意可变长字符串，尽量使用整型定义标识符，避免使用MySQL已经遗弃的特效，小心使用ENUM和SET。最好避免使用BIT</p>
+<p>范式很好，但有时反范式很有必要。</p>
+<p>ALERT TABLE操作很痛苦。</p>
 
       
     </div>
@@ -479,8 +491,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/07/数据库与死锁/" rel="next" title="数据库与死锁">
-                <i class="fa fa-chevron-left"></i> 数据库与死锁
+              <a href="/2019/11/26/高性能mysql第三章/" rel="next" title="高性能mysql第三章">
+                <i class="fa fa-chevron-left"></i> 高性能mysql第三章
               </a>
             
           </div>
@@ -488,10 +500,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/09/PHP实现十大经典排序/" rel="prev" title="PHP实现十大经典排序">
-                PHP实现十大经典排序 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -605,7 +613,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库目录及其它"><span class="nav-number">1.</span> <span class="nav-text">数据库目录及其它</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql5-0-77-安装"><span class="nav-number">2.</span> <span class="nav-text">mysql5.0.77 安装:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第4章-Schema与数据类型优化"><span class="nav-number">1.</span> <span class="nav-text">第4章 Schema与数据类型优化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-选择优化的数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">4.1 选择优化的数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-1-整数类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">4.1.1 整数类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-2-实数类型"><span class="nav-number">1.1.2.</span> <span class="nav-text">4.1.2 实数类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-3-字符串类型"><span class="nav-number">1.1.3.</span> <span class="nav-text">4.1.3 字符串类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-4-日期和时间类型"><span class="nav-number">1.1.4.</span> <span class="nav-text">4.1.4 日期和时间类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-5-位数据类型"><span class="nav-number">1.1.5.</span> <span class="nav-text">4.1.5 位数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-6-选择标识符（identifier）"><span class="nav-number">1.1.6.</span> <span class="nav-text">4.1.6 选择标识符（identifier）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-7-特殊数据类型"><span class="nav-number">1.1.7.</span> <span class="nav-text">4.1.7 特殊数据类型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-MySQL-schema设计中的陷阱"><span class="nav-number">1.2.</span> <span class="nav-text">4.2 MySQL schema设计中的陷阱</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-范式和反范式"><span class="nav-number">1.3.</span> <span class="nav-text">4.3 范式和反范式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-1-范式的优点和缺点"><span class="nav-number">1.3.1.</span> <span class="nav-text">4.3.1 范式的优点和缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-2-反范式的优点和缺点"><span class="nav-number">1.3.2.</span> <span class="nav-text">4.3.2 反范式的优点和缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-3-3-混用范式化和反范式化"><span class="nav-number">1.3.3.</span> <span class="nav-text">4.3.3 混用范式化和反范式化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-缓存表和汇总表"><span class="nav-number">1.4.</span> <span class="nav-text">4.4 缓存表和汇总表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-1-物化视图"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.4.1 物化视图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-2-计数器表"><span class="nav-number">1.4.2.</span> <span class="nav-text">4.4.2 计数器表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-加快ALERT-TABLE操作的速度"><span class="nav-number">1.5.</span> <span class="nav-text">4.5 加快ALERT TABLE操作的速度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-1-只修改-frm文件"><span class="nav-number">1.5.1.</span> <span class="nav-text">4.5.1 只修改.frm文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-5-2-快速创建MyISAM索引"><span class="nav-number">1.5.2.</span> <span class="nav-text">4.5.2 快速创建MyISAM索引</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-总结"><span class="nav-number">1.6.</span> <span class="nav-text">4.6 总结</span></a></li></ol></li></ol></div>
             
 
           </div>

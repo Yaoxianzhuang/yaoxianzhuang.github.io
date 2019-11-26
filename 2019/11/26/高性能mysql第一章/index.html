@@ -108,24 +108,24 @@
 
 
 
-  <meta name="description" content="MySQL的主从同步是一个很成熟的架构，优点为：① 在从服务器可以执行查询工作(即我们常说的读功能)，降低主服务器压力；② 在从主服务器进行备份，避免备份期间影响主服务器服务；③ 当主服务器出现问题时，可以切换到从服务器。所以我在项目部署和实施中经常会采用这种方案。  数据库目录及其它　　my.cnf配置文件     /etc/my.cnf 　　mysql数据库位置    datadir=/va">
+  <meta name="description" content="第1章 mysql架构与历史Mysql最重要、最与众不同的特性是它的存储引擎架构，这种架构的设计将查询处理及其他系统任务和数据存储/提取相分离。 1.1 mysql逻辑架构最上层，连接处理，授权认证，安全等第二层，大多数mysql的核心服务功能都在这一层，包含查询解析，分析，优化，缓存以及所有的内置函数，所有跨存储引擎的功能都在这一层实现：存储过程，触发器，视图等第三层，存储引擎，负责mysql中">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL数据库主从同步安装与配置">
-<meta property="og:url" content="http://yoursite.com/2018/09/07/MySQL数据库主从同步安装与配置/index.html">
+<meta property="og:title" content="高性能mysql第一章">
+<meta property="og:url" content="http://yoursite.com/2019/11/26/高性能mysql第一章/index.html">
 <meta property="og:site_name" content="十二遥的破碎维度">
-<meta property="og:description" content="MySQL的主从同步是一个很成熟的架构，优点为：① 在从服务器可以执行查询工作(即我们常说的读功能)，降低主服务器压力；② 在从主服务器进行备份，避免备份期间影响主服务器服务；③ 当主服务器出现问题时，可以切换到从服务器。所以我在项目部署和实施中经常会采用这种方案。  数据库目录及其它　　my.cnf配置文件     /etc/my.cnf 　　mysql数据库位置    datadir=/va">
+<meta property="og:description" content="第1章 mysql架构与历史Mysql最重要、最与众不同的特性是它的存储引擎架构，这种架构的设计将查询处理及其他系统任务和数据存储/提取相分离。 1.1 mysql逻辑架构最上层，连接处理，授权认证，安全等第二层，大多数mysql的核心服务功能都在这一层，包含查询解析，分析，优化，缓存以及所有的内置函数，所有跨存储引擎的功能都在这一层实现：存储过程，触发器，视图等第三层，存储引擎，负责mysql中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-07T07:44:11.086Z">
+<meta property="og:updated_time" content="2019-11-26T07:06:02.024Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MySQL数据库主从同步安装与配置">
-<meta name="twitter:description" content="MySQL的主从同步是一个很成熟的架构，优点为：① 在从服务器可以执行查询工作(即我们常说的读功能)，降低主服务器压力；② 在从主服务器进行备份，避免备份期间影响主服务器服务；③ 当主服务器出现问题时，可以切换到从服务器。所以我在项目部署和实施中经常会采用这种方案。  数据库目录及其它　　my.cnf配置文件     /etc/my.cnf 　　mysql数据库位置    datadir=/va">
+<meta name="twitter:title" content="高性能mysql第一章">
+<meta name="twitter:description" content="第1章 mysql架构与历史Mysql最重要、最与众不同的特性是它的存储引擎架构，这种架构的设计将查询处理及其他系统任务和数据存储/提取相分离。 1.1 mysql逻辑架构最上层，连接处理，授权认证，安全等第二层，大多数mysql的核心服务功能都在这一层，包含查询解析，分析，优化，缓存以及所有的内置函数，所有跨存储引擎的功能都在这一层实现：存储过程，触发器，视图等第三层，存储引擎，负责mysql中">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/09/07/MySQL数据库主从同步安装与配置/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/11/26/高性能mysql第一章/"/>
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>MySQL数据库主从同步安装与配置 | 十二遥的破碎维度</title>
+  <title>高性能mysql第一章 | 十二遥的破碎维度</title>
   
 
 
@@ -311,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/07/MySQL数据库主从同步安装与配置/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/26/高性能mysql第一章/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yaoxianzhuang">
@@ -328,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MySQL数据库主从同步安装与配置
+          <h1 class="post-title" itemprop="name headline">高性能mysql第一章
               
             
           </h1>
@@ -353,7 +353,7 @@
                 
               
 
-              <time title="Created: 2018-09-07 15:27:00 / Modified: 15:44:11" itemprop="dateCreated datePublished" datetime="2018-09-07T15:27:00+08:00">2018-09-07</time>
+              <time title="Created: 2019-11-26 15:01:46 / Modified: 15:06:02" itemprop="dateCreated datePublished" datetime="2019-11-26T15:01:46+08:00">2019-11-26</time>
             
 
             
@@ -391,67 +391,92 @@
       
 
       
-        <blockquote>
-<p>MySQL的主从同步是一个很成熟的架构，优点为：<br>① 在从服务器可以执行查询工作(即我们常说的读功能)，降低主服务器压力；<br>② 在从主服务器进行备份，避免备份期间影响主服务器服务；<br>③ 当主服务器出现问题时，可以切换到从服务器。<br>所以我在项目部署和实施中经常会采用这种方案。</p>
-</blockquote>
-<h3 id="数据库目录及其它"><a href="#数据库目录及其它" class="headerlink" title="数据库目录及其它"></a>数据库目录及其它</h3><p>　　my.cnf配置文件     /etc/my.cnf</p>
-<p>　　mysql数据库位置    datadir=/var/lib/mysql</p>
-<p>　　主数据库：192.168.2.119</p>
-<p>　　从数据库：192.168.2.220</p>
-<p>　　操作系统：RHEL5.x 32位</p>
-<p>　　服务器类型: 虚拟机</p>
-<h3 id="mysql5-0-77-安装"><a href="#mysql5-0-77-安装" class="headerlink" title="mysql5.0.77 安装:"></a>mysql5.0.77 安装:</h3><p>① 配置好linux的yum服务后，直接yum -y install mysql即可</p>
-<p>附：安装php\mysql一条命令安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y install httpd php mysql mysql-server php-mysql</span><br></pre></td></tr></table></figure>
-<p>② 启动MySQL</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld start(restart|stop)</span><br></pre></td></tr></table></figure>
-<p>一、设置主库</p>
-<p>1、修改主库my.cnf,主要是设置个不一样的id和logbin（#这部可依具体环境而定，压力大的化可采用huge.cnf）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/my.cnf</span><br></pre></td></tr></table></figure>
-<p>记住这部分一定要配置在[mysqld]后面，否则无法找到从节点，各个配置项的含义可自己查阅文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">server-id=1</span><br><span class="line">log-bin=mysql-bin # 启用二进制日志</span><br><span class="line">binlog-ignore-db=information_schema,cluster,mysql #忽略写入binlog的库</span><br></pre></td></tr></table></figure>
-<p>2、启动主库生效</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service mysqld restart</span><br></pre></td></tr></table></figure>
-<p>3、登陆主库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root -p</span><br></pre></td></tr></table></figure>
-<p>4、赋予从库权限帐号，允许用户在主库上读取日志</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on *.* to &apos;用户名&apos;@&apos;%&apos; identified by &apos;密码&apos;;</span><br></pre></td></tr></table></figure>
-<p>5、检查创建是否成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select user,host from mysql.user;</span><br></pre></td></tr></table></figure>
-<p>6、锁主库表（防止数据库状态值变化，锁定后，这时候只能读，不能写，写请求会在解锁后执行）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush tables with read lock;</span><br></pre></td></tr></table></figure>
-<p>7、显示主库信息</p>
-<p>记录File和Position，从库设置将会用到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show master status;</span><br></pre></td></tr></table></figure>
-<p>说明，如果执行这个步骤始终为Empty set(0.00 sec)，那说明前面的my.cnf没配置对。</p>
-<p>8、另开一个终端登陆220，打包主库迁移数据（如果你使用的yum安装，有默认数据库并未做任何改动，则不需要进行拷贝）<br>    目的是为了保证两台服务器的mysql数据库一致，这里可以自行tar打包或者使用mysqldump命令备份恢复的方式进行。</p>
-<p>二、设置从库</p>
-<p>1、传输拿到主库包、解包</p>
-<p>登陆从库</p>
-<p>从上一步中备份的数据库恢复到220服务器节点上。</p>
-<p>2、在119节点上解锁主库表（对应第一点设置主库中第6步锁主库表的操作）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unlock tables;</span><br></pre></td></tr></table></figure>
-<p>3、在220节点上修改从库my.cnf（位置一样）</p>
-<p>记住这部分一定要配置在[mysqld]后面，否则无法找到从节点，各个配置项的含义可自己查阅文档</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[mysqld]</span><br><span class="line">log-bin=mysql-bin</span><br><span class="line">server-id=2</span><br><span class="line">binlog-ignore-db=information_schema,cluster,mysql</span><br><span class="line">replicate-do-db=test</span><br><span class="line">replicate-ignore-db=mysql</span><br><span class="line">log-slave-updates</span><br><span class="line">slave-skip-errors=all</span><br><span class="line">slave-net-timeout=60</span><br><span class="line">master-host=192.168.2.119</span><br><span class="line">master-user=root</span><br><span class="line">master-password=pfingo</span><br></pre></td></tr></table></figure>
-<p>4、在220节点上验证连接主库</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h 192.168.2.119 -u 用户名 -p</span><br></pre></td></tr></table></figure>
-<p>5、在220节点从库上设置同步</p>
-<p>设置连接MASTER MASTER_LOG_FILE为主库的File，MASTER_LOG_POS为主库的Position</p>
-<p>注意下面第二条命令语句中的master_log_file=’mysql-bin.000001’, master_log_pos=98;对应为前面在主库中执行的show master status;结果</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; slave stop;</span><br><span class="line">mysql&gt; change master to master_host=&apos;192.168.2.119&apos;,master_user=&apos;root&apos;,master_password=&apos;pfingo&apos;,master_log_file=&apos;mysql-bin.000001&apos;, master_log_pos=98;</span><br><span class="line">mysql&gt; slave start;</span><br></pre></td></tr></table></figure>
-<p>6、启动从库服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; slave start;</span><br></pre></td></tr></table></figure>
-<p>7、进行测试</p>
-<p>在主库上的test库上建立名为myTest的表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE TABLE `myTest` (</span><br><span class="line">`id` INT( 5 ) UNSIGNED NOT NULL AUTO_INCREMENT ,</span><br><span class="line">`username` VARCHAR( 20 ) NOT NULL ,</span><br><span class="line">`password` CHAR( 32 ) NOT NULL ,</span><br><span class="line">`last_update` DATETIME NOT NULL ,</span><br><span class="line">`number` FLOAT( 10 ) NOT NULL ,</span><br><span class="line">`content` TEXT NOT NULL ,</span><br><span class="line">PRIMARY KEY ( `id` )</span><br><span class="line">) ENGINE = MYISAM ;</span><br></pre></td></tr></table></figure>
-<p>在从表中马上看到了效果，主从同步成功了；</p>
-<p>为了更进一步验证在从库上输入show slave status\G;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; show slave status\G;</span><br></pre></td></tr></table></figure>
-<p>　　Slave_IO_Running: Yes(网络正常)；</p>
-<p>　　Slave_SQL_Running: Yes(表结构正常)</p>
-<p>进一步验证了以上过程的正确性。</p>
-<p><a href="https://yq.aliyun.com/articles/130099" target="_blank" rel="noopener">参考1</a></p>
+        <h1 id="第1章-mysql架构与历史"><a href="#第1章-mysql架构与历史" class="headerlink" title="第1章 mysql架构与历史"></a>第1章 mysql架构与历史</h1><p>Mysql最重要、最与众不同的特性是它的存储引擎架构，这种架构的设计将查询处理及其他系统任务和数据存储/提取相分离。</p>
+<h2 id="1-1-mysql逻辑架构"><a href="#1-1-mysql逻辑架构" class="headerlink" title="1.1 mysql逻辑架构"></a>1.1 mysql逻辑架构</h2><p>最上层，连接处理，授权认证，安全等<br>第二层，大多数mysql的核心服务功能都在这一层，包含查询解析，分析，优化，缓存以及所有的内置函数，所有跨存储引擎的功能都在这一层实现：存储过程，触发器，视图等<br>第三层，存储引擎，负责mysql中数据的存储和提取，通过API与上层通信</p>
+<h3 id="1-1-1-连接管理与安全性"><a href="#1-1-1-连接管理与安全性" class="headerlink" title="1.1.1 连接管理与安全性"></a>1.1.1 连接管理与安全性</h3><p>每个客户端连接都会在服务器进程中拥有一个线程。当客服端连接时，服务器需对其进行基于用户名，原始主机信息和密码的认证。连接成功后，还会继续验证客户端权限。</p>
+<h3 id="1-1-2-优化与执行"><a href="#1-1-2-优化与执行" class="headerlink" title="1.1.2 优化与执行"></a>1.1.2 优化与执行</h3><p>Mysql会解析查询，并创建内部数据结构（解析树），然后对其进行各种优化，包括重写查询，决定表的读取顺序，以及选择合适的索引。用户可以通过特殊关键字（hint）提示优化器，影响决策，也可以请求优化器解释（explain）优化过程。</p>
+<p>优化器虽然不关心使用什么存储引擎，但是会请求存储引擎提供容器或某个操作的开销信息，以及表数据的统计信息等。</p>
+<p>对于select语句，在解析查询前，会先检查缓存。</p>
+<h2 id="1-2-并发控制"><a href="#1-2-并发控制" class="headerlink" title="1.2 并发控制"></a>1.2 并发控制</h2><p>包括两个层面的并发控制：服务器层与存储引擎层。</p>
+<h3 id="1-2-1-读写锁"><a href="#1-2-1-读写锁" class="headerlink" title="1.2.1 读写锁"></a>1.2.1 读写锁</h3><p>共享锁和排他锁，也叫读锁和写锁。</p>
+<h3 id="1-2-2-锁粒度"><a href="#1-2-2-锁粒度" class="headerlink" title="1.2.2 锁粒度"></a>1.2.2 锁粒度</h3><p>一种提高共享资源并发性的方式，就是让锁定对象更有选择性（粒度更小），最理想的方式，是只对会修改的数据片进行精确锁定。然而加锁也需要消耗资源。</p>
+<p>锁策略，就是在锁的开销和数据的安全性之间寻求平衡。mysql提供多种存储引擎，每种都可以实现自己的锁策略和锁粒度。</p>
+<p>表锁：最基本的锁策略，也是开销最小的策略。mysql本身会使用各种有效的表锁，来实现不同的目的，而忽略存储引擎的锁机制。</p>
+<p>行级锁：最大程度支持并发处理，同时带来最大的锁开销。行级锁只在存储引擎层实现 ，mysql服务层没有实现。</p>
+<h2 id="1-3-事务"><a href="#1-3-事务" class="headerlink" title="1.3 事务"></a>1.3 事务</h2><p>事务就是一组原子性的sql查询。一个运行良好的事务处理系统，必须通过严格的ACID测试，ACID表示原子性（atomicity），一致性（consistency），隔离性（isolation）和持久性（durability）。</p>
+<p>原子性：一个不可分割的最小工作单元，要么全部提交成功要不全部失败会滚。</p>
+<p>一致性：数据库总是从一个一致性的状态转换到另一个一致性的状态。（没有提交的事务，修改不会保存到数据库）</p>
+<p>隔离性：通常来说，一个事务所做的修改，在最终提交以前，对其他事务是不可见的。</p>
+<p>持久性：一旦事务提交，则其所做的修改就会永久保存到数据库中。</p>
+<h3 id="1-3-1-隔离级别"><a href="#1-3-1-隔离级别" class="headerlink" title="1.3.1 隔离级别"></a>1.3.1 隔离级别</h3><p>READ UNCOMMITTED（未提交读）：事务可以读取未提交的数据，也被称为脏读，实际应用中很少使用。</p>
+<p>READ COMMITTED（提交读）：也叫不可重复读，大多数数据库默认隔离级别。</p>
+<p>REPEATABLE READ（可重复读）：保证在同一个事务中多次读取相同记录的结果一致，解决了脏读的问题。但是没有解决幻读的问题。InnoDB和XtraDB存储引擎通过多版本并发控制解决了幻读的问题。是mysql默认的事务隔离等级。</p>
+<p>SERIALIZABLE（可串行化）：最高隔离等级，通过强制事务串行执行，避免了幻读问题。但是可能导致大量超时和锁争用的问题，实际应用中很少用到。</p>
+<h3 id="1-3-2-死锁"><a href="#1-3-2-死锁" class="headerlink" title="1.3.2 死锁"></a>1.3.2 死锁</h3><p>死锁是指两个或者多个事务在同一资源上相互占用，并请求锁定对方占用的资源，从而导致恶性循环的现象。</p>
+<p>InnoDB目前处理死锁的方法是，将持有最少行级排他锁的事务进行回滚。</p>
+<h3 id="1-3-3-事务日志"><a href="#1-3-3-事务日志" class="headerlink" title="1.3.3 事务日志"></a>1.3.3 事务日志</h3><p>使用事务日志，存储引擎在修改表的数据时只需要修改其内存拷贝，再把该修改行为记录到持久化磁盘上的事务日志中，而不用每次都将修改的数据本身持久到磁盘。之后修改在后台慢慢刷回到磁盘。</p>
+<p>如果数据修改记录到了事务日志并持久化，但是数据本身还没有写回磁盘，此时系统奔溃的话，存储引擎可以在重启时自动恢复这部分数据。具体方式视各存储引擎而定。</p>
+<h3 id="1-3-4-mysql中的事务"><a href="#1-3-4-mysql中的事务" class="headerlink" title="1.3.4 mysql中的事务"></a>1.3.4 mysql中的事务</h3><p>Mysql提供两种事务性存储引擎：InnoDB和NDB Cluster。</p>
+<p>自动提交：mysql默认采用自动提交模式，如果不是显式开始一个事务，则每个查询都被当作一个事务执行提交操作。</p>
+<p>可以通过设置AUTOCOMMIT变量禁用自动提交模式，禁用后，所有的查询都是在一个事务中，直到显式执行COMMIT或者ROLLBACK。</p>
+<p>还有一些命令，在执行前会强制执行COMMIT当前活动的事务。如ALERT TABLE，LOCK TABLES等</p>
+<p>Mysql可以通过执行SET TRANSACTION ISOLATION LEVEL 来设计隔离级别。新的隔离级别将在下一个事务开始的时候生效。</p>
+<p>在事务中混合使用存储引擎：不可靠，如果在事务中混合了事务型和非事务型表，如InnoDB和MyISAM，在正常提交下不会有问题，但是如果需要回滚，非事务型表上的数据无法撤销。</p>
+<p>并且在非事务型表上执行事务相关操作时，mysql不会提示或者报错，唯一只有在回滚操作时有一个警告。</p>
+<p>隐式和显式锁定：InnoDB采用两阶段锁定协议，在事务执行过程中，会根据隔离等级，在需要的时候自动添加隐式锁定，并在提交或者回滚操作的时候，同一时刻释放。在执行特定语句，如SELECT … LOCK IN SHARE MODE，SELECT … FOR UPDATE时，进行显示锁定。</p>
+<p>注：不建议显式执行LOCK TABLES语句，无论使用什么存储引擎。不仅因为当表从MyISAM转换到InnoDB时，语句会严重影响性能，在与事务相互影响的时候，情况会非常复杂，根据mysql版本不同，也可能会产生无法预料的结果。</p>
+<h2 id="1-4-多版本并发控制"><a href="#1-4-多版本并发控制" class="headerlink" title="1.4 多版本并发控制"></a>1.4 多版本并发控制</h2><p>基于提高并发性能的考虑，mysql大多数事务型存储引擎不仅实现了行级锁，还同时实现了多版本并发控制（MVCC）。</p>
+<p>MVCC可以认为是行级锁的一个变种，在很多情况下避免了加锁操作，开销更低。</p>
+<p>MVCC是通过保存数据在某个时间点的快照来实现。</p>
+<p>InnoDB的MVCC：在每行记录后面保存两个隐藏列，一个保存行的创建时间，一个保存行的过期时间。存储的不是实际的时间，是系统的版本号。</p>
+<p>SELECT：查找创建版本小于等于当前事务的系统版本号，删除版本要么未定义，要么大于当前事务系统版本号。保证读取的行，要么是事务开始之前就存在，或者是本事务的修改，并且在本事务开始前未被删除。</p>
+<p>INSERT：为新插入的每一行保存当前系统版本号作为创建版本号。</p>
+<p>DELETE：为删除的每一行保存当前系统版本号作为删除版本号。</p>
+<p>UPDATE： 为插入一行新记录，保存当前系统版本号作为创建版本号，同时保存当前系统版本号到原来行作为行删除版本号。</p>
+<p>保存两个额外的版本号，使得大多是读操作不需要加锁，使得读操作性能很好。缺点是每行需要额外的存储空间，更多的行检查工作和一些额外的维护工作。</p>
+<p>MVCC只在可重复读和提交读两个隔离等级下工作。</p>
+<h2 id="1-5-mysql的存储引擎"><a href="#1-5-mysql的存储引擎" class="headerlink" title="1.5 mysql的存储引擎"></a>1.5 mysql的存储引擎</h2><p>Mysql将每个数据库（schema）保存在数据目录下的一个子目录，创建表时，在这个子目录下创建一个和表同名的.frm文件保存表的定义。大小写敏感和平台相关，表的定义在服务层统一处理。</p>
+<p>可以使用SHOW TABLE STATUS命令查看表的相关信息。</p>
+<h3 id="1-5-1-InoDB存储引擎"><a href="#1-5-1-InoDB存储引擎" class="headerlink" title="1.5.1 InoDB存储引擎"></a>1.5.1 InoDB存储引擎</h3><p>InoDB是mysql默认的事务型引擎，被设计用来处理大量短期事务，即大部分情况是正常提交，很少回滚的事务。</p>
+<p>InnoDB的历史：Oracle主力开发，还有很多其他贡献者。</p>
+<p>InnoDB概览：InnoDB的数据存储在表空间中，表空间是由InnoDB管理的一个黑盒子，由一系列的数据文件组成。</p>
+<p>InnoDB采用MVCC来支持高并发，并且实现了四个标准隔离级别。默认级别是可重复读，并且通过间隙锁策略来防止幻读。间隙锁使得InnoDB不仅锁定查询涉及到的行，还会对索引中的间隙进行锁定。</p>
+<p>InnoDB表是基于聚簇索引建立的，对主键查询有很高的性能。不过二级索引中必须包含主键列。</p>
+<p>InnoDB内部做了很多优化。包括可预测性预读，自适应哈希索引，插入缓冲区等。</p>
+<p>作为事务型存储引擎，InnoDB通过一些机制和工具，支持真正的热备份。</p>
+<h3 id="1-5-2-MyISAM存储引擎"><a href="#1-5-2-MyISAM存储引擎" class="headerlink" title="1.5.2 MyISAM存储引擎"></a>1.5.2 MyISAM存储引擎</h3><p>在mysql 5.1 版本之前，MyISAM是默认存储引擎，提供了大量特性，包括全文索引，压缩，空间函数等。但是MyISAM不支持事务和行级锁，而且奔溃后无法安全恢复。</p>
+<p>存储：MyISAM会将表存储在两个文件中，数据文件和索引文件，分别以.MYD和.MYI为扩张名。</p>
+<p>MyISAM表可以包含动态或者静态（长度固定）行。会根据表的定义来决定采用何种行格式。可以存储的行记录数，一般受限于可用的磁盘空间或者操作系统中单文件最大尺寸。</p>
+<p>在mysql5.0中，MyISAM如果时变长行，默认配置只能处理256TB数据。可以通过修改MAX_ROWS和AVG_ROW_LENGTH来改变，这两者相乘就是最大大小。（修改会导致重建整个表和表的所有索引，需要很长时间）</p>
+<p>MyISAM特性：</p>
+<pre><code>加锁与并发：MyISAM对整张表加锁，不针对行。读取时对所有读到的表加共享锁，写入时加排他锁。但是在读取时，也可以往表里插入新的记录（并发插入）
+
+修复：对于MyISAM表，mysql可以手动或自动执行检查（CHECK TABLE mytable）和修复（REPPAIR TABLE mytable）操作。如果mysql服务器已经关闭，也可以通过myisamchk命令行工具。但是这里说的恢复和事务恢复以及崩溃恢复是不同的概念。
+
+索引特性：即使是BLOB和TEXT等长字段，也可以基于其前500个字符创建索引。也支持全文索引。
+
+延迟更新索引键：创建MyISAM表时，如果指定了DELAY_KEY_WRITE选项，在每次修改执行完成时，不会立即将修改的索引数据写入磁盘，而是写到内存中的键缓冲区，在清理缓冲区或关闭表时，才会写到磁盘。这样可以极大提高写入性能，但在数据库崩溃时会造成索引损坏，需要执行修复操作。
+
+MyISAM压缩表：如果表在创建并导入数据后，不会再进行修改操作，那么可以采用压缩表。
+</code></pre><p>使用myisampack进行压缩。压缩表不可进行修改，除非解压修改再压缩。可以极大减少磁盘空间占用和磁盘I/O，提高查询性能。压缩表的索引也是只读。</p>
+<pre><code>性能：MyISAM引擎设计简单，数据以紧密格式存储，某些场景下性能很好。但是最大的性能问题还是表锁。
+</code></pre><h3 id="1-5-3-MySQL内建的其他存储引擎"><a href="#1-5-3-MySQL内建的其他存储引擎" class="headerlink" title="1.5.3 MySQL内建的其他存储引擎"></a>1.5.3 MySQL内建的其他存储引擎</h3><p>Archive引擎，只支持INSERT和SELECT，没有索引。只适合日志和数据分析或者高速插入的场景。</p>
+<p>Blackhole引擎，没有实现任何存储机制。不推荐。</p>
+<p>CSV引擎，可以将CSV文件作为MySQL的表打开。不支持索引</p>
+<p>Federated引擎，访问其他MySQL服务器的一个代理，因为经常带来问题，默认禁用。</p>
+<p>Memory引擎，数据存在内存，不可修改，重启后表结构还在，但是数据丢失。读取的速度极快。但是时表级锁，并发写入性能差，不支持变长行长度，可能导致内存浪费。</p>
+<p>MySQL在执行查询过程中需要临时表保存中间结果时，使用的临时表就是Memory表。但是如果中间结果太大吵过Memory表限制，会转换成M有ISAM表。故临时表和Memory表不能划等号。</p>
+<p>Merge引擎：MyISAM引擎的变种，已经被放弃。</p>
+<p>NDB集群引擎：NDB数据库的组合被称为MySQL集群。</p>
+<h3 id="1-5-4-第三方存储引擎"><a href="#1-5-4-第三方存储引擎" class="headerlink" title="1.5.4 第三方存储引擎"></a>1.5.4 第三方存储引擎</h3><p>OLTP类引擎，面向列的存储引擎，社区存储引擎</p>
+<h3 id="1-5-5-选择合适的引擎"><a href="#1-5-5-选择合适的引擎" class="headerlink" title="1.5.5 选择合适的引擎"></a>1.5.5 选择合适的引擎</h3><p>大部分情况下，InnoDB都是正确选择。</p>
+<p>不要混合多种存储引擎。</p>
+<h3 id="1-5-6-转换表的引擎"><a href="#1-5-6-转换表的引擎" class="headerlink" title="1.5.6 转换表的引擎"></a>1.5.6 转换表的引擎</h3><p>ALERT TABLE：适用任何存储引擎，但是需要执行很长时间。</p>
+<p>导出与导入：适用mysqldump工具将数据导出到文件，然后修改文件中CREATE TABLE语句的存储引擎选项。</p>
+<p>创建于查询：先创建一个新的存储引擎表，然后利用INSERT…SELECT语法来导数据。</p>
+<h2 id="1-6-MySQL时间线"><a href="#1-6-MySQL时间线" class="headerlink" title="1.6 MySQL时间线"></a>1.6 MySQL时间线</h2><p>略</p>
+<h2 id="1-7-MySQL的开发模式"><a href="#1-7-MySQL的开发模式" class="headerlink" title="1.7 MySQL的开发模式"></a>1.7 MySQL的开发模式</h2><p>略</p>
+<h2 id="1-8-总结"><a href="#1-8-总结" class="headerlink" title="1.8 总结"></a>1.8 总结</h2><p>MySQL拥有分层的架构，上层时服务器的服务和查询执行引擎，下层时存储引擎。能够理解MySQL在存储引擎和服务层之间处理查询时如何通过API来回交互，就能抓住MySQL的核心基础架构的精髓。</p>
 
       
     </div>
@@ -479,8 +504,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/07/数据库与死锁/" rel="next" title="数据库与死锁">
-                <i class="fa fa-chevron-left"></i> 数据库与死锁
+              <a href="/2019/11/26/高性能mysql第七章/" rel="next" title="高性能mysql第七章">
+                <i class="fa fa-chevron-left"></i> 高性能mysql第七章
               </a>
             
           </div>
@@ -489,8 +514,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/09/PHP实现十大经典排序/" rel="prev" title="PHP实现十大经典排序">
-                PHP实现十大经典排序 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/11/26/高性能mysql第二章/" rel="prev" title="高性能mysql第二章">
+                高性能mysql第二章 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -605,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库目录及其它"><span class="nav-number">1.</span> <span class="nav-text">数据库目录及其它</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql5-0-77-安装"><span class="nav-number">2.</span> <span class="nav-text">mysql5.0.77 安装:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-mysql架构与历史"><span class="nav-number">1.</span> <span class="nav-text">第1章 mysql架构与历史</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-mysql逻辑架构"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 mysql逻辑架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-1-连接管理与安全性"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1.1 连接管理与安全性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-2-优化与执行"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.1.2 优化与执行</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-并发控制"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 并发控制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-读写锁"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.2.1 读写锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-锁粒度"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2.2 锁粒度</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-事务"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-隔离级别"><span class="nav-number">1.3.1.</span> <span class="nav-text">1.3.1 隔离级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-死锁"><span class="nav-number">1.3.2.</span> <span class="nav-text">1.3.2 死锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-事务日志"><span class="nav-number">1.3.3.</span> <span class="nav-text">1.3.3 事务日志</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-4-mysql中的事务"><span class="nav-number">1.3.4.</span> <span class="nav-text">1.3.4 mysql中的事务</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-多版本并发控制"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 多版本并发控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-mysql的存储引擎"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 mysql的存储引擎</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-1-InoDB存储引擎"><span class="nav-number">1.5.1.</span> <span class="nav-text">1.5.1 InoDB存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-2-MyISAM存储引擎"><span class="nav-number">1.5.2.</span> <span class="nav-text">1.5.2 MyISAM存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-3-MySQL内建的其他存储引擎"><span class="nav-number">1.5.3.</span> <span class="nav-text">1.5.3 MySQL内建的其他存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-4-第三方存储引擎"><span class="nav-number">1.5.4.</span> <span class="nav-text">1.5.4 第三方存储引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-5-选择合适的引擎"><span class="nav-number">1.5.5.</span> <span class="nav-text">1.5.5 选择合适的引擎</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-6-转换表的引擎"><span class="nav-number">1.5.6.</span> <span class="nav-text">1.5.6 转换表的引擎</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-MySQL时间线"><span class="nav-number">1.6.</span> <span class="nav-text">1.6 MySQL时间线</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-MySQL的开发模式"><span class="nav-number">1.7.</span> <span class="nav-text">1.7 MySQL的开发模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-总结"><span class="nav-number">1.8.</span> <span class="nav-text">1.8 总结</span></a></li></ol></li></ol></div>
             
 
           </div>
